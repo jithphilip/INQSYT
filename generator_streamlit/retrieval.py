@@ -4,7 +4,7 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 
 # Load chunk data
-chunks_df = pd.read_csv("Chunks.csv")
+chunks_df = pd.read_csv("generator_streamlit/Chunks.csv")
 
 # Load embedding model
 embedder = SentenceTransformer(
