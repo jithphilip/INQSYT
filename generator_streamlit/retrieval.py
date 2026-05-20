@@ -12,7 +12,7 @@ embedder = SentenceTransformer(
 )
 
 # Load FAISS index
-index = faiss.read_index("faiss_index.bin")
+index = faiss.read_index("generator_streamlit/faiss_index.bin")
 
 def retrieve(query, top_k=3):
 
