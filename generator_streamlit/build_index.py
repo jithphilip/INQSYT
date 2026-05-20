@@ -1,11 +1,14 @@
+import os
 import pandas as pd
 import numpy as np
 import faiss
 
 from sentence_transformers import SentenceTransformer
 
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Load chunks
-chunks_df = pd.read_csv("D:/INQYST/Week 1/Task2 - Retrieval/data/chunks.csv")
+chunks_df = pd.read_csv(os.path.join(CURRENT_DIR, "Chunks.csv"))
 
 # Load embedding model
 embedder = SentenceTransformer(
@@ -32,7 +35,7 @@ index.add(embeddings)
 # Save index
 faiss.write_index(
     index,
-    "faiss_index.bin"
+    os.path.join(CURRENT_DIR, "faiss_index.bin")
 )
 
 print("FAISS index saved successfully!")
