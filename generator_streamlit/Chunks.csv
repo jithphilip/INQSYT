@@ -1,4 +1,4 @@
-﻿chunk_id,chunk_title,source_file,chunk_text,intent_label
+﻿chunk_id,chunk_title,source_file,chunk,intent_label
 missing_package_delivered_002,1 - Confirm shipping address in Your Orders,Find a Missing Package that Shows a(2).md,"Verify if your shipping address in Your Orders is correct. For more information on how to handle a wrong shipping address, go to Add and Manage Addresses.",hotel_delivery
 missing_package_delivered_003,2 - Search for a notice of delivery attempt,Find a Missing Package that Shows a(2).md,"* Check the Message Center.
 * Search for a delivery confirmation in Your Orders.
