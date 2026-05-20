@@ -1,24 +1,24 @@
+import streamlit as st
 from transformers import AutoTokenizer
 from transformers import AutoModelForCausalLM
 from transformers import pipeline
 
 MODEL_NAME = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-
-model = AutoModelForCausalLM.from_pretrained(
-    MODEL_NAME
-)
-
-pipe = pipeline(
-    "text-generation",
-    model=model,
-    tokenizer=tokenizer,
-    device=-1
-)
+@st.cache_resource
+def load_generator_pipeline():
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME)
+    pipe = pipeline(
+        "text-generation",
+        model=model,
+        tokenizer=tokenizer,
+        device=-1
+    )
+    return pipe
 
 def generate_response(query, retrieved_chunks):
-
+    pipe = load_generator_pipeline()
     context = "\n\n".join(retrieved_chunks)
 
     prompt = f"""You are a helpful assistant.
