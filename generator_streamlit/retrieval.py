@@ -4,7 +4,7 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 
 # Load chunk data
-chunks_df = pd.read_csv("D:/INQYST/Week 1/Task2 - Retrieval/data/chunks.csv")
+chunks_df = pd.read_csv("chunks.csv")
 
 # Load embedding model
 embedder = SentenceTransformer(
@@ -12,7 +12,7 @@ embedder = SentenceTransformer(
 )
 
 # Load FAISS index
-index = faiss.read_index("D:/INQYST/Week 1/Task2 - Retrieval/faiss_index.bin")
+index = faiss.read_index("faiss_index.bin")
 
 def retrieve(query, top_k=3):
 
