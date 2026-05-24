@@ -1,18 +1,22 @@
 import os
-import requests
 import streamlit as st
+from openai import OpenAI
 
 
-OLLAMA_BASE_URL = st.secrets.get("OLLAMA_URL", os.getenv("OLLAMA_URL"))
-OLLAMA_MODEL = st.secrets.get("OLLAMA_MODEL", os.getenv("OLLAMA_MODEL", "qwen2.5:7b"))
+api_key = st.secrets.get("GROQ_API_KEY", os.getenv("GROQ_API_KEY"))
+
+if not api_key:
+    raise ValueError("GROQ_API_KEY is missing. Add it in Streamlit Cloud Secrets.")
+
+client = OpenAI(
+    api_key=api_key,
+    base_url="https://api.groq.com/openai/v1"
+)
 
 
 def generate_response(query, retrieved_chunks):
     if not retrieved_chunks:
         return "I could not find relevant information."
-
-    if not OLLAMA_BASE_URL:
-        return "OLLAMA_URL is missing. Add it in Streamlit Secrets."
 
     context = "\n\n---\n\n".join(retrieved_chunks)
 
@@ -35,25 +39,23 @@ User question:
 """
 
     try:
-        response = requests.post(
-            f"{OLLAMA_BASE_URL}/api/generate",
-            headers={
-                "ngrok-skip-browser-warning": "true"
-            },
-            json={
-                "model": OLLAMA_MODEL,
-                "prompt": prompt,
-                "stream": False,
-                "options": {
-                    "temperature": 0.2,
-                    "num_predict": 500
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are a helpful customer support assistant."
+                },
+                {
+                    "role": "user",
+                    "content": prompt
                 }
-            },
-            timeout=180
+            ],
+            temperature=0.2,
+            max_tokens=500
         )
 
-        response.raise_for_status()
-        return response.json()["response"]
+        return response.choices[0].message.content
 
     except Exception as e:
-        return f"Local Ollama call failed: {str(e)}"
+        return f"LLM API call failed: {str(e)}"
