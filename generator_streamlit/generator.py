@@ -37,6 +37,9 @@ User question:
     try:
         response = requests.post(
             f"{OLLAMA_BASE_URL}/api/generate",
+            headers={
+                "ngrok-skip-browser-warning": "true"
+            },
             json={
                 "model": OLLAMA_MODEL,
                 "prompt": prompt,
