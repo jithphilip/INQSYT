@@ -1,52 +1,59 @@
-from transformers import AutoTokenizer
-from transformers import AutoModelForCausalLM
-from transformers import pipeline
+import os
+import requests
+import streamlit as st
 
-MODEL_NAME = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+OLLAMA_BASE_URL = st.secrets.get("OLLAMA_URL", os.getenv("OLLAMA_URL"))
+OLLAMA_MODEL = st.secrets.get("OLLAMA_MODEL", os.getenv("OLLAMA_MODEL", "qwen2.5:7b"))
 
-model = AutoModelForCausalLM.from_pretrained(
-    MODEL_NAME
-)
-
-pipe = pipeline(
-    "text-generation",
-    model=model,
-    tokenizer=tokenizer,
-    device=-1
-)
 
 def generate_response(query, retrieved_chunks):
+    if not retrieved_chunks:
+        return "I could not find relevant information."
 
-    context = "\n\n".join(retrieved_chunks)
+    if not OLLAMA_BASE_URL:
+        return "OLLAMA_URL is missing. Add it in Streamlit Secrets."
 
-    prompt = f"""You are a helpful assistant.
+    context = "\n\n---\n\n".join(retrieved_chunks)
 
-    Answer ONLY using the provided context.
+    prompt = f"""
+You are a customer support chatbot.
 
-    If the answer is not found in the context,
-    say:
-    "I could not find relevant information."
+Answer the user's question using ONLY the provided context.
 
-    Context:
-    {context}
+If the answer is not present in the context, say:
+"I don't have enough information to answer that."
 
-    Question:
-    {query}
+Do not make up policies.
+Do not mention retrieved chunks.
 
-    Answer:
-    """
+Context:
+{context}
 
-    output = pipe(
-        prompt,
-        max_new_tokens=120,
-        temperature=0.3,
-        do_sample=True
-    )
+User question:
+{query}
+"""
 
-    generated_text = output[0]["generated_text"]
+    try:
+        response = requests.post(
+            f"{OLLAMA_BASE_URL}/api/generate",
+            headers={
+                "ngrok-skip-browser-warning": "true"
+            },
+            json={
+                "model": OLLAMA_MODEL,
+                "prompt": prompt,
+                "stream": False,
+                "options": {
+                    "temperature": 0.2,
+                    "num_predict": 500
+                }
+            },
+            timeout=180
+        )
 
-    answer = generated_text.split("Answer:")[-1].strip()
+        response.raise_for_status()
+        return response.json()["response"]
 
-    return answer
+    except Exception as e:
+        return f"Local Ollama call failed: {str(e)}"
