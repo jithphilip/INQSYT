@@ -1,9 +1,9 @@
 import streamlit as st
 
 from retrieval import retrieve
-from generator import generate_response
+from generator_groq import generate_response
 
-st.title("RAG Chatbot Demo")
+st.title("RAG Chatbot Demo : Groq hosted")
 
 query = st.text_input("Ask a question")
 
