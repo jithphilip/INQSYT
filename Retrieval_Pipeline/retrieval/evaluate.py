@@ -7,12 +7,17 @@ from sentence_transformers import (
     CrossEncoder
 )
 
+import os
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PIPELINE_DIR = os.path.dirname(CURRENT_DIR)
+
 # Load datasets
-chunks_df = pd.read_csv("D:/INQYST/Week 1/Task2 - Retrieval/data/chunks.csv")
+chunks_df = pd.read_csv(os.path.join(PIPELINE_DIR, "data", "chunks.csv"))
 
-qa_df = pd.read_csv("D:/INQYST/Week 1/Task2 - Retrieval/data/qa_dataset.csv")
+qa_df = pd.read_csv(os.path.join(PIPELINE_DIR, "data", "qa_dataset.csv"))
 
-embeddings = np.load("D:/INQYST/Week 1/Task2 - Retrieval/embeddings/chunk_embeddings.npy")
+embeddings = np.load(os.path.join(PIPELINE_DIR, "embeddings", "chunk_embeddings.npy"))
 
 
 embeddings = embeddings.astype("float32")
