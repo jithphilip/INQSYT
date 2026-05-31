@@ -5,7 +5,7 @@ from retrieval import retrieve
 from generator_local import generate_response as generate_response_local
 from generator_groq import generate_response as generate_response_groq
 
-st.title("RAG Chatbot Demo : Model Comparison")
+st.title("RAG Chatbot Demo : Metadata included")
 
 # Cache the CrossEncoder reranker loading
 @st.cache_resource
