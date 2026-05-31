@@ -9,7 +9,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 @st.cache_resource
 def load_retrieval_resources():
-    chunks_df = pd.read_csv(os.path.join(CURRENT_DIR, "Chunks.csv"))
+    chunks_df = pd.read_json(os.path.join(CURRENT_DIR, "Chunks.jsonl"), lines=True)
     embedder = SentenceTransformer("BAAI/bge-base-en-v1.5")
     index = faiss.read_index(os.path.join(CURRENT_DIR, "faiss_index.bin"))
     return chunks_df, embedder, index
@@ -31,11 +31,22 @@ def retrieve(query, top_k=3):
     retrieved_chunks = []
 
     for idx in indices[0]:
-        if idx == -1:
+        if idx == -1 or idx >= len(chunks_df):
             continue
 
-        retrieved_chunks.append(
-            chunks_df.iloc[idx]["chunk"]
-        )
+        row = chunks_df.iloc[idx]
+        chunk_text = row["chunk"]
+
+        # Resolve table/list structures from metadata
+        meta = row.get("metadata")
+        if isinstance(meta, dict):
+            chunk_type = meta.get("chunk_type")
+            if chunk_type == "table" and meta.get("table_markdown"):
+                # Combine the summary and the raw table
+                chunk_text = f"{row['chunk']}\n\n{meta['table_markdown']}"
+            elif chunk_type == "list" and meta.get("list_markdown"):
+                chunk_text = meta["list_markdown"]
+
+        retrieved_chunks.append(chunk_text)
 
     return retrieved_chunks

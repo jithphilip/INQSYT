@@ -13,7 +13,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PIPELINE_DIR = os.path.dirname(CURRENT_DIR)
 
 # Load datasets
-chunks_df = pd.read_csv(os.path.join(PIPELINE_DIR, "data", "chunks.csv"))
+chunks_df = pd.read_json(os.path.join(PIPELINE_DIR, "data", "chunks.jsonl"), lines=True)
 
 qa_df = pd.read_csv(os.path.join(PIPELINE_DIR, "data", "qa_dataset.csv"))
 
@@ -104,7 +104,21 @@ for _, row in qa_df.iterrows():
     # FETCH RETRIEVED CHUNKS
     # =========================
 
-    retrieved_chunks = [chunks_df.iloc[idx]['chunk_text'] for idx in retrieved_indices]
+    retrieved_chunks = []
+    for idx in retrieved_indices:
+        row = chunks_df.iloc[idx]
+        chunk_text = row["chunk"]
+
+        meta = row.get("metadata")
+        if isinstance(meta, dict):
+            chunk_type = meta.get("chunk_type")
+            if chunk_type == "table" and meta.get("table_markdown"):
+                # Combine the summary and the raw table
+                chunk_text = f"{row['chunk']}\n\n{meta['table_markdown']}"
+            elif chunk_type == "list" and meta.get("list_markdown"):
+                chunk_text = meta["list_markdown"]
+
+        retrieved_chunks.append(chunk_text)
 
     # =========================
     # PREPARE QUERY-CHUNK PAIRS

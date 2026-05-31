@@ -4,14 +4,19 @@ from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 import faiss
 
+import os
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PIPELINE_DIR = os.path.dirname(CURRENT_DIR)
+
 # Load chunk data
-df = pd.read_csv("D:/INQYST/Week 1/Task2 - Retrieval/data/chunks.csv")
+df = pd.read_json(os.path.join(PIPELINE_DIR, "data", "chunks.jsonl"), lines=True)
 
 # Load embedding model
 model = SentenceTransformer('BAAI/bge-base-en-v1.5')
 
 # Convert chunks to list
-chunks = df['chunk_text'].tolist()
+chunks = df['chunk'].tolist()
 
 
 # Generate embeddings
@@ -28,7 +33,8 @@ embeddings = embeddings.astype("float32")
 faiss.normalize_L2(embeddings)
 
 # Save embeddings
-np.save("D:/INQYST/Week 1/Task2 - Retrieval/embeddings/chunk_embeddings.npy", embeddings)
+os.makedirs(os.path.join(PIPELINE_DIR, "embeddings"), exist_ok=True)
+np.save(os.path.join(PIPELINE_DIR, "embeddings", "chunk_embeddings.npy"), embeddings)
 
 print("Embeddings saved!")
 

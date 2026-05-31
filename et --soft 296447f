@@ -1,0 +1,35 @@
+[33mb6fcbf2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmetadata-json-experiment[m[33m)[m Remove app_cli with exposed API key
+[33mac87cd9[m Reworked data format and solved table issue
+[33m296447f[m[33m ([m[1;31morigin/metadata-json-experiment[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Implemented cross-encoder re-ranking inside the website only and updated benchmarks
+[33me9ac712[m Responses of both models in single website
+[33mf405769[m Responses of both models in a single website
+[33mfdfb2a9[m Add Groq and local RAG app versions
+[33mb883192[m geenrated faiss.bin
+[33mc15ef89[m Update retrieval.py
+[33m1ce0f01[m Update build_index.py
+[33m7f28f7a[m Added Dev Container Folder
+[33ma348b9b[m Update generator.py
+[33mb5c4f8e[m Update requirements.txt
+[33mf16f01b[m Update generator.py
+[33m8d7a705[m Update requirements.txt
+[33m2920987[m Update generator.py
+[33m54ef0cf[m Update build_index.py
+[33m56b414f[m Update generator.py
+[33m1125ac2[m Update app.py
+[33m5c795e5[m Streamlit fix 1
+[33m0c12f00[m Update FAISS index path in retrieval.py
+[33me37a5ec[m Update path for loading Chunks.csv
+[33ma9a454c[m Add torchvision to requirements
+[33m6f3b911[m updated directories
+[33m8ac2ecb[m updated retrieval
+[33mfbde316[m updated chunks.csv
+[33m418a118[m Add files via upload
+[33md120327[m updated requirements
+[33md28a411[m Added requirements file
+[33m44652ee[m Generator+Streamlit App added
+[33ma129d3d[m Merge branch 'main' of https://github.com/jithphilip/INQSYT
+[33m4156155[m Retrieval Pipeline - Version 1
+[33m648b3da[m Prompts files added - Version1
+[33me868841[m Added the version 1 data
+[33mdc56b10[m Added Chunks_Metadata.md
+[33m86b8385[m first commit
