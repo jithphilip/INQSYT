@@ -118,7 +118,9 @@ for _, row in qa_df.iterrows():
             elif chunk_type == "list" and meta.get("list_markdown"):
                 chunk_text = meta["list_markdown"]
 
-        retrieved_chunks.append(chunk_text)
+        # Prepend the title for full parent context
+        formatted_chunk = f"Title: {row['chunk_title']}\nContent: {chunk_text}"
+        retrieved_chunks.append(formatted_chunk)
 
     # =========================
     # PREPARE QUERY-CHUNK PAIRS
