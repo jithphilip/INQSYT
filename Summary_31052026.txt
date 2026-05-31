@@ -135,4 +135,4 @@ The "chunk" contains search-friendly sentences, while the clean vertical formatt
     * amz_fee_002: Late Return Fees
 * **Final Success (Double Retrieval):** Once the natural-language summary was restored to "chunk" and the table moved to table_markdown, FAISS matched the summary as Rank 1. Both models successfully parsed the table rows and generated perfect, accurate answers (Credit: 3-5 days, Debit: up to 10 days)!
 
-Solved the kindle query issue
+Solved the kindle query issue by prepending chunk titles to the chunk itself
