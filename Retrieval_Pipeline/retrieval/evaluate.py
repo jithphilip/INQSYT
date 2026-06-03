@@ -13,7 +13,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PIPELINE_DIR = os.path.dirname(CURRENT_DIR)
 
 # Load datasets
-chunks_df = pd.read_json(os.path.join(PIPELINE_DIR, "data", "chunks.jsonl"), lines=True)
+chunks_df = pd.read_json(os.path.join(PIPELINE_DIR, "data", "Chunks_v2.jsonl"), lines=True)
 
 qa_df = pd.read_csv(os.path.join(PIPELINE_DIR, "data", "qa_dataset.csv"))
 

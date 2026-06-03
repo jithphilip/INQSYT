@@ -1,0 +1,25 @@
+{
+  "success": [
+    "Estimated Delivery Windows",
+    "Availability Alerts",
+    "Sign for an Order",
+    "Secure Delivery with a One-Time Password",
+    "Billing and Shipping Addresses",
+    "Fulfilled by Amazon",
+    "Deliver to Multiple Addresses",
+    "Amazon Photo on Delivery",
+    "Amazon Map Tracking",
+    "Packaging Programs",
+    "Replace a Missing Packing Slip",
+    "Shipping to Prisons",
+    "About Customs Regulations for Identity Documents",
+    "Ships with other Items in the Cart"
+  ],
+  "failed": [
+    {
+      "title": "How Long Does Amazon Delivery Take",
+      "url": "https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GV8H5D3MMAR7JBLF"
+    }
+  ],
+  "skipped": []
+}

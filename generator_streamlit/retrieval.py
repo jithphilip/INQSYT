@@ -9,7 +9,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 @st.cache_resource
 def load_retrieval_resources():
-    chunks_df = pd.read_json(os.path.join(CURRENT_DIR, "Chunks.jsonl"), lines=True)
+    chunks_df = pd.read_json(os.path.join(CURRENT_DIR, "Chunks_v2.jsonl"), lines=True)
     embedder = SentenceTransformer("BAAI/bge-base-en-v1.5")
     index = faiss.read_index(os.path.join(CURRENT_DIR, "faiss_index.bin"))
     return chunks_df, embedder, index

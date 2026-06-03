@@ -6,11 +6,26 @@ from sentence_transformers import SentenceTransformer
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-chunks_df = pd.read_json(os.path.join(CURRENT_DIR, "Chunks.jsonl"), lines=True)
+chunks_df = pd.read_json(os.path.join(CURRENT_DIR, "Chunks_v2.jsonl"), lines=True)
 
 embedder = SentenceTransformer("BAAI/bge-base-en-v1.5")
 
-texts = chunks_df["chunk"].tolist()
+texts = []
+for _, row in chunks_df.iterrows():
+    meta = row.get("metadata", {})
+    queries = meta.get("sample_queries", [])
+    syns = meta.get("jargon_synonyms", [])
+    
+    search_text = f"Title: {row['chunk_title']} | Source: {row['source_file']}\n"
+    search_text += f"Content: {row['chunk']}\n"
+    if syns:
+        search_text += f"Keywords: {', '.join(syns)}\n"
+    if queries:
+        search_text += "Frequently Asked Questions:\n"
+        for q in queries:
+            search_text += f"- {q}\n"
+    
+    texts.append(search_text.strip())
 
 embeddings = embedder.encode(
     texts,
