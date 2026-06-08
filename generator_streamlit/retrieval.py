@@ -9,7 +9,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 @st.cache_resource
 def load_retrieval_resources():
-    chunks_df = pd.read_json(os.path.join(CURRENT_DIR, "Chunks_v2.jsonl"), lines=True)
+    chunks_df = pd.read_json(os.path.join(CURRENT_DIR, "Chunks.jsonl"), lines=True)
     embedder = SentenceTransformer("BAAI/bge-base-en-v1.5")
     index = faiss.read_index(os.path.join(CURRENT_DIR, "faiss_index.bin"))
     return chunks_df, embedder, index
@@ -30,7 +30,7 @@ def retrieve(query, top_k=3):
 
     retrieved_chunks = []
 
-    for idx in indices[0]:
+    for idx, score in zip(indices[0], scores[0]):
         if idx == -1 or idx >= len(chunks_df):
             continue
 
@@ -49,6 +49,11 @@ def retrieve(query, top_k=3):
 
         # Prepend the title for full parent context
         formatted_chunk = f"Title: {row['chunk_title']}\nContent: {chunk_text}"
-        retrieved_chunks.append(formatted_chunk)
+        retrieved_chunks.append({
+            "chunk": formatted_chunk,
+            "score": float(score),
+            "chunk_id": row["chunk_id"],
+            "source_file": row["source_file"]
+        })
 
     return retrieved_chunks

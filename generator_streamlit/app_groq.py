@@ -27,9 +27,11 @@ if st.button("Generate Response"):
             top_k=top_k
         )
 
+        chunk_strings = [item["chunk"] for item in retrieved_chunks]
+
         response = generate_response(
             query,
-            retrieved_chunks
+            chunk_strings
         )
 
     st.subheader("Generated Response")
@@ -37,6 +39,8 @@ if st.button("Generate Response"):
 
     st.subheader("Top Retrieved Chunks")
 
-    for i, chunk in enumerate(retrieved_chunks):
-        st.markdown(f"### Chunk {i+1}")
-        st.write(chunk)
+    for i, item in enumerate(retrieved_chunks):
+        st.markdown(f"### Chunk {i+1} (ID: `{item['chunk_id']}`)")
+        st.markdown(f"**Vector Similarity (Bi-Encoder):** `{item['score']:.4f}`")
+        st.write(item["chunk"])
+        st.markdown("---")

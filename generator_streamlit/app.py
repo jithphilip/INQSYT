@@ -1,11 +1,11 @@
 import streamlit as st
 from sentence_transformers import CrossEncoder
 
-from retrieval import retrieve
+from retrieval_v2_intent import retrieve
 from generator_local import generate_response as generate_response_local
 from generator_groq import generate_response as generate_response_groq
 
-st.title("RAG Chatbot Demo : Metadata included")
+st.title("RAG Chatbot Demo : Intent-Based Routing")
 
 # Cache the CrossEncoder reranker loading
 @st.cache_resource
@@ -29,41 +29,47 @@ if st.button("Generate Response"):
 
     with st.spinner("Retrieving chunks and generating responses..."):
 
-        # 1. Retrieve a wider pool of candidate chunks using the Bi-Encoder in retrieval.py
+        # 1. Retrieve candidate chunks using Intent-Guided Bi-Encoder retrieval
         initial_candidates_count = max(15, top_k * 2)
-        candidate_chunks = retrieve(
+        candidate_results = retrieve(
             query,
             top_k=initial_candidates_count
         )
 
         # 2. Re-rank candidate chunks using Cross-Encoder directly in the app
-        if candidate_chunks:
+        if candidate_results:
             reranker = load_reranker()
-            pairs = [[query, chunk] for chunk in candidate_chunks]
+            pairs = [[query, res["chunk"]] for res in candidate_results]
             rerank_scores = reranker.predict(pairs)
             
-            # Sort candidate chunks based on score descending
+            # Sort candidate results based on score descending
             reranked = sorted(
-                zip(candidate_chunks, rerank_scores),
+                zip(candidate_results, rerank_scores),
                 key=lambda x: x[1],
                 reverse=True
             )
             
-            # Extract the top_k elements after re-ranking
-            retrieved_chunks = [chunk for chunk, score in reranked[:top_k]]
+            # Extract the top_k elements and store both scores
+            retrieved_chunks = []
+            for res, rerank_score in reranked[:top_k]:
+                res["rerank_score"] = float(rerank_score)
+                retrieved_chunks.append(res)
         else:
             retrieved_chunks = []
+
+        # Extract text chunks for the generators
+        chunk_strings = [item["chunk"] for item in retrieved_chunks]
 
         # 3. Call the Groq model using the re-ranked chunks
         response_groq = generate_response_groq(
             query,
-            retrieved_chunks
+            chunk_strings
         )
 
         # 4. Call the local model using the same re-ranked chunks
         response_local = generate_response_local(
             query,
-            retrieved_chunks
+            chunk_strings
         )
 
     st.subheader("ollama-3.3-70b-versatile model generated response")
@@ -74,6 +80,9 @@ if st.button("Generate Response"):
 
     st.subheader("Top Retrieved Chunks")
 
-    for i, chunk in enumerate(retrieved_chunks):
-        st.markdown(f"### Chunk {i+1}")
-        st.write(chunk)
+    for i, item in enumerate(retrieved_chunks):
+        st.markdown(f"### Chunk {i+1} (ID: `{item['chunk_id']}`)")
+        st.markdown(f"**Intent Classified:** `{item['intent']}`")
+        st.markdown(f"**Vector Similarity (Bi-Encoder):** `{item['score']:.4f}` | **Rerank Score (Cross-Encoder):** `{item['rerank_score']:.4f}`")
+        st.write(item["chunk"])
+        st.markdown("---")

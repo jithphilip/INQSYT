@@ -1,0 +1,32 @@
+{
+  "classes": [
+    "billing",
+    "customer_feedback",
+    "customer_support_bereavement",
+    "customer_support_contact",
+    "customer_support_legal",
+    "delivery_status_alerts",
+    "delivery_status_delays",
+    "delivery_status_rules_policies",
+    "delivery_status_tracking_details",
+    "delivery_status_undeliverable",
+    "manage_account_closure",
+    "manage_account_general_settings",
+    "manage_account_login_security",
+    "manage_account_profiles_devices",
+    "manage_account_teen_settings",
+    "modify_address",
+    "modify_order",
+    "other_query",
+    "payment_issues_cards_wallet",
+    "payment_issues_currency_converter",
+    "payment_issues_declines_retries",
+    "payment_issues_fraud_scams",
+    "payment_issues_unknown_charges",
+    "refund_credits_balances",
+    "refund_international_returns",
+    "refund_restocking_fees",
+    "refund_returns_eligibility",
+    "refund_tracking_status"
+  ]
+}
