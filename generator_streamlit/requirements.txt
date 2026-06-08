@@ -9,3 +9,4 @@ numpy
 pandas
 openai
 requests
+huggingface_hub
