@@ -55,27 +55,11 @@ temp/
 # ML model weights / checkpoints
 # =========================
 *.safetensors
-*.bin
 *.pt
 *.pth
 *.ckpt
 *.onnx
 *.h5
-
-# =========================
-# Trained local classifiers / serialized models
-# =========================
-*.pkl
-*.joblib
-
-# =========================
-# Embeddings / vector indexes / vector DBs
-# =========================
-*.npy
-*.npz
-*.faiss
-*.index
-faiss_index.bin
 
 chroma_db/
 chromadb/
@@ -83,8 +67,6 @@ vector_store/
 vector_db/
 qdrant_storage/
 weaviate_storage/
-
-Retrieval_Pipeline/embeddings/
 
 # =========================
 # Hugging Face / local caches
