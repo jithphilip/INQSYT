@@ -43,16 +43,35 @@ embed_model = SentenceTransformer('BAAI/bge-base-en-v1.5')
 print("Loading CrossEncoder reranker...")
 reranker = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
 
-# 3. Load BERT Classifier
-BERT_DIR = os.path.join(PIPELINE_DIR, "..", "generator_streamlit", "bert_classifier")
-print(f"Loading BERT classifier from {BERT_DIR}...")
-bert_tokenizer = AutoTokenizer.from_pretrained(BERT_DIR)
-bert_model = AutoModelForSequenceClassification.from_pretrained(BERT_DIR)
+# 3. Load BERT Classifier from Hugging Face
+HF_MODEL_REPO = "anupam-dagupta-cmi/INQSYT"
+HF_MODEL_SUBFOLDER = "bert_classifier"
+
+print(f"Loading BERT classifier from Hugging Face: {HF_MODEL_REPO}/{HF_MODEL_SUBFOLDER}...")
+
+bert_tokenizer = AutoTokenizer.from_pretrained(
+    HF_MODEL_REPO,
+    subfolder=HF_MODEL_SUBFOLDER
+)
+
+bert_model = AutoModelForSequenceClassification.from_pretrained(
+    HF_MODEL_REPO,
+    subfolder=HF_MODEL_SUBFOLDER
+)
+
 bert_model.eval()
 
-# Load classes metadata
-with open(os.path.join(BERT_DIR, "metadata.json"), "r", encoding="utf-8") as f:
+# Load classes metadata from Hugging Face
+from huggingface_hub import hf_hub_download
+
+metadata_path = hf_hub_download(
+    repo_id=HF_MODEL_REPO,
+    filename=f"{HF_MODEL_SUBFOLDER}/metadata.json"
+)
+
+with open(metadata_path, "r", encoding="utf-8") as f:
     meta = json.load(f)
+
 classes = meta["classes"]
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

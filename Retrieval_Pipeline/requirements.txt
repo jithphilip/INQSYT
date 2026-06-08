@@ -6,3 +6,4 @@ scikit-learn
 tqdm
 torch
 transformers
+huggingface_hub
