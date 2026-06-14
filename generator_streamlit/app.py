@@ -1,7 +1,7 @@
 import streamlit as st
 from sentence_transformers import CrossEncoder
 
-from retrieval_v2_intent import retrieve
+from retrieval import retrieve
 from generator_local import generate_response as generate_response_local
 from generator_groq import generate_response as generate_response_groq
 
@@ -49,11 +49,16 @@ if st.button("Generate Response"):
                 reverse=True
             )
             
-            # Extract the top_k elements and store both scores
+            # Apply Dynamic K Thresholding (min_k = top_k, max_k = top_k + 2, margin = 4.0)
             retrieved_chunks = []
-            for res, rerank_score in reranked[:top_k]:
-                res["rerank_score"] = float(rerank_score)
-                retrieved_chunks.append(res)
+            if reranked:
+                top_score = reranked[0][1]
+                min_k = top_k
+                max_k = min(10, top_k + 2)
+                for i, (res, rerank_score) in enumerate(reranked[:max_k]):
+                    if i < min_k or (top_score - rerank_score) <= 4.0:
+                        res["rerank_score"] = float(rerank_score)
+                        retrieved_chunks.append(res)
         else:
             retrieved_chunks = []
 

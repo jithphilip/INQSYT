@@ -240,4 +240,6 @@ def train_bert(upload_to_hf=True):
 
 
 if __name__ == "__main__":
-    train_bert(upload_to_hf=True)
+    import sys
+    upload = "--upload" in sys.argv
+    train_bert(upload_to_hf=upload)

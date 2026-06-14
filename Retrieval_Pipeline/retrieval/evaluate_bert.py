@@ -4,8 +4,38 @@ import torch
 import pandas as pd
 import numpy as np
 import faiss
+import re
 from sentence_transformers import SentenceTransformer, CrossEncoder
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+def generate_topic(row):
+    meta = row.get("metadata", {})
+    cat_path = meta.get("category_path", "")
+    
+    parts = [p.strip() for p in cat_path.split(" > ")]
+    if len(parts) >= 2:
+        doc_name = parts[1]
+    else:
+        doc_name = row["source_file"]
+        
+    doc_name = re.sub(r"\(\d+\)", "", doc_name)
+    doc_name = doc_name.replace(".md", "").strip()
+    doc_name = re.sub(r"that Shows a$", "that Shows as Delivered", doc_name)
+    doc_name = re.sub(r"Companies No$", "Companies Not Affiliated with Amazon", doc_name)
+    doc_name = re.sub(r"Text Up$", "Text Updates", doc_name)
+    doc_name = re.sub(r"Shipment Tra$", "Shipment Tracking", doc_name)
+    
+    title = row["chunk_title"].strip()
+    title = re.sub(r"^\d+\s*[-.]\s*", "", title).strip()
+    
+    if title.lower() in doc_name.lower():
+        topic = f"Topic: {doc_name}"
+    elif doc_name.lower() in title.lower():
+        topic = f"Topic: {title}"
+    else:
+        topic = f"Topic: {doc_name} - {title}"
+        
+    return topic
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PIPELINE_DIR = os.path.dirname(CURRENT_DIR)
@@ -22,13 +52,16 @@ import json
 with open(os.path.join(PIPELINE_DIR, "data", "intents_schema.json"), "r", encoding="utf-8") as f:
     intents_schema = json.load(f)
     
-chunk_to_intent = {}
+chunk_to_intents = {}
 for entry in intents_schema:
     intent_name = entry["intent"]
     for cid in entry["source_chunks"]:
-        chunk_to_intent[cid] = intent_name
+        if cid not in chunk_to_intents:
+            chunk_to_intents[cid] = []
+        chunk_to_intents[cid].append(intent_name)
         
-chunks_df["intent"] = chunks_df["chunk_id"].map(chunk_to_intent).fillna("other_query")
+chunks_df["intents"] = chunks_df["chunk_id"].map(chunk_to_intents)
+chunks_df["intents"] = chunks_df["intents"].apply(lambda x: x if isinstance(x, list) else ["other_query"])
 
 # Build FAISS Index (for fallback/global search if needed)
 dimension = embeddings.shape[1]
@@ -43,37 +76,41 @@ embed_model = SentenceTransformer('BAAI/bge-base-en-v1.5')
 print("Loading CrossEncoder reranker...")
 reranker = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
 
-# 3. Load BERT Classifier from Hugging Face
+# 3. Load BERT Classifier (Local first, then Hugging Face)
 HF_MODEL_REPO = "anupam-dagupta-cmi/INQSYT"
 HF_MODEL_SUBFOLDER = "bert_classifier"
+LOCAL_MODEL_DIR = os.path.join(PIPELINE_DIR, "..", "generator_streamlit", "bert_classifier")
 
-print(f"Loading BERT classifier from Hugging Face: {HF_MODEL_REPO}/{HF_MODEL_SUBFOLDER}...")
-
-bert_tokenizer = AutoTokenizer.from_pretrained(
-    HF_MODEL_REPO,
-    subfolder=HF_MODEL_SUBFOLDER
-)
-
-bert_model = AutoModelForSequenceClassification.from_pretrained(
-    HF_MODEL_REPO,
-    subfolder=HF_MODEL_SUBFOLDER
-)
+if os.path.exists(LOCAL_MODEL_DIR) and os.path.exists(os.path.join(LOCAL_MODEL_DIR, "config.json")):
+    print(f"Loading BERT classifier from local directory: {LOCAL_MODEL_DIR}...")
+    bert_tokenizer = AutoTokenizer.from_pretrained(LOCAL_MODEL_DIR)
+    bert_model = AutoModelForSequenceClassification.from_pretrained(LOCAL_MODEL_DIR)
+    
+    metadata_path = os.path.join(LOCAL_MODEL_DIR, "metadata.json")
+    with open(metadata_path, "r", encoding="utf-8") as f:
+        meta = json.load(f)
+    classes = meta["classes"]
+else:
+    print(f"Local BERT model not found. Loading BERT classifier from Hugging Face: {HF_MODEL_REPO}/{HF_MODEL_SUBFOLDER}...")
+    bert_tokenizer = AutoTokenizer.from_pretrained(
+        HF_MODEL_REPO,
+        subfolder=HF_MODEL_SUBFOLDER
+    )
+    bert_model = AutoModelForSequenceClassification.from_pretrained(
+        HF_MODEL_REPO,
+        subfolder=HF_MODEL_SUBFOLDER
+    )
+    # Load classes metadata from Hugging Face
+    from huggingface_hub import hf_hub_download
+    metadata_path = hf_hub_download(
+        repo_id=HF_MODEL_REPO,
+        filename=f"{HF_MODEL_SUBFOLDER}/metadata.json"
+    )
+    with open(metadata_path, "r", encoding="utf-8") as f:
+        meta = json.load(f)
+    classes = meta["classes"]
 
 bert_model.eval()
-
-# Load classes metadata from Hugging Face
-from huggingface_hub import hf_hub_download
-
-metadata_path = hf_hub_download(
-    repo_id=HF_MODEL_REPO,
-    filename=f"{HF_MODEL_SUBFOLDER}/metadata.json"
-)
-
-with open(metadata_path, "r", encoding="utf-8") as f:
-    meta = json.load(f)
-
-classes = meta["classes"]
-
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 bert_model = bert_model.to(device)
 
@@ -88,6 +125,8 @@ recall_sum = 0
 mrr_sum = 0
 
 correct_intents = 0
+correct_routing = 0
+total_retrieved_chunks = 0
 missed_queries_list = []
 
 # 5. Evaluation Loop
@@ -121,6 +160,10 @@ for idx_row, row in qa_df.iterrows():
     if is_correct_intent:
         correct_intents += 1
         
+    is_correct_routing = (predicted_intent in chunk_to_intents.get(true_chunk_id, []))
+    if is_correct_routing:
+        correct_routing += 1
+        
     # Set search intent list (with global search fallback disabled)
     search_all = False
     top2_idx = sorted_idxs[1]
@@ -134,7 +177,7 @@ for idx_row, row in qa_df.iterrows():
     if search_all:
         filtered_df = chunks_df
     else:
-        filtered_df = chunks_df[chunks_df["intent"].isin(predicted_intent_list)]
+        filtered_df = chunks_df[chunks_df["intents"].apply(lambda x: any(intent in predicted_intent_list for intent in x))]
         
     if filtered_df.empty:
         filtered_df = chunks_df
@@ -173,7 +216,8 @@ for idx_row, row in qa_df.iterrows():
                 chunk_text = f"{chunk_row['chunk']}\n\n{meta_chunk['table_markdown']}"
             elif meta_chunk.get("chunk_type") == "list" and meta_chunk.get("list_markdown"):
                 chunk_text = meta_chunk["list_markdown"]
-        formatted_chunk = f"Title: {chunk_row['chunk_title']}\nContent: {chunk_text}"
+        topic = generate_topic(chunk_row)
+        formatted_chunk = f"{topic}\nTitle: {chunk_row['chunk_title']}\nContent: {chunk_text}"
         retrieved_chunks.append(formatted_chunk)
 
     # Re-ranking
@@ -191,8 +235,17 @@ for idx_row, row in qa_df.iterrows():
         
     # Sort by rerank score descending
     reranked = sorted(reranked, key=lambda x: x[2], reverse=True)
-    final_ids = [x[0] for x in reranked[:FINAL_K]]
-
+    
+    # Apply Dynamic K Thresholding (min_k=3, max_k=5, margin=4.0)
+    final_ids = []
+    if reranked:
+        top_score = reranked[0][2]
+        for i, (cid, b_score, r_score) in enumerate(reranked[:5]):
+            if i < 3 or (top_score - r_score) <= 4.0:
+                final_ids.append(cid)
+                
+    total_retrieved_chunks += len(final_ids)
+ 
     # Hit / Relevance
     relevant_found = int(true_chunk_id in final_ids)
     if relevant_found == 0:
@@ -201,11 +254,11 @@ for idx_row, row in qa_df.iterrows():
             "true_chunk": true_chunk_id,
             "true_intent": true_intent,
             "predicted_intent": predicted_intent,
-            "retrieved": [(x[0], x[1], x[2]) for x in reranked[:FINAL_K]]
+            "retrieved": [(x[0], x[1], x[2]) for x in reranked[:len(final_ids)]]
         })
-
+ 
     hits += relevant_found
-    precision_sum += relevant_found / FINAL_K
+    precision_sum += relevant_found / len(final_ids) if final_ids else 0.0
     recall_sum += relevant_found / 1
 
     # MRR
@@ -218,17 +271,21 @@ for idx_row, row in qa_df.iterrows():
 
 # 6. Output Metrics
 intent_accuracy = correct_intents / total_queries
+routing_accuracy = correct_routing / total_queries
 precision_at_k = precision_sum / total_queries
 recall_at_k = recall_sum / total_queries
 hit_rate = hits / total_queries
 mrr = mrr_sum / total_queries
-
+avg_chunks = total_retrieved_chunks / total_queries
+ 
 print("\n========== Rebuilt Evaluation Results (BERT Classifier) ==========\n")
 print(f"Total Queries                  : {total_queries}")
 print(f"Intent Classification Accuracy : {intent_accuracy:.4f} ({correct_intents}/{total_queries})")
-print(f"Precision@3                    : {precision_at_k:.4f}")
-print(f"Recall@3                       : {recall_at_k:.4f}")
-print(f"Hit Rate@3                     : {hit_rate:.4f}")
+print(f"Routing Accuracy (Overlap-Aware): {routing_accuracy:.4f} ({correct_routing}/{total_queries})")
+print(f"Average Chunks Retrieved       : {avg_chunks:.4f}")
+print(f"Precision@Dynamic K            : {precision_at_k:.4f}")
+print(f"Recall@Dynamic K               : {recall_at_k:.4f}")
+print(f"Hit Rate                       : {hit_rate:.4f}")
 print(f"MRR                            : {mrr:.4f}")
 print(f"Missed Queries                 : {len(missed_queries_list)}")
 

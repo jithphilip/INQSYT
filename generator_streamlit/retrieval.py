@@ -31,14 +31,17 @@ def load_intent_resources():
     with open(os.path.join(CURRENT_DIR, "intents_schema.json"), "r") as f:
         intents_schema = json.load(f)
         
-    chunk_to_intent = {}
+    chunk_to_intents = {}
     for entry in intents_schema:
         intent_name = entry["intent"]
         for cid in entry["source_chunks"]:
-            chunk_to_intent[cid] = intent_name
+            if cid not in chunk_to_intents:
+                chunk_to_intents[cid] = []
+            chunk_to_intents[cid].append(intent_name)
             
-    # Add an 'intent' column to chunks_df dynamically!
-    chunks_df["intent"] = chunks_df["chunk_id"].map(chunk_to_intent).fillna("other_query")
+    # Add an 'intents' column to chunks_df dynamically!
+    chunks_df["intents"] = chunks_df["chunk_id"].map(chunk_to_intents)
+    chunks_df["intents"] = chunks_df["intents"].apply(lambda x: x if isinstance(x, list) else ["other_query"])
     
     return chunks_df, embedder, index, classifier_data, all_vectors
 
@@ -67,28 +70,24 @@ def retrieve(query, top_k=3):
     top1_prob = probs[top1_idx]
     predicted_intent = le.inverse_transform([top1_idx])[0]
     
-    # Confidence fallback: if top prediction has low confidence (< 50%), search all chunks
-    if top1_prob < 0.5:
-        predicted_intent_list = ["other_query"]
-        search_all = True
+    # Determine search intent list (with global search fallback dropped)
+    search_all = False
+    top2_idx = sorted_idxs[1]
+    top2_prob = probs[top2_idx]
+    
+    # Multi-label search: if top-2 is close to top-1 (difference <= 0.2), search both
+    if (top1_prob - top2_prob) <= 0.2:
+        intent1 = predicted_intent
+        intent2 = le.inverse_transform([top2_idx])[0]
+        predicted_intent_list = [intent1, intent2]
     else:
-        search_all = False
-        top2_idx = sorted_idxs[1]
-        top2_prob = probs[top2_idx]
-        
-        # Multi-label search: if top-2 is close to top-1 (difference <= 0.2), search both
-        if (top1_prob - top2_prob) <= 0.2:
-            intent1 = predicted_intent
-            intent2 = le.inverse_transform([top2_idx])[0]
-            predicted_intent_list = [intent1, intent2]
-        else:
-            predicted_intent_list = [predicted_intent]
+        predicted_intent_list = [predicted_intent]
     
     # 2. Apply metadata filtering based on predicted intent list
     if search_all:
         filtered_df = chunks_df
     else:
-        filtered_df = chunks_df[chunks_df["intent"].isin(predicted_intent_list)]
+        filtered_df = chunks_df[chunks_df["intents"].apply(lambda x: any(intent in predicted_intent_list for intent in x))]
         
     # Fallback to all chunks if filtering returns nothing
     if filtered_df.empty:

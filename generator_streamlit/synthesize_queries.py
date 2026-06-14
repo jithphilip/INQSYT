@@ -1,239 +1,165 @@
-import json
 import os
+import csv
+import json
 import random
-import pandas as pd
 
-# Path configurations
-ws_dir = r"c:\Users\Anupam Dasgupta\Desktop\INQSYT"
-qa_path = os.path.join(ws_dir, "Main_Data", "Questions&Answers.csv")
-chunks_path = os.path.join(ws_dir, "generator_streamlit", "Chunks_v3_intent.jsonl")
-output_csv_path = os.path.join(ws_dir, "Main_Data", "queries.csv")
-output_jsonl_path = os.path.join(ws_dir, "Main_Data", "queries.jsonl")
+WS_DIR = r"c:\Users\Anupam Dasgupta\Desktop\INQSYT"
+SCHEMA_PATH = os.path.join(WS_DIR, "generator_streamlit", "intents_schema.json")
+OUTPUT_PATH = os.path.join(WS_DIR, "Main_Data", "queries.csv")
 
-# 1. Load Chunks and their Metadata
-chunks = []
-chunk_by_id = {}
-chunks_by_intent = {}
+# Load new intents and sample queries from intents_schema.json
+with open(SCHEMA_PATH, "r", encoding="utf-8") as f:
+    schema = json.load(f)
 
-with open(chunks_path, "r", encoding="utf-8") as f:
-    for line in f:
-        if line.strip():
-            rec = json.loads(line)
-            chunks.append(rec)
-            chunk_by_id[rec["chunk_id"]] = rec
-            intent = rec["intent"]
-            if intent not in chunks_by_intent:
-                chunks_by_intent[intent] = []
-            chunks_by_intent[intent].append(rec)
+INTENTS = [entry["intent"] for entry in schema]
+seeds = {entry["intent"]: entry["sample_queries"] for entry in schema}
 
-# 2. Load existing Questions & Answers
-qa_df = pd.read_csv(qa_path)
-print(f"Loaded {len(qa_df)} existing queries from Questions&Answers.csv")
-
-# Map existing queries to new unified intent labels
-existing_queries_by_intent = {}
-for intent in chunks_by_intent:
-    existing_queries_by_intent[intent] = []
-
-for idx, row in qa_df.iterrows():
-    cid = str(row["chunk id"]).strip()
-    # Normalize ID match
-    matched_chunk = chunk_by_id.get(cid)
-    if not matched_chunk:
-        for k, v in chunk_by_id.items():
-            if k.lower() == cid.lower():
-                matched_chunk = v
-                break
-    
-    if matched_chunk:
-        intent = matched_chunk["intent"]
-        existing_queries_by_intent[intent].append({
-            "question": row["question"],
-            "chunk id": matched_chunk["chunk_id"],
-            "intent label": intent,
-            "doc title": matched_chunk["source_file"].replace(".md", ""),
-            "chunk title": matched_chunk["chunk_title"],
-            "correct_chunk": matched_chunk["chunk"],
-            "answer": row["answer"] if pd.notna(row["answer"]) else matched_chunk["chunk"][:150]
-        })
-
-# 3. Dynamic Template-Based Query Generator
-# Define rich templates per intent to ensure high-quality natural language variety
-templates = {
-    "track_order": [
-        "How do I track my package for {synonym}?",
-        "Where can I see the status of my order if it's {synonym}?",
-        "Is there a way to verify the location of my parcel related to {synonym}?",
-        "What should I do if my shipment is {synonym}?",
-        "Can I check the delivery window or map for {synonym}?",
-        "How will Amazon update me regarding {synonym}?",
-        "Who do I contact if my package has a status of {synonym}?",
-        "How do I set up alerts for my package regarding {synonym}?",
-        "I need updates on {synonym}, where do I check?",
-        "Why is there no tracking info showing for {synonym}?"
-    ],
-    "returns_refunds": [
-        "What is the return policy for {synonym}?",
-        "How long does it take to get a refund for {synonym}?",
-        "Can I get a replacement or return my item if it's {synonym}?",
-        "Are there any fees or partial deductions for returns of {synonym}?",
-        "What are the rules regarding returning {synonym}?",
-        "I received a damaged or wrong product, how do I initiate a return for {synonym}?",
-        "Do I need the original packing slip or invoice for {synonym}?",
-        "Can I return an order that is {synonym}?",
-        "Is {synonym} eligible for a full refund or exchange?",
-        "Where do I drop off my package for return shipping of {synonym}?"
-    ],
-    "shipping_delivery": [
-        "What shipping methods are available for {synonym}?",
-        "Does Amazon deliver packages to {synonym}?",
-        "How do customs clearance and regulations work for {synonym}?",
-        "Are there any shipping rules or address restrictions for {synonym}?",
-        "What are the delivery terms and options for {synonym}?",
-        "How long does standard shipping take for {synonym}?",
-        "Can I get same-day or premium delivery for {synonym}?",
-        "What happens if my package is returned to sender due to {synonym}?",
-        "Who is the carrier in charge of delivering {synonym}?",
-        "Are there any special addressing requirements for {synonym}?"
-    ],
-    "modify_order": [
-        "How can I cancel my order or request a change for {synonym}?",
-        "Can I update my shipping details or address for {synonym}?",
-        "Is it possible to split my shipment or deliver to {synonym}?",
-        "How do I change my payment method after checkout for {synonym}?",
-        "What is the process to edit my order items before they ship for {synonym}?",
-        "Can I stop a shipment or cancel it if it's already {synonym}?",
-        "I made a mistake in my shipping address, how do I edit it for {synonym}?",
-        "Is it too late to modify my order regarding {synonym}?",
-        "How do I cancel a replacement request for {synonym}?",
-        "How do I group my cart items to prevent multiple packages for {synonym}?"
-    ],
-    "payments_promotions": [
-        "Why was my credit card declined for {synonym}?",
-        "What payment options or methods can I use for {synonym}?",
-        "How do I apply a promo code or discount for {synonym}?",
-        "Where can I manage my gift cards or account balances for {synonym}?",
-        "How do I update my billing address or credit card details for {synonym}?",
-        "Are there any special promotions or loyalty points for {synonym}?",
-        "Why is my promotional certificate not working for {synonym}?",
-        "How do I get an invoice or billing receipt for {synonym}?",
-        "Can I use PayPal or Apple Pay to purchase {synonym}?",
-        "How do I close my Amazon account and transfer my balance for {synonym}?"
-    ],
-    "general_query": [
-        "How do I sign up for availability restock notifications for {synonym}?",
-        "Is it safe to share my account information regarding {synonym}?",
-        "How do I report a suspicious email, scam, or fraud related to {synonym}?",
-        "What should I do if I think my account was hacked regarding {synonym}?",
-        "Where can I find help documentation for {synonym}?",
-        "How do I contact customer support about {synonym}?",
-        "Will Amazon ever call me asking for password or details about {synonym}?",
-        "What are the security terms for protecting my info during {synonym}?",
-        "Is there an email alert when an item is restocked for {synonym}?",
-        "How do I recognize official Amazon communications regarding {synonym}?"
-    ]
+# Synonym expansion rules to enrich training dataset diversity
+verb_synonyms = {
+    "track": ["track", "locate", "find", "check the status of", "follow", "view"],
+    "check": ["check", "see", "view", "find", "verify", "learn about", "look up"],
+    "reset": ["reset", "change", "update", "troubleshoot", "fix", "recover"],
+    "manage": ["manage", "update", "edit", "change", "configure", "set up"],
+    "close": ["close", "delete", "deactivate", "terminate", "remove"],
+    "report": ["report", "flag", "resolve", "notify Amazon of", "complain about"],
+    "resolve": ["resolve", "fix", "troubleshoot", "retry", "rectify"],
+    "convert": ["convert", "calculate", "check exchange rates for", "set card currency to"],
+    "view": ["view", "print", "download", "find", "get a PDF of", "save"],
+    "submit": ["submit", "send", "upload", "file", "register"],
+    "identify": ["identify", "spot", "recognize", "detect", "report"],
+    "investigate": ["investigate", "check", "report", "look into", "verify details of"],
+    "request": ["request", "ask for", "contact support for", "apply for"],
+    "modify": ["modify", "change", "edit", "update", "cancel", "adjust"],
+    "contact": ["contact", "call", "chat", "reach", "open", "speak with", "talk to"]
 }
 
-final_queries = []
+noun_synonyms = {
+    "order": ["order", "purchase", "shopping cart", "active order", "placed order"],
+    "address": ["shipping address", "delivery address", "billing address", "saved address", "address book details"],
+    "invoice": ["invoice PDF", "billing receipt", "order receipt", "tax invoice", "proof of purchase"],
+    "feedback": ["feedback", "customer survey", "opinion", "satisfaction rating"],
+    "password": ["password", "passcode", "login credentials", "login security details"],
+    "teen account": ["teen account", "teen login", "teen approvals", "teen household profile"],
+    "profile settings": ["profile settings", "shopping profile", "switch accounts", "app sign-out"],
+    "account settings": ["account settings", "language preferences", "Spanish language option", "third-party data access"],
+    "account": ["account", "Amazon shopping profile", "membership registration"],
+    "wallet cards": ["wallet cards", "credit cards", "debit cards", "payment wallet", "backup payment card"],
+    "currency": ["currency", "exchange rates", "converter settings", "card payment currency"],
+    "declined payment": ["declined payment", "failed card charge", "declined credit card", "failed transaction"],
+    "unknown charge": ["unknown charge", "unrecognized Amazon charge", "AMZ Prime billing fee", "unauthorized statement fee"],
+    "payment scam": ["payment scam", "gift card fraud", "phishing attempt", "security scam alert"],
+    "return eligibility": ["return eligibility", "return window limit", "non-returnable products", "30-day return policy"],
+    "restocking fees": ["restocking fees", "damage deductions", "opened items return fees", "refund reduction rules"],
+    "international returns": ["international returns", "overseas return labels", "international return shipping cost"],
+    "refund": ["refund", "returned package status", "money-back timeline", "bank refund speed"],
+    "promotional balance": ["promotional balance", "promotional credits", "reward points total", "benefit balance"],
+    "package": ["package", "parcel", "shipment tracker", "photo proof of delivery"],
+    "delivery alerts": ["delivery alerts", "shipment updates text", "SMS notifications", "push delivery alerts"],
+    "delivery delay": ["delivery delay", "late package scan", "delayed carrier tracking", "missed delivery date"],
+    "undeliverable package": ["undeliverable package", "return to sender status", "incorrect shipping address error"],
+    "delivery rules": ["delivery rules", "OTP delivery code", "delivery time slots", "prison shipping rules"],
+    "support": ["support", "live customer care", "support chat helpline", "customer support ticket"],
+    "bereavement support": ["bereavement support", "deceased account closure", "family death estate settings"],
+    "legal poa": ["legal poa", "power of attorney paperwork", "submitting poa documents"],
+    "missing package": ["missing package", "package shows delivered but missing", "stolen package from doorstep"],
+    "missing item": ["missing item", "missing order items", "item missing from inside my package", "empty Amazon shipping box"],
+    "customs regulations": ["customs regulations", "passport ID for customs", "EZ WAY Taiwan login", "South Korea PCCC code"],
+    "shipping policies": ["shipping policies", "hotel shipping rules", "freight forwarder deliveries", "signature on delivery requirement"],
+    "phishing scams": ["phishing scams", "fake Amazon surveys", "suspicious email alerts", "identifying fake text messages"],
+    "tax rates": ["tax rates", "sales tax calculation", "EU VAT rates", "tax on digital Kindle books"],
+    "notifications": ["notifications", "Subscribe & Save alerts", "out of stock restock emails", "email alerts"]
+}
 
-# Keep track of generated questions to prevent duplicates
-seen_questions = set()
+templates = [
+    "I want to {verb} my {noun}",
+    "How do I {verb} the {noun}?",
+    "Can you help me {verb} my {noun}?",
+    "Please show me how to {verb} {noun}",
+    "I need assistance to {verb} my {noun}",
+    "Is it possible to {verb} this {noun}?",
+    "What is the way to {verb} the {noun}?",
+    "Can I {verb} {noun} on Amazon?",
+    "I'm trying to {verb} my {noun}",
+    "I need to {verb} {noun}"
+]
 
-# Process each intent
-for intent, chunk_list in chunks_by_intent.items():
-    print(f"Processing intent '{intent}':")
-    # Start with existing queries
-    intent_queries = list(existing_queries_by_intent[intent])
-    for q in intent_queries:
-        seen_questions.add(q["question"].lower().strip())
-        
-    initial_count = len(intent_queries)
-    print(f"  - Existing queries: {initial_count}")
+def generate_queries_for_intent(intent, count=200):
+    queries = set()
     
-    needed = 200 - initial_count
-    generated_count = 0
+    # 1. Add hand-written seed queries from intents_schema
+    if intent in seeds:
+        for s in seeds[intent]:
+            queries.add(s)
+            
+    # Split the intent by underscore to extract verb and noun keys
+    parts = intent.split("_")
+    verb_key = parts[0]
+    noun_key = " ".join(parts[1:])
     
-    # Random generator seed for stability
-    random.seed(42)
+    # Resolve verb synonyms
+    verbs = verb_synonyms.get(verb_key, [verb_key])
     
-    # Loop until we reach exactly 200 queries
+    # Resolve noun synonyms
+    nouns = noun_synonyms.get(noun_key, [noun_key])
+    
+    # 2. Programmatically generate queries using templates
     attempts = 0
-    while len(intent_queries) < 200 and attempts < 10000:
+    while len(queries) < count and attempts < 20000:
         attempts += 1
+        t = random.choice(templates)
+        v = random.choice(verbs)
+        n = random.choice(nouns)
         
-        # Pick a random chunk for this intent
-        chunk = random.choice(chunk_list)
+        q = t.format(verb=v, noun=n)
+        q = q[0].upper() + q[1:]  # Ensure proper capitalization
+        queries.add(q)
         
-        # Determine synonyms or key terms
-        syns = chunk["metadata"].get("jargon_synonyms", [])
-        if not syns:
-            syns = [chunk["chunk_title"]]
+    return list(queries)[:count]
+
+def generate_and_save():
+    variations_path = os.path.join(WS_DIR, "amazon_support_variations_per_seed_query.json")
+    
+    if os.path.exists(variations_path):
+        print(f"Loading hand-written query variations from {variations_path}...")
+        with open(variations_path, "r", encoding="utf-8") as f:
+            variations_data = json.load(f)
             
-        synonym = random.choice(syns)
-        
-        # Pick a random template for this intent
-        template = random.choice(templates[intent])
-        
-        # Format the question
-        question = template.format(synonym=synonym)
-        
-        # Apply slight capitalization and style variations to look human
-        if random.random() > 0.7:
-            question = question.lower()
-        if random.random() > 0.8:
-            question = question.replace("?", "")
+        all_data = []
+        for intent, seeds_list in variations_data.items():
+            intent_queries = []
+            for seed_obj in seeds_list:
+                for q in seed_obj.get("variations", []):
+                    # Clean and add unique queries
+                    q_clean = q.strip()
+                    if q_clean and q_clean not in intent_queries:
+                        intent_queries.append(q_clean)
             
-        q_clean = question.lower().strip()
-        if q_clean not in seen_questions:
-            seen_questions.add(q_clean)
+            print(f"  - Loaded {len(intent_queries)} unique variations for intent: '{intent}'")
+            for q in intent_queries:
+                all_data.append([q, intent])
+    else:
+        print(f"Warning: {variations_path} not found. Falling back to template-based generation...")
+        all_data = []
+        for intent in INTENTS:
+            queries = generate_queries_for_intent(intent, count=200)
+            print(f"  - Generated {len(queries)} queries for intent: '{intent}'")
+            for q in queries:
+                all_data.append([q, intent])
             
-            # Formulate the response snippet
-            ans = chunk["chunk"]
-            if len(ans) > 200:
-                ans = ans[:197] + "..."
-                
-            intent_queries.append({
-                "question": question,
-                "chunk id": chunk["chunk_id"],
-                "intent label": intent,
-                "doc title": chunk["source_file"].replace(".md", ""),
-                "chunk title": chunk["chunk_title"],
-                "correct_chunk": chunk["chunk"],
-                "answer": ans
-            })
-            generated_count += 1
+    # Shuffle dataset
+    random.seed(42)
+    random.shuffle(all_data)
+    
+    # Write to Main_Data/queries.csv
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+    with open(OUTPUT_PATH, "w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["question", "intent label"])
+        for row in all_data:
+            writer.writerow(row)
             
-    print(f"  - Generated queries: {generated_count}")
-    print(f"  - Total queries for '{intent}': {len(intent_queries)}")
-    final_queries.extend(intent_queries)
+    print(f"\nSuccessfully saved training dataset to {OUTPUT_PATH}")
+    print(f"Total dataset size: {len(all_data)} queries.")
 
-# 4. Save output files
-# Shuffle final queries so they are mixed in the file
-random.shuffle(final_queries)
-
-df_out = pd.DataFrame(final_queries)
-df_out.to_csv(output_csv_path, index=False, encoding="utf-8")
-print(f"\nSaved CSV database with {len(df_out)} queries to {output_csv_path}")
-
-with open(output_jsonl_path, "w", encoding="utf-8") as f:
-    for q in final_queries:
-        f.write(json.dumps(q, ensure_ascii=False) + "\n")
-print(f"Saved JSONL database with {len(final_queries)} queries to {output_jsonl_path}")
-
-# Also save to root workspace directory as 'queries', 'queries.csv' and 'queries.jsonl'
-root_csv_path = os.path.join(ws_dir, "queries.csv")
-root_jsonl_path = os.path.join(ws_dir, "queries.jsonl")
-root_no_ext_path = os.path.join(ws_dir, "queries")
-
-df_out.to_csv(root_csv_path, index=False, encoding="utf-8")
-print(f"Saved CSV database to root: {root_csv_path}")
-
-with open(root_jsonl_path, "w", encoding="utf-8") as f:
-    for q in final_queries:
-        f.write(json.dumps(q, ensure_ascii=False) + "\n")
-print(f"Saved JSONL database to root: {root_jsonl_path}")
-
-df_out.to_csv(root_no_ext_path, index=False, encoding="utf-8")
-print(f"Saved CSV database to root file 'queries' (no extension): {root_no_ext_path}")
-
-print("\nDone successfully!")
+if __name__ == "__main__":
+    generate_and_save()
