@@ -2,12 +2,6 @@
   {
     "intent": "modify_order",
     "description": "Canceling items, changing shipping addresses or delivery speeds on open orders, and archiving orders.",
-    "sample_queries": [
-      "How do I cancel my order before it ships?",
-      "Can I cancel an order that has already shipped?",
-      "How do I remove an item from my order?",
-      "Can I edit the details of an order I just placed?"
-    ],
     "source_chunks": [
       "amz_can_001",
       "amz_can_002",
@@ -23,12 +17,6 @@
   {
     "intent": "modify_address",
     "description": "Adding, deleting, and editing default or secondary shipping addresses in the address book.",
-    "sample_queries": [
-      "How do I add a new shipping address to my address book?",
-      "How do I delete an old address from my profile?",
-      "Can I set a default delivery address for checkout?",
-      "How do I edit my saved addresses in my address book?"
-    ],
     "source_chunks": [
       "add_delete_and_manage_addresses_001",
       "billing_shipping_addresses_001",
@@ -41,12 +29,6 @@
   {
     "intent": "view_invoice",
     "description": "Viewing, printing, and downloading official billing invoices or tax receipts.",
-    "sample_queries": [
-      "How do I download or print an invoice for an order?",
-      "Where can I find the official billing receipt for tax purposes?",
-      "How to get a printable PDF invoice of my purchases?",
-      "Where is the print invoice button in my orders?"
-    ],
     "source_chunks": [
       "print_an_invoice_001",
       "archived_orders_001"
@@ -55,12 +37,6 @@
   {
     "intent": "submit_feedback",
     "description": "Taking customer satisfaction surveys and managing automated machine translation preferences in chat.",
-    "sample_queries": [
-      "Does Amazon send customer satisfaction surveys?",
-      "How does chat machine translation work for support?",
-      "Why does the agent answer me in translated text?",
-      "Are customer satisfaction surveys safe to fill out?"
-    ],
     "source_chunks": [
       "amazon_consumer_surveys_001",
       "machine_translation_001"
@@ -69,12 +45,6 @@
   {
     "intent": "reset_password",
     "description": "Password resets, Two-Step Verification (2SV/MFA), login recovery, and login troubleshooting.",
-    "sample_queries": [
-      "How do I reset my password?",
-      "How do I set up two-step verification?",
-      "I can't sign into my account, what should I do?",
-      "How do I recover my account if my phone is lost?"
-    ],
     "source_chunks": [
       "about_security_codes_001",
       "change_your_password_001",
@@ -88,12 +58,6 @@
   {
     "intent": "manage_teen_account",
     "description": "Teen logins, household settings, and teen order approvals.",
-    "sample_queries": [
-      "How do I approve a teen's order?",
-      "How do I remove a teen login from my household?",
-      "What is a teen login and how does it work?",
-      "Can I set order approvals for my teenager?"
-    ],
     "source_chunks": [
       "approve_a_teens_order_001",
       "removing_a_teen_login_from_an_amazon_household_001",
@@ -104,12 +68,6 @@
   {
     "intent": "manage_profile_settings",
     "description": "Shopping profiles, mobile device accounts, switching profiles, and signing out of devices.",
-    "sample_queries": [
-      "How do I sign out of the Amazon app on my iPhone?",
-      "Where is the sign out button on the Amazon website?",
-      "Can I use switch accounts to log in to my other account?",
-      "How do I create a shopping profile for my family?"
-    ],
     "source_chunks": [
       "add_a_shopping_profile_001",
       "change_your_order_information_001",
@@ -120,23 +78,12 @@
       "use_login_with_amazon_001",
       "use_switch_accounts_001",
       "what_are_mobile_phone_number_accounts_001",
-      "what_are_mobile_phone_number_accounts_002",
-      "what_are_mobile_phone_number_accounts_003",
-      "what_are_mobile_phone_number_accounts_004",
-      "what_are_mobile_phone_number_accounts_005",
-      "what_are_mobile_phone_number_accounts_006",
       "what_are_shopping_profiles_001"
     ]
   },
   {
     "intent": "manage_account_settings",
     "description": "Language preferences, marketing unsubscribe, third-party app access, and order archives.",
-    "sample_queries": [
-      "How do I change my language preference to Spanish?",
-      "How do I unsubscribe from marketing emails?",
-      "Where do I manage apps that have access to my Amazon data?",
-      "How do I see my list of archived orders?"
-    ],
     "source_chunks": [
       "about_the_spanish_language_experience_001",
       "archived_orders_001",
@@ -150,18 +97,8 @@
   {
     "intent": "close_account",
     "description": "Closing account requests and consequences.",
-    "sample_queries": [
-      "How do I delete my Amazon account permanently?",
-      "What happens to my Kindle books if I close my account?",
-      "What happens to my gift card balance if I delete my account?",
-      "How do I request account deletion?"
-    ],
     "source_chunks": [
       "request_the_closure_of_your_account_and_the_deletion_of_001",
-      "request_the_closure_of_your_account_and_the_deletion_of_002",
-      "request_the_closure_of_your_account_and_the_deletion_of_003",
-      "request_the_closure_of_your_account_and_the_deletion_of_004",
-      "request_the_closure_of_your_account_and_the_deletion_of_005",
       "what_happens_when_i_close_my_account_001",
       "what_happens_when_i_close_my_account_002",
       "what_happens_when_i_close_my_account_003"
@@ -170,12 +107,6 @@
   {
     "intent": "manage_wallet_cards",
     "description": "Adding/editing cards in the wallet, backup payment settings, default payments, and gift card balances.",
-    "sample_queries": [
-      "How do I add a new credit card to my wallet?",
-      "How do I delete or update an expired payment card?",
-      "What is a backup payment method and how does it work?",
-      "How to update default payment settings on my account?"
-    ],
     "source_chunks": [
       "amz_acc_001",
       "amz_acc_002",
@@ -190,12 +121,6 @@
   {
     "intent": "convert_currency",
     "description": "Currency of preference, exchange rates, and select card currencies.",
-    "sample_queries": [
-      "How does the Amazon Currency Converter work?",
-      "How do I select my card currency for checkout?",
-      "Where can I see the current exchange rates on Amazon?",
-      "Can I pay in my local currency instead of USD?"
-    ],
     "source_chunks": [
       "about_currency_of_preference_on_international_shopping_001",
       "amazon_currency_converter_exchange_rates_001",
@@ -206,12 +131,6 @@
   {
     "intent": "resolve_declined_payment",
     "description": "Resolving declined checkout payments.",
-    "sample_queries": [
-      "Why was my payment declined on Amazon?",
-      "How do I retry my payment on an existing order?",
-      "How to fix a failed transaction at checkout?",
-      "What should I do if my credit card is rejected?"
-    ],
     "source_chunks": [
       "resolve_a_declined_payment_001"
     ]
@@ -219,12 +138,6 @@
   {
     "intent": "investigate_unknown_charge",
     "description": "Tracking down unrecognized charges on credit card/bank statements.",
-    "sample_queries": [
-      "Why does my bank statement show an unknown charge from Amazon?",
-      "What is this AMZ Prime descriptor charge on my credit card?",
-      "I see an unrecognized Amazon bill on my card, how do I check it?",
-      "Why was I charged by Amazon when I didn't buy anything?"
-    ],
     "source_chunks": [
       "unknown_amazon_payment_charges_001",
       "unknown_amazon_payment_charges_002",
@@ -240,12 +153,6 @@
   {
     "intent": "report_payment_scam",
     "description": "Payment scams, general security guidelines, scam trends, and reporting scams.",
-    "sample_queries": [
-      "How do I protect myself from payment scams on Amazon?",
-      "How do I report a gift card scam?",
-      "What are the latest scam trends targeting Amazon customers?",
-      "How do I know if an email about a charge is a scam?"
-    ],
     "source_chunks": [
       "amz_sec_001",
       "amz_sec_002",
@@ -253,8 +160,6 @@
       "amz_sec_004",
       "avoiding_payment_scams_001",
       "identifying_a_scam_001",
-      "identifying_a_scam_002",
-      "identifying_a_scam_003",
       "report_a_scam_001",
       "scam_trends_001",
       "scam_trends_002",
@@ -268,13 +173,6 @@
   {
     "intent": "check_return_eligibility",
     "description": "Return windows, item eligibility policies, return requests, and pharmacy/luxury/business return rules.",
-    "sample_queries": [
-      "How long do I usually have to return something on Amazon?",
-      "Can I return an item after 30 days?",
-      "Are personalized products refundable?",
-      "What is the return policy for Amazon Pharmacy or Luxury items?",
-      "Are Apple products covered under the normal 30-day return policy?"
-    ],
     "source_chunks": [
       "amz_ret_001",
       "amz_ret_002",
@@ -298,12 +196,6 @@
   {
     "intent": "check_restocking_fees",
     "description": "Return restocking fees and damage deductions.",
-    "sample_queries": [
-      "Do opened video games have restocking fees?",
-      "Can Amazon reduce my refund if the product is damaged?",
-      "How much does Amazon deduct for returned items?",
-      "Are there restocking fees for opened electronics?"
-    ],
     "source_chunks": [
       "amz_fee_001",
       "amz_fee_002",
@@ -315,12 +207,6 @@
   {
     "intent": "check_international_returns",
     "description": "Return policies for international purchases.",
-    "sample_queries": [
-      "How do international returns work on Amazon?",
-      "Who pays for return shipping on international orders?",
-      "How do I print an international return label?",
-      "What is the return window for international shipments?"
-    ],
     "source_chunks": [
       "amz_int_001",
       "amz_int_002",
@@ -334,12 +220,6 @@
   {
     "intent": "track_refund",
     "description": "Tracking return shipments, refund status timelines, and refund methods.",
-    "sample_queries": [
-      "When will Amazon issue my refund after I send the item back?",
-      "How do I check my return tracking status?",
-      "How long does a refund take to show on my credit card?",
-      "Where do I find my refund details in Amazon?"
-    ],
     "source_chunks": [
       "amz_ref_001",
       "amz_ref_002",
@@ -356,12 +236,6 @@
   {
     "intent": "check_promotional_balance",
     "description": "Checking promotional credit and benefit balances.",
-    "sample_queries": [
-      "How do I check my remaining promotional credit balance?",
-      "Where is my Amazon rewards points balance?",
-      "How do I check my benefit balance?",
-      "Where can I see my promotional credit?"
-    ],
     "source_chunks": [
       "check_your_credit_and_benefit_balances_001"
     ]
@@ -369,12 +243,6 @@
   {
     "intent": "track_package",
     "description": "Package tracking links, map tracking, and photo delivery confirmations.",
-    "sample_queries": [
-      "Where is my order right now?",
-      "How do I see my delivery driver's real-time location on a map?",
-      "Where can I view the photo taken of my delivered package?",
-      "How do I check the tracking link for my shipment?"
-    ],
     "source_chunks": [
       "map_tracking_001",
       "photo_delivery_001",
@@ -387,16 +255,8 @@
   {
     "intent": "manage_delivery_alerts",
     "description": "SMS/push notification tracking settings and text alerts.",
-    "sample_queries": [
-      "How do I sign up for shipment updates via text message?",
-      "How can I stop receiving shipment updates via SMS for this order?",
-      "How can I turn on push notifications for shipment tracking?",
-      "How to manage text tracking notifications?"
-    ],
     "source_chunks": [
       "manage_shipment_text_updates_001",
-      "push_notifications_tracking_001",
-      "push_notifications_tracking_002",
       "push_notifications_tracking_003",
       "shipment_text_updates_terms_001",
       "turn_off_text_updates_001"
@@ -405,21 +265,8 @@
   {
     "intent": "check_delivery_delay",
     "description": "Handling late deliveries, carrier delays, and missing scans/tracking numbers.",
-    "sample_queries": [
-      "What should I do if my Amazon delivery is late?",
-      "Why are some Amazon deliveries delayed?",
-      "My tracking info is missing. Why is there no scan?",
-      "My delivery date has passed. What should I do now?"
-    ],
     "source_chunks": [
-      "late_delivery_001",
-      "late_delivery_002",
-      "late_delivery_003",
-      "late_delivery_004",
-      "late_delivery_005",
-      "late_delivery_006",
       "late_delivery_007",
-      "late_delivery_008",
       "missing_tracking_information_001",
       "missing_tracking_information_002",
       "missing_tracking_information_003",
@@ -430,12 +277,6 @@
   {
     "intent": "resolve_undeliverable_package",
     "description": "Package returned to sender as undeliverable.",
-    "sample_queries": [
-      "What happens if my package is marked undeliverable?",
-      "My address was wrong and package is undeliverable. What now?",
-      "Why is my package being returned to sender?",
-      "Does Amazon reship undeliverable packages?"
-    ],
     "source_chunks": [
       "undeliverable_package_001",
       "undeliverable_package_002",
@@ -447,12 +288,6 @@
   {
     "intent": "check_delivery_rules",
     "description": "Secure OTP delivery instructions, delivery windows, and prison delivery rules.",
-    "sample_queries": [
-      "What is a secure delivery OTP and how do I use it?",
-      "What are the delivery windows for Amazon orders?",
-      "Can I ship orders to a prison or correctional facility?",
-      "How does one-time password delivery work?"
-    ],
     "source_chunks": [
       "delivery_windows_001",
       "secure_delivery_otp_001",
@@ -462,13 +297,6 @@
   {
     "intent": "contact_support",
     "description": "Standard customer support phone numbers, help chat, support tickets, fax requests, and currency help.",
-    "sample_queries": [
-      "How do I contact Amazon Customer Service for help?",
-      "Where do I find the phone number or chat link for support?",
-      "How do I open a customer support ticket?",
-      "How to reach a live support agent on Amazon?",
-      "Can I send documents to Amazon via fax?"
-    ],
     "source_chunks": [
       "amazon_currency_converter_supported_currencies_001",
       "fax_requests_001",
@@ -481,27 +309,13 @@
   {
     "intent": "request_bereavement_support",
     "description": "Deceased account closure processes and documentation guidelines.",
-    "sample_queries": [
-      "How do I close the Amazon account of a deceased family member?",
-      "What documents do I need to provide for bereavement account requests?",
-      "How do I contact Amazon support for estate issues?",
-      "What is the bereavement support email or page?"
-    ],
     "source_chunks": [
-      "bereavement_support_001",
-      "bereavement_support_002",
-      "bereavement_support_003"
+      "bereavement_support_001"
     ]
   },
   {
     "intent": "submit_legal_poa",
     "description": "Submitting Power of Attorney (POA) documentation.",
-    "sample_queries": [
-      "How do I submit Power of Attorney documents to manage someone else's account?",
-      "How do I submit legal POA docs to support?",
-      "Where do I send power of attorney documents for account access?",
-      "How to register a power of attorney with Amazon support?"
-    ],
     "source_chunks": [
       "power_of_attorneypoa_support_001"
     ]
@@ -509,32 +323,13 @@
   {
     "intent": "report_missing_package",
     "description": "Handling packages marked as delivered but not received, check carrier contact info.",
-    "sample_queries": [
-      "What should I check if my package is missing?",
-      "Who delivers my package? How to contact carrier?",
-      "My package shows as delivered but I haven't received it.",
-      "I can't find my package at my door even though it says delivered."
-    ],
     "source_chunks": [
-      "missing_package_delivered_001",
-      "missing_package_delivered_002",
-      "missing_package_delivered_003",
-      "missing_package_delivered_004",
-      "missing_package_delivered_005",
-      "missing_package_delivered_006",
-      "missing_package_delivered_007",
-      "missing_package_delivered_008"
+      "missing_package_delivered_002"
     ]
   },
   {
     "intent": "report_missing_item",
     "description": "Handling items/parts missing from a package, empty boxes, or missing packing slips.",
-    "sample_queries": [
-      "What if my third-party seller order arrived incomplete?",
-      "My package arrived but it was missing one of the items.",
-      "I received an empty shipping box from Amazon.",
-      "What should I do if my package doesn't have a packing slip?"
-    ],
     "source_chunks": [
       "missing_item_from_order_001",
       "missing_item_from_order_002",
@@ -549,12 +344,6 @@
   {
     "intent": "check_customs_regulations",
     "description": "Customs clearance requirements, uploading identity documents, South Korea PCCC codes, Taiwan EZ WAY, and Argentina CUIL.",
-    "sample_queries": [
-      "Why do I need to provide my ID for Amazon orders?",
-      "What is the EZ WAY app for Taiwan customs?",
-      "What is a PCCC code for South Korea deliveries?",
-      "How do I clear my Amazon shipment in Argentina using CUIL?"
-    ],
     "source_chunks": [
       "customs_regs_001",
       "customs_regs_002",
@@ -566,12 +355,6 @@
   {
     "intent": "check_shipping_policies",
     "description": "Shipping to hotels, freight forwarders/third-party companies, signature requirements on delivery, packaging programs (Frustration-Free), and Fulfilled by Amazon (FBA) terms.",
-    "sample_queries": [
-      "Can I ship items to a hotel or lodge?",
-      "How do deliveries to third-party shipping companies or freight forwarders work?",
-      "Do I need to sign for my Amazon order on delivery?",
-      "What are the terms for items Fulfilled by Amazon (FBA)?"
-    ],
     "source_chunks": [
       "fulfilled_by_amazon_001",
       "hotel_delivery_001",
@@ -587,12 +370,6 @@
   {
     "intent": "identify_phishing_scams",
     "description": "Recognizing fake emails, phone calls, SMS text messages, and websites, and reporting suspicious communications.",
-    "sample_queries": [
-      "How do I know if an Amazon survey request is real or fake?",
-      "How do I identify a fake text message or spoofed call?",
-      "Where do I report a suspicious email claiming to be from Amazon?",
-      "How do I protect my system from fake Amazon websites?"
-    ],
     "source_chunks": [
       "how_to_identify_fake_emails_001",
       "how_to_identify_fake_phone_calls_001",
@@ -605,12 +382,6 @@
   {
     "intent": "check_tax_rates",
     "description": "How US state sales tax calculations work, estimated tax at checkout, and international VAT rates.",
-    "sample_queries": [
-      "Why was sales tax added to my Amazon order total?",
-      "What are the VAT rates for physical and digital products in Europe?",
-      "How does Amazon calculate state-specific sales tax?",
-      "Am I charged VAT when ordering Kindle books or subscriptions?"
-    ],
     "source_chunks": [
       "about_us_state_sales_and_use_taxes_001",
       "about_us_state_sales_and_use_taxes_002",
@@ -621,12 +392,6 @@
   {
     "intent": "manage_notifications",
     "description": "Managing email preferences, newsletter updates, and out-of-stock restock email alerts.",
-    "sample_queries": [
-      "How do I change my subscription email preferences?",
-      "How do I opt out of receiving deals by email?",
-      "Where do I sign up for product restock notifications (Alert me when available)?",
-      "How do I manage my Subscribe and Save email notifications?"
-    ],
     "source_chunks": [
       "availability_alerts_001",
       "change_your_subscription_email_preferences_001"

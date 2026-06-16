@@ -82,6 +82,18 @@ def retrieve(query, top_k=3):
         predicted_intent_list = [intent1, intent2]
     else:
         predicted_intent_list = [predicted_intent]
+        
+    # Top-5 predicted intents with scores for display in the app
+    top_predicted = []
+    for idx in sorted_idxs[:5]:
+        intent_name = le.inverse_transform([idx])[0]
+        score = probs[idx]
+        is_selected = intent_name in predicted_intent_list
+        top_predicted.append({
+            "intent": intent_name,
+            "score": float(score),
+            "selected": is_selected
+        })
     
     # 2. Apply metadata filtering based on predicted intent list
     if search_all:
@@ -129,7 +141,36 @@ def retrieve(query, top_k=3):
             "score": float(score),
             "intent": ", ".join(predicted_intent_list),
             "chunk_id": row["chunk_id"],
-            "source_file": row["source_file"]
+            "source_file": row["source_file"],
+            "chunk_title": row["chunk_title"],
+            "chunk_text": chunk_text
         })
         
-    return retrieved_chunks
+    # Linked chunks from intents_schema
+    with open(os.path.join(CURRENT_DIR, "intents_schema.json"), "r") as f:
+        intents_schema = json.load(f)
+        
+    linked_chunks = []
+    for intent in predicted_intent_list:
+        for entry in intents_schema:
+            if entry["intent"] == intent:
+                for cid in entry["source_chunks"]:
+                    match = chunks_df[chunks_df["chunk_id"] == cid]
+                    if not match.empty:
+                        src_file = match.iloc[0]["source_file"]
+                        title = match.iloc[0]["chunk_title"]
+                    else:
+                        src_file = "Unknown"
+                        title = "Unknown"
+                    linked_chunks.append({
+                        "intent": intent,
+                        "chunk_id": cid,
+                        "chunk_title": title,
+                        "source_file": src_file
+                    })
+                    
+    return {
+        "candidate_results": retrieved_chunks,
+        "predicted_intents": top_predicted,
+        "linked_chunks": linked_chunks
+    }
