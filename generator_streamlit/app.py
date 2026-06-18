@@ -38,6 +38,7 @@ if st.button("Generate Response"):
         
         candidate_results = retrieval_output["candidate_results"]
         predicted_intents = retrieval_output["predicted_intents"]
+        linked_chunks = retrieval_output.get("linked_chunks", [])
 
         # 2. Re-rank candidate chunks using Cross-Encoder directly in the app
         if candidate_results:
@@ -90,6 +91,13 @@ if st.button("Generate Response"):
     for item in predicted_intents:
         badge = "(Selected for Routing)" if item["selected"] else ""
         st.write(f"- **{item['intent']}**: `{item['score']:.4f}` {badge}")
+
+    st.subheader("Linked Chunks for Selected Intents")
+    if linked_chunks:
+        for item in linked_chunks:
+            st.write(f"- **Intent:** `{item['intent']}` | **Chunk ID:** `{item['chunk_id']}` | **Title:** `{item['chunk_title']}` | **Source:** `{item['source_file']}`")
+    else:
+        st.write("No linked chunks found.")
 
     st.subheader("Top Retrieved Chunks")
 

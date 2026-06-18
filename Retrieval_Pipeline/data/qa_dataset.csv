@@ -209,16 +209,16 @@ How do I stop receiving SMS updates about my orders?,turn_off_text_updates_001,m
 Where is the option to enable order delivery texts?,manage_shipment_text_updates_001,manage_delivery_alerts
 How to configure my shipment notification settings?,turn_off_text_updates_001,manage_delivery_alerts
 How do I receive mobile alerts when a package arrives?,push_notifications_tracking_003,manage_delivery_alerts
-"My order is past its delivery date, what should I do?",other_query,report_delivery_delay
-Who do I contact about a delayed package scan?,other_query,report_delivery_delay
-"My tracking says late delivery, where is my order?",other_query,report_delivery_delay
-Why is my package delayed at the carrier facility?,other_query,report_delivery_delay
-My order was supposed to arrive today but is delayed.,other_query,report_delivery_delay
-How do I report a missed delivery date?,other_query,report_delivery_delay
-What happens if my shipment is delayed by weather?,other_query,report_delivery_delay
-"My tracking is stuck in transit, how to report delay?",other_query,report_delivery_delay
-Why is my Amazon delivery taking longer than expected?,other_query,report_delivery_delay
-How do I request compensation for a late delivery?,other_query,report_delivery_delay
+"My order is past its delivery date, what should I do?",late_delivery_007,check_delivery_delay
+Who do I contact about a delayed package scan?,missing_tracking_information_003,check_delivery_delay
+"My tracking says late delivery, where is my order?",late_delivery_007,check_delivery_delay
+Why is my package delayed at the carrier facility?,missing_tracking_information_005,check_delivery_delay
+My order was supposed to arrive today but is delayed.,late_delivery_007,check_delivery_delay
+How do I report a missed delivery date?,late_delivery_007,check_delivery_delay
+What happens if my shipment is delayed by weather?,late_delivery_007,check_delivery_delay
+"My tracking is stuck in transit, how to report delay?",missing_tracking_information_003,check_delivery_delay
+Why is my Amazon delivery taking longer than expected?,late_delivery_007,check_delivery_delay
+How do I request compensation for a late delivery?,late_delivery_007,check_delivery_delay
 Why was my package marked as undeliverable?,undeliverable_package_004,resolve_undeliverable_package
 "My order is being returned to sender, how do I fix it?",undeliverable_package_002,resolve_undeliverable_package
 What should I do if my shipping address was incorrect?,undeliverable_package_002,resolve_undeliverable_package
