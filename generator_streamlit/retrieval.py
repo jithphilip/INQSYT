@@ -50,7 +50,24 @@ def load_intent_resources():
     for entry in intents_schema:
         intents_desc += f"- **{entry['intent']}**: {entry['description']}\n"
         
-    return chunks_df, embedder, index, classifier_data, all_vectors, intents_list, intents_desc
+    intent_to_desc = {entry["intent"]: entry["description"] for entry in intents_schema}
+    
+    intent_to_samples = {}
+    for entry in intents_schema:
+        intent_name = entry["intent"]
+        samples = []
+        for cid in entry["source_chunks"]:
+            match = chunks_df[chunks_df["chunk_id"] == cid]
+            if not match.empty:
+                meta = match.iloc[0].get("metadata")
+                if isinstance(meta, dict):
+                    qs = meta.get("sample_queries", [])
+                    for q in qs:
+                        if q not in samples:
+                            samples.append(q)
+        intent_to_samples[intent_name] = samples
+        
+    return chunks_df, embedder, index, classifier_data, all_vectors, intents_list, intents_desc, intent_to_desc, intent_to_samples
 
 @st.cache_data
 def get_llm_intent(query, intents_list, intents_desc):
@@ -153,7 +170,7 @@ User support query: "{query}"
         return "other_query", None
 
 def retrieve(query, top_k=3):
-    chunks_df, embedder, index, classifier_data, all_vectors, intents_list, intents_desc = load_intent_resources()
+    chunks_df, embedder, index, classifier_data, all_vectors, intents_list, intents_desc, intent_to_desc, intent_to_samples = load_intent_resources()
     
     # 1. Classify the user query intent
     clf = classifier_data["classifier"]
@@ -186,7 +203,7 @@ def retrieve(query, top_k=3):
     search_all = False
     
     # Check if we should fallback to local Qwen LLM router
-    is_llm_fallback = margin <= 0.35
+    is_llm_fallback = (margin <= 0.35) and (top1_prob < 0.13)
     
     if is_llm_fallback:
         # Cascade to LLM router
@@ -194,30 +211,6 @@ def retrieve(query, top_k=3):
         predicted_intent_list = [primary]
         if secondary:
             predicted_intent_list.append(secondary)
-            
-        # Top-5 predicted intents with scores for display in the app
-        top_predicted = []
-        top_predicted.append({
-            "intent": f"[Qwen Router] {primary}",
-            "score": 1.0,
-            "selected": True
-        })
-        if secondary:
-            top_predicted.append({
-                "intent": f"[Qwen Router] {secondary}",
-                "score": 0.5,
-                "selected": True
-            })
-        # Add the original top-3 LR predictions to fill up the list of 5 for user visibility
-        added_count = len(top_predicted)
-        for idx in sorted_idxs[:(5 - added_count)]:
-            intent_name = le.inverse_transform([idx])[0]
-            if intent_name not in predicted_intent_list:
-                top_predicted.append({
-                    "intent": intent_name,
-                    "score": float(probs[idx]),
-                    "selected": False
-                })
     else:
         # Use Logistic Regression
         # Multi-label search: if top-2 is close to top-1 (difference <= 0.2), search both
@@ -226,16 +219,43 @@ def retrieve(query, top_k=3):
         else:
             predicted_intent_list = [top1_intent]
             
-        top_predicted = []
-        for idx in sorted_idxs[:5]:
-            intent_name = le.inverse_transform([idx])[0]
-            score = probs[idx]
-            is_selected = intent_name in predicted_intent_list
-            top_predicted.append({
-                "intent": intent_name,
-                "score": float(score),
-                "selected": is_selected
-            })
+    # Build intent table data
+    intents_table_data = []
+    for idx in sorted_idxs:
+        intent_name = le.inverse_transform([idx])[0]
+        lr_score = float(probs[idx])
+        is_selected = intent_name in predicted_intent_list
+        
+        if is_selected:
+            if is_llm_fallback:
+                score = 1.0 if intent_name == primary else 0.5
+            else:
+                score = lr_score
+            selected_str = "Yes"
+        else:
+            score = lr_score
+            selected_str = "No"
+            
+        desc = intent_to_desc.get(intent_name, "")
+        samples = intent_to_samples.get(intent_name, [])
+        samples_str = "\n".join([f"* {q}" for q in samples[:3]]) if samples else "No sample queries"
+        
+        intents_table_data.append({
+            "intent_id": intent_name,
+            "confidence": score,
+            "description": desc,
+            "is_selected": selected_str,
+            "intent_metadata": samples_str,
+            "raw_score": lr_score,
+            "is_selected_bool": is_selected
+        })
+        
+    # Sort: selected intents first, then by raw_score descending
+    intents_table_data = sorted(
+        intents_table_data,
+        key=lambda x: (1 if x["is_selected_bool"] else 0, x["raw_score"]),
+        reverse=True
+    )
     
     # 2. Apply metadata filtering based on predicted intent list
     if search_all:
@@ -251,10 +271,15 @@ def retrieve(query, top_k=3):
     
     # 3. Perform Vector search manually on the filtered subset for exact cosine similarity
     filtered_vectors = all_vectors[filtered_indices]
-    
-    # Dot product since vectors are normalized (equivalent to cosine similarity)
     similarities = np.dot(filtered_vectors, query_embedding.T).flatten()
     
+    # Map all filtered chunks to their bi-encoder score
+    chunk_to_bi_score = {}
+    for local_idx, score in enumerate(similarities):
+        global_idx = filtered_indices[local_idx]
+        cid = chunks_df.iloc[global_idx]["chunk_id"]
+        chunk_to_bi_score[cid] = float(score)
+        
     # Get top-k matches
     top_indices_local = np.argsort(similarities)[::-1][:top_k]
     
@@ -265,8 +290,6 @@ def retrieve(query, top_k=3):
         row = chunks_df.iloc[global_idx]
         
         chunk_text = row["chunk"]
-        
-        # Resolve table/list structures from metadata
         meta = row.get("metadata")
         if isinstance(meta, dict):
             chunk_type = meta.get("chunk_type")
@@ -275,7 +298,6 @@ def retrieve(query, top_k=3):
             elif chunk_type == "list" and meta.get("list_markdown"):
                 chunk_text = meta["list_markdown"]
                 
-        # Prepend the title for full parent context
         formatted_chunk = f"Title: {row['chunk_title']}\nContent: {chunk_text}"
         
         retrieved_chunks.append({
@@ -288,7 +310,8 @@ def retrieve(query, top_k=3):
             "chunk_text": chunk_text
         })
         
-    # Linked chunks from intents_schema
+    # Build all linked chunks for predicted intents
+    all_linked_chunks = []
     with open(os.path.join(CURRENT_DIR, "intents_schema.json"), "r") as f:
         intents_schema = json.load(f)
         
@@ -299,20 +322,39 @@ def retrieve(query, top_k=3):
                 for cid in entry["source_chunks"]:
                     match = chunks_df[chunks_df["chunk_id"] == cid]
                     if not match.empty:
-                        src_file = match.iloc[0]["source_file"]
-                        title = match.iloc[0]["chunk_title"]
+                        row = match.iloc[0]
+                        src_file = row["source_file"]
+                        title = row["chunk_title"]
+                        
+                        linked_chunks.append({
+                            "intent": intent,
+                            "chunk_id": cid,
+                            "chunk_title": title,
+                            "source_file": src_file
+                        })
+                        
+                        all_linked_chunks.append({
+                            "chunk_id": cid,
+                            "from_intent_id": intent,
+                            "parent_page": src_file,
+                            "chunk_title": title,
+                            "content": row["chunk"],
+                            "chunk_type": row.get("metadata", {}).get("chunk_type") if isinstance(row.get("metadata"), dict) else "text",
+                            "table_markdown": row.get("metadata", {}).get("table_markdown") if isinstance(row.get("metadata"), dict) else None,
+                            "list_markdown": row.get("metadata", {}).get("list_markdown") if isinstance(row.get("metadata"), dict) else None
+                        })
                     else:
-                        src_file = "Unknown"
-                        title = "Unknown"
-                    linked_chunks.append({
-                        "intent": intent,
-                        "chunk_id": cid,
-                        "chunk_title": title,
-                        "source_file": src_file
-                    })
-                    
+                        linked_chunks.append({
+                            "intent": intent,
+                            "chunk_id": cid,
+                            "chunk_title": "Unknown",
+                            "source_file": "Unknown"
+                        })
+                        
     return {
         "candidate_results": retrieved_chunks,
-        "predicted_intents": top_predicted,
-        "linked_chunks": linked_chunks
+        "predicted_intents": intents_table_data,
+        "linked_chunks": linked_chunks,
+        "chunk_to_bi_score": chunk_to_bi_score,
+        "all_linked_chunks": all_linked_chunks
     }
