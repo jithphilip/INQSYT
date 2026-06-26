@@ -1,0 +1,833 @@
+
+
+=== INTENT: modify_order ===
+
+--- CHUNK ID: amz_can_001 ---
+TITLE: Canceling Orders Before Shipping
+TEXT:
+Customers can cancel: - Physical items - Orders that have not entered the shipping process Orders sold and shipped by third-party sellers may usually be canceled within one business day. Once orders enter fulfillment: - Seller approval may be required To cancel an order: 1. Go to Your Orders 2. Select View or Edit Order 3. Select Cancel Items 4. Choose items to cancel 5. Select a cancellation reason 6. Submit the cancellation request
+
+--- CHUNK ID: amz_can_002 ---
+TITLE: Items That Cannot Be Canceled
+TEXT:
+If Amazon-shipped orders cannot be canceled: - Customers should refuse delivery - Or return the package through the Online Returns Center If third-party seller orders cannot be canceled: - Customers should contact the seller directly
+
+--- CHUNK ID: amz_ord_001 ---
+TITLE: Changing Order Information
+TEXT:
+Customers may update: - Order quantity - Billing address - Delivery address - Payment method Changes are allowed only before dispatch. To modify an order: 1. Go to Your Orders 2. Select Order Details 3. Select Change beside the information to update 4. Follow the on-screen instructions Mobile devices may only support order cancellation functions.
+
+--- CHUNK ID: amz_ord_002 ---
+TITLE: Third-Party Seller and Amazon Fresh Order Changes
+TEXT:
+To update shipping addresses for third-party seller orders: - Customers must contact the seller - Cancellation and reordering may be required Amazon Fresh and Whole Foods deliveries may support: - Adding items - Delivery modifications through dedicated delivery management pages.
+
+--- CHUNK ID: amz_rep_001 ---
+TITLE: Replacing Damaged or Defective Items
+TEXT:
+Customers may request replacements through Your Orders by selecting “Return or replace items.” Replacement orders: - Use the same shipping speed as the original order - Require return of the original item before the return-by date - May depend on stock availability If replacements are unavailable or the item was received as a gift: - Customers must return the item - Place a new order instead
+
+--- CHUNK ID: amz_rep_002 ---
+TITLE: Photo Submission Requirements
+TEXT:
+Amazon may request photos showing product damage during replacement requests. Images should clearly display the damage to support return and replacement processing.
+
+--- CHUNK ID: cancel_items_and_orders_001 ---
+TITLE: Cancel Items and Orders
+TEXT:
+Step-by-step instructions and sequential guidelines for Cancel Items and Orders.
+
+--- CHUNK ID: change_your_order_information_001 ---
+TITLE: Change Your Order Information
+TEXT:
+Step-by-step guide and sequential instructions on how to change your order information.
+
+--- CHUNK ID: archived_orders_001 ---
+TITLE: Archived Orders
+TEXT:
+Step-by-step instructions and sequential guidelines for Archived Orders.
+
+
+=== INTENT: modify_address ===
+
+--- CHUNK ID: add_delete_and_manage_addresses_001 ---
+TITLE: Add, Delete, and Manage Addresses
+TEXT:
+Step-by-step guide and sequential instructions on how to add, delete, and manage addresses.
+
+--- CHUNK ID: billing_shipping_addresses_001 ---
+TITLE: Billing and Shipping Address Guidelines
+TEXT:
+To avoid delays, provide error free billing and shipping addresses.
+Here are a few tips to keep in mind:
+- Your billing address must match the address on your monthly credit card or bank statement.
+- Leave fields blank if they don't apply to your address, for example, don't enter 'N/A,' 'Not applicable,' and so on.
+- Add information in the correct fields, for example, don't enter city and state information in the Address Line 2 field. Use the city and state fields instead.
+- Avoid using accent m
+
+--- CHUNK ID: billing_shipping_addresses_002 ---
+TITLE: Add Business Hours to your Addresses
+TEXT:
+You can add hours of operation when you are shipping your orders to a business facility:
+- Go to Your Account
+- Select Your Addresses
+- Go to the address you want to edit and select Add delivery instructions.
+- Make sure your Property type is set to Business.
+- Add the hours of operations for the business. You can set separate scheduling options for weekends, weekdays or holidays. You can also add information like access codes or additional delivery instructions.
+- Save changes
+
+--- CHUNK ID: manage_an_email_address_already_in_use_error_001 ---
+TITLE: Manage an ‘E-mail address already in use’ Error
+TEXT:
+Step-by-step guide and sequential instructions on how to manage an ‘e-mail address already in use’ error.
+
+--- CHUNK ID: multiple_addresses_001 ---
+TITLE: Deliver to Multiple Addresses
+TEXT:
+Step-by-step guide and sequential instructions on how to deliver to multiple addresses.
+
+--- CHUNK ID: change_your_order_information_001 ---
+TITLE: Change Your Order Information
+TEXT:
+Step-by-step guide and sequential instructions on how to change your order information.
+
+
+=== INTENT: view_invoice ===
+
+--- CHUNK ID: print_an_invoice_001 ---
+TITLE: Print an Invoice
+TEXT:
+Step-by-step instructions and sequential guidelines for Print an Invoice.
+
+--- CHUNK ID: archived_orders_001 ---
+TITLE: Archived Orders
+TEXT:
+Step-by-step instructions and sequential guidelines for Archived Orders.
+
+
+=== INTENT: submit_feedback ===
+
+--- CHUNK ID: amazon_consumer_surveys_001 ---
+TITLE: Amazon Consumer Surveys
+TEXT:
+Online surveys provide us with information about customers' experiences with our products
+and services.
+
+We occasionally invite you to take online surveys about your experience with our products.
+Typically, these surveys are hosted on third-party sites.
+
+Sometimes, Amazon.com offers an online gift card as a sign of appreciation for completing the survey. Normally, we send the gift card to the same email address within two weeks.
+
+Amazon.com surveys never ask you to provide any sensitive security
+
+--- CHUNK ID: machine_translation_001 ---
+TITLE: Machine Translation
+TEXT:
+We use machine translation to respond to customer inquiries as quickly as possible,
+with the usual high standard.
+
+To respond to customer requests as quickly as possible, we use machine translations.
+This means that an employee who doesn't speak the same language you do may answer
+your request.
+
+This won't change anything for you and you can contact us in your language as usual.
+Translation technology shows the employee your request in their language, and you'll
+be answered in your language.
+
+Cu
+
+
+=== INTENT: reset_password ===
+
+--- CHUNK ID: about_security_codes_001 ---
+TITLE: About Security Codes
+TEXT:
+Step-by-step instructions and sequential guidelines for About Security Codes.
+
+--- CHUNK ID: change_your_password_001 ---
+TITLE: Change Your Password
+TEXT:
+Step-by-step guide and sequential instructions on how to change your password.
+
+--- CHUNK ID: recover_your_account_after_twostep_verification_fails_001 ---
+TITLE: Recover Your Account after Two-Step Verification Fails
+TEXT:
+Step-by-step instructions and sequential guidelines for Recover Your Account after Two-Step Verification Fails.
+
+--- CHUNK ID: reset_your_password_001 ---
+TITLE: Reset Your Password
+TEXT:
+Step-by-step guide and sequential instructions on how to reset your password.
+
+--- CHUNK ID: verify_your_email_for_a_new_account_001 ---
+TITLE: Verify Your Email for a New Account
+TEXT:
+Verification steps and sequential instructions to verify your email for a new account.
+
+--- CHUNK ID: what_is_twostep_verification_001 ---
+TITLE: What is Two-Step Verification?
+TEXT:
+Step-by-step instructions and sequential guidelines for What is Two-Step Verification?.
+
+--- CHUNK ID: why_cant_i_sign_into_my_account_001 ---
+TITLE: Why Can't I Sign into My Account?
+TEXT:
+If you can't log into Amazon, you may be entering incorrect account information or
+you may need to reset your password.
+
+If you can’t sign into Amazon, verify the following before resetting your password:
+
+- **Email Address:** Your email address must be in the format username@domain.com (.net, .org). If you
+  have multiple email addresses, make sure you're using the correct email address and
+  password combination.
+- **Mobile Phone Number**: If you created your account with a mobile phone number
+
+
+=== INTENT: manage_teen_account ===
+
+--- CHUNK ID: approve_a_teens_order_001 ---
+TITLE: Approve a Teen's Order
+TEXT:
+Step-by-step instructions and sequential guidelines for Approve a Teen's Order.
+
+--- CHUNK ID: removing_a_teen_login_from_an_amazon_household_001 ---
+TITLE: Removing a Teen Login from an Amazon Household
+TEXT:
+Step-by-step instructions and sequential guidelines for Removing a Teen Login from an Amazon Household.
+
+--- CHUNK ID: set_order_approvals_for_a_teen_login_001 ---
+TITLE: Set Order Approvals for a Teen Login
+TEXT:
+Step-by-step instructions and sequential guidelines for Set Order Approvals for a Teen Login.
+
+--- CHUNK ID: what_is_a_teen_login_001 ---
+TITLE: What Is a Teen Login?
+TEXT:
+A teen login allows teens (aged 13 to 17) to shop and share payment methods and Prime
+benefits with adults in an Amazon Household.
+
+**Note:** As of April 7, 2025, Amazon is no longer accepting new signups for the Teen program.
+The information below applies only to existing Teen accounts, which can continue to
+be used until the teen turns 18.
+
+With a teen login, teens (aged 13 to 17) have their own Amazon login to shop or stream
+content. Teens pay using a gift card, their credit card, or the shar
+
+
+=== INTENT: manage_profile_settings ===
+
+--- CHUNK ID: add_a_shopping_profile_001 ---
+TITLE: Add a Shopping Profile
+TEXT:
+Step-by-step guide and sequential instructions on how to add a shopping profile.
+
+--- CHUNK ID: change_your_order_information_001 ---
+TITLE: Change Your Order Information
+TEXT:
+Step-by-step guide and sequential instructions on how to change your order information.
+
+--- CHUNK ID: check_your_gift_card_balance_001 ---
+TITLE: Check your Gift Card Balance
+TEXT:
+Verification steps and sequential instructions to check your gift card balance.
+
+--- CHUNK ID: manage_your_amazon_accounts_on_mobile_devices_001 ---
+TITLE: Manage Your Amazon Accounts on Mobile Devices
+TEXT:
+Step-by-step guide and sequential instructions on how to manage your amazon accounts on mobile devices.
+
+--- CHUNK ID: sign_out_of_your_amazon_account_in_the_amazon_shopping_001 ---
+TITLE: Sign out of Your Amazon Account in the Amazon Shopping App
+TEXT:
+Verification steps and sequential instructions to sign out of your amazon account in the amazon shopping app.
+
+--- CHUNK ID: sign_out_of_your_amazon_account_on_the_amazon_website_001 ---
+TITLE: Sign out of Your Amazon Account on the Amazon Website
+TEXT:
+Verification steps and sequential instructions to sign out of your amazon account on the amazon website.
+
+--- CHUNK ID: use_login_with_amazon_001 ---
+TITLE: Use Login with Amazon
+TEXT:
+Step-by-step instructions and sequential guidelines for Use Login with Amazon.
+
+--- CHUNK ID: use_switch_accounts_001 ---
+TITLE: Use Switch Accounts
+TEXT:
+Step-by-step instructions and sequential guidelines for Use Switch Accounts.
+
+--- CHUNK ID: what_are_mobile_phone_number_accounts_001 ---
+TITLE: What are Mobile Phone Number Accounts?
+TEXT:
+Step-by-step instructions and sequential guidelines for What are Mobile Phone Number Accounts?.
+
+--- CHUNK ID: what_are_shopping_profiles_001 ---
+TITLE: What are Shopping Profiles?
+TEXT:
+For a personalized experience in a shared account, create a shopping profile.
+
+Shopping profiles give adults
+and teens in certain jurisdictions
+who share an
+Amazon account a more personalized experience. Profiles use activities like searches and
+browsing history to give tailored recommendations to the shopper. To add
+a shopping profile
+to your account, go to
+Add a Shopping Profile
+
+Using
+adult
+shopping profiles won't change how you shop on Amazon. Activities that take place
+within the account wi
+
+
+=== INTENT: manage_account_settings ===
+
+--- CHUNK ID: about_the_spanish_language_experience_001 ---
+TITLE: About the Spanish Language Experience
+TEXT:
+About the Spanish Language Experience on Amazon.com
+
+As a Spanish speaking customer you can enjoy a more convenient shopping experience
+on Amazon.com by switching your Language Settings from English to Spanish. You can shop from the vast selection on Amazon.com with
+millions of translated product detail pages and many other helpful parts of the website
+like the "Your Account" section in Spanish. The service provides navigation, customer service with email
+and phone support, and order and shipmen
+
+--- CHUNK ID: archived_orders_001 ---
+TITLE: Archived Orders
+TEXT:
+Step-by-step instructions and sequential guidelines for Archived Orders.
+
+--- CHUNK ID: change_your_account_settings_001 ---
+TITLE: Change Your Account Settings
+TEXT:
+Step-by-step guide and sequential instructions on how to change your account settings.
+
+--- CHUNK ID: change_your_language_preference_001 ---
+TITLE: Change Your Language Preference
+TEXT:
+Step-by-step guide and sequential instructions on how to change your language preference.
+
+--- CHUNK ID: manage_a_multiple_accounts_use_the_same_email_error_001 ---
+TITLE: Manage a 'Multiple accounts use the same email' Error
+TEXT:
+Step-by-step guide and sequential instructions on how to manage a 'multiple accounts use the same email' error.
+
+--- CHUNK ID: manage_thirdparty_apps_and_services_with_data_access_th_001 ---
+TITLE: Manage Third-Party Apps with Login with Amazon Data Access
+TEXT:
+Step-by-step guide and sequential instructions on how to manage third-party apps with login with amazon data access.
+
+--- CHUNK ID: unsubscribe_from_amazon_marketing_001 ---
+TITLE: Unsubscribe from Amazon Marketing
+TEXT:
+Step-by-step instructions and sequential guidelines for Unsubscribe from Amazon Marketing.
+
+
+=== INTENT: close_account ===
+
+--- CHUNK ID: request_the_closure_of_your_account_and_the_deletion_of_001 ---
+TITLE: Request the Closure of Your Account and Deletion of Personal Information
+TEXT:
+Step-by-step instructions and sequential guidelines for Request the Closure of Your Account and Deletion of Personal Information.
+
+--- CHUNK ID: what_happens_when_i_close_my_account_001 ---
+TITLE: What Happens When I Close My Account?
+TEXT:
+Find more solutions
+
+Managing Your Account
+ ›
+
+# What Happens When I Close My Account?
+
+Once your account is closed, it's no longer accessible. You won't be able to access
+your order history or print a proof of purchase or an invoice. The closure also affects
+related customer accounts, features, and services that are linked to your email address
+and password across any Amazon sites globally.
+
+--- CHUNK ID: what_happens_when_i_close_my_account_002 ---
+TITLE: Recommendations before closing your account
+TEXT:
+We recommend you download any of the content you uploaded to one of our services
+(such as Amazon Photos), before closing your account.
+
+We also recommend downloading any invoices you might need. Without access to your
+order history and invoices, you'll likely be unable to provide proof of purchase.
+Not having your invoices could impact your ability to make a warranty claim or seek
+product support from the seller or manufacturer.
+
+--- CHUNK ID: what_happens_when_i_close_my_account_003 ---
+TITLE: Consequences of closing your account
+TEXT:
+Once your account has been closed, all products and services accessed through your
+account will no longer be available to you, across any Amazon site globally. For example,
+submitting your account closure request through this website will also close your
+account on , amazon.fr, amazon.com.mx, and all other global sites that use the same credentials to access services and
+products offered through those sites.
+
+Closing your account permanently means you won't have access to the features associated
+
+
+=== INTENT: manage_wallet_cards ===
+
+--- CHUNK ID: amz_acc_001 ---
+TITLE: Closing an Amazon Account
+TEXT:
+To close an Amazon account and delete personal information: 1. Go to Close Your Amazon Account 2. Sign into the account 3. Review associated products and services 4. Select a closure reason 5. Confirm account closure 6. Verify the request through email or text confirmation within five days Customers with multiple Amazon accounts must submit separate closure requests for each account.
+
+--- CHUNK ID: amz_acc_002 ---
+TITLE: Consequences of Account Closure
+TEXT:
+After account closure: - Access to Amazon services across global Amazon sites is removed - Seller accounts, Brand Registry accounts, and Advertising accounts become inaccessible - Closed accounts cannot be restored Customers wishing to use Amazon again must create a new account.
+
+--- CHUNK ID: amz_gc_001 ---
+TITLE: Checking Gift Card Balances
+TEXT:
+Customers can check Amazon Gift Card balances through Your Account. To check balances: 1. Go to Your Account 2. Select Gift Cards Some physical gift cards may not display printed balances. Customers may verify balances by: - Comparing serial numbers from Your Orders - Reviewing Balance Page transaction history Gift card balances do not include promotional certificates.
+
+--- CHUNK ID: change_your_default_payment_methods_001 ---
+TITLE: Change your default payment methods
+TEXT:
+Step-by-step guide and sequential instructions on how to change your default payment methods.
+
+--- CHUNK ID: manage_payment_methods_001 ---
+TITLE: Manage Payment Methods
+TEXT:
+Step-by-step guide and sequential instructions on how to manage payment methods.
+
+--- CHUNK ID: manage_your_backup_payment_methods_001 ---
+TITLE: Manage your backup payment methods
+TEXT:
+Step-by-step guide and sequential instructions on how to manage your backup payment methods.
+
+--- CHUNK ID: change_your_order_information_001 ---
+TITLE: Change Your Order Information
+TEXT:
+Step-by-step guide and sequential instructions on how to change your order information.
+
+--- CHUNK ID: check_your_gift_card_balance_001 ---
+TITLE: Check your Gift Card Balance
+TEXT:
+Verification steps and sequential instructions to check your gift card balance.
+
+
+=== INTENT: convert_currency ===
+
+--- CHUNK ID: about_currency_of_preference_on_international_shopping_001 ---
+TITLE: About Currency of Preference on International Shopping
+TEXT:
+Currency of Preference on International Shopping allows you to shop in over 80 currencies.
+
+Please note: Currency of Preference and currency settings are not available for domestic
+US shoppers.
+
+Amazon.com allows you to shop in over 80 currencies. Currency of Preference is a display-only
+feature and allows you to see prices displayed in your preferred currency. You can
+update your Currency of Preference by changing from USD (default currency) to your
+preferred currency in the currency settings p
+
+--- CHUNK ID: amazon_currency_converter_exchange_rates_001 ---
+TITLE: Amazon Currency Converter Exchange Rates
+TEXT:
+The exchange rate is used to determine the payment total in your local currency while
+placing your order.
+
+When Amazon Currency Converter is enabled, the exchange rate is used to convert the
+order subtotal to your local currency. The exchange rate displayed at checkout may
+not match the rates published online or in other financial databases. Those exchange
+rates are generally inter-bank rates that are for wholesale amounts and aren't available
+to retail consumers. Amazon consistently works to ne
+
+--- CHUNK ID: amazon_currency_converter_requirements_001 ---
+TITLE: Amazon Currency Converter Requirements
+TEXT:
+Use of Amazon Currency Converter is subject to certain requirements.
+
+To qualify to use Amazon Currency Converter:
+
+- You must pay with a Visa, Mastercard, or American Express credit or debit card denominated in a supported currency. To view supported currencies by payment method, go to Amazon Currency Converter Supported Currencies.
+- Your purchase can't include subscriptions or digital products, except for Kindle eBooks.
+- The estimated shipping window of all items must be within 14 or 30 days
+
+--- CHUNK ID: select_your_card_currency_for_amazon_currency_converter_001 ---
+TITLE: Select Your Card Currency for Amazon Currency Converter
+TEXT:
+Step-by-step instructions and sequential guidelines for Select Your Card Currency for Amazon Currency Converter.
+
+
+=== INTENT: resolve_declined_payment ===
+
+--- CHUNK ID: resolve_a_declined_payment_001 ---
+TITLE: Resolve a Declined Payment
+TEXT:
+Verification steps and sequential instructions to resolve a declined payment.
+
+
+=== INTENT: investigate_unknown_charge ===
+
+--- CHUNK ID: unknown_amazon_payment_charges_001 ---
+TITLE: Unknown Amazon Payment Charges
+TEXT:
+An unknown Amazon charge is probably an Amazon Prime payment, a digital service payment,
+an Amazon Pay transaction, or a bank authorization.
+
+If you want to review your complete transaction history, go to
+
+Your Transactions
+
+For help identifying the unknown charge, refer to the list of commonly seen descriptors
+on bank/card statements.
+
+Unknown charges are, most of the times, explained by one of the following cases.
+
+--- CHUNK ID: unknown_amazon_payment_charges_002 ---
+TITLE: **The unknown charge is an Amazon Prime payment**
+TEXT:
+If you're an Amazon Prime member, you are charged monthly or annually, depending
+on your plan. View your Prime membership at Manage Your Prime Membership.
+
+--- CHUNK ID: unknown_amazon_payment_charges_003 ---
+TITLE: **The unknown charge is a digital service payment**
+TEXT:
+If you purchased a digital service, such as a Prime Video channel subscription or
+Kindle Unlimited, you are charged monthly. View your digital service charges at Your Digital Orders.
+
+--- CHUNK ID: unknown_amazon_payment_charges_004 ---
+TITLE: **The unknown charge is a bank authorization**
+TEXT:
+Amazon contacts your bank to confirm your payment method when you place an order.
+This authorization appears on your statement but is not an actual charge. Learn more
+at Authorizations.
+
+--- CHUNK ID: unknown_amazon_payment_charges_005 ---
+TITLE: **Pending or processing charges for cancelled orders**
+TEXT:
+If you cancelled an order before it shipped, an authorization might be visible on
+your statement but is not an actual charge. Learn more at Authorizations.
+
+--- CHUNK ID: unknown_amazon_payment_charges_006 ---
+TITLE: **The unknown charge is an Amazon Pay transaction**
+TEXT:
+Amazon Pay orders begin with 'P01' and are 14 digits long. Check your Amazon Pay Account for your order history. Go to the Amazon Pay Help pages for assistance.
+
+--- CHUNK ID: unknown_amazon_payment_charges_007 ---
+TITLE: **An order was split into multiple shipments or sent to different addresses**
+TEXT:
+Amazon charges your payment method when each part of the order is shipped. This is
+why you have separate charges on your statement.
+
+Go to Your Transactions to match the charge amounts and dates on your statement with the associated order
+number.
+
+--- CHUNK ID: unknown_amazon_payment_charges_008 ---
+TITLE: **Other common scenarios**
+TEXT:
+- A family member, friend, or coworker with access to your card placed an order.
+- You have additional cards associated with the credit or debit account.
+- A back-ordered or preordered item shipped.
+- A gift order shipped.
+
+--- CHUNK ID: unknown_amazon_payment_charges_009 ---
+TITLE: **Not what you're looking for? Try:**
+TEXT:
+- Track Your Package
+- End Your Prime Membership
+- Check the Status of Your Refund
+
+
+=== INTENT: report_payment_scam ===
+
+--- CHUNK ID: amz_sec_001 ---
+TITLE: Reporting Amazon Scams and Fraud
+TEXT:
+Amazon takes fraud, phishing, spoofing, and scam attempts seriously. Customers should report suspicious communications immediately. Reporting categories include: - No information shared - Shared Amazon account information - Shared banking information - Granted remote device access - Shared other personal information
+
+--- CHUNK ID: amz_sec_002 ---
+TITLE: Reporting Scams Without an Amazon Account
+TEXT:
+People without Amazon accounts may still report suspicious communications to: reportascam@amazon.com Sending suspicious emails or messages as attachments helps Amazon investigate scam activity. Amazon may send automatic confirmation emails but may not respond personally.
+
+--- CHUNK ID: amz_sec_003 ---
+TITLE: Reporting Suspicious Calls and Messages
+TEXT:
+Customers may report suspicious phone calls or text messages to the Federal Trade Commission (FTC) using official FTC fraud reporting tools. Customers concerned about account security should review Amazon’s Protect Your System help resources.
+
+--- CHUNK ID: amz_sec_004 ---
+TITLE: Reporting Suspicious Products and Gift Card Fraud
+TEXT:
+Customers can report: - Suspicious products - Suspicious sellers - Unsolicited packages - Brushing scams - Gift card fraud or abuse Additional guidance is available through Amazon Trustworthy Shopping resources.
+
+--- CHUNK ID: avoiding_payment_scams_001 ---
+TITLE: Avoiding Payment Scams
+TEXT:
+Protect yourself from fraud on the internet by identifying and avoiding internet
+scams and phishing attempts.
+
+When in doubt, ask the intended recipient for more information about the purpose and
+safety of the requested payment. Don't send the payment until you're comfortable with
+the transaction.
+
+To avoid payment scams:
+
+- Don't do business with a seller who directs you off the Amazon website. A legitimate
+  Amazon seller transaction will never occur off the Amazon website.
+- Don't send money 
+
+--- CHUNK ID: identifying_a_scam_001 ---
+TITLE: Identifying a Scam
+TEXT:
+Step-by-step instructions and sequential guidelines for Identifying a Scam.
+
+--- CHUNK ID: report_a_scam_001 ---
+TITLE: Report a Scam
+TEXT:
+We take fraud, scam, phishing and spoofing attempts seriously. If you receive a correspondence you think may not be from Amazon, report it immediately.
+
+To have the best advice on what actions to take, select the most appropriate link:
+
+- I have not shared any information
+- I have shared Amazon account information
+- I have shared Banking information
+- I have given remote access to my computer/devices
+- I have shared other information
+
+**If you don't have an Amazon account**
+
+You can still report
+
+--- CHUNK ID: scam_trends_001 ---
+TITLE: Scam Trends
+TEXT:
+Review a sample of common scam trends. Scammers are creative and shift their tactics
+constantly. This list is NOT comprehensive of all scammer tactics.
+
+If you think you're being scammed, visit
+Identifying a scam for more information on identifying, preventing, and reporting scams.
+
+We've partnered with the Better Business Bureau to provide customers with a
+Scam Tracker, a searchable database of common scams. The Scam Tracker enables you to search for
+suspicious communications reported by others
+
+--- CHUNK ID: scam_trends_002 ---
+TITLE: Order confirmation scams
+TEXT:
+Order confirmation scams involve unexpected communications that often refer to an
+unauthorized purchase. Scammers ask you to act urgently to confirm or cancel the purchase.
+They may try to convince you to provide payment details, install software, or purchase
+gift cards.
+
+If you received unexpected correspondence regarding an order, verify your orders by
+logging into your Amazon account. Only legitimate purchases will appear in your
+order history. You can also contact Customer Service for suppor
+
+--- CHUNK ID: scam_trends_003 ---
+TITLE: Tech support scams
+TEXT:
+Scammers create fake websites claiming to provide tech support for your Amazon devices
+and services. Customers who land on these pages are lured to contact the scammer and
+fall prey to their schemes.
+
+Go directly to the
+help section of our website when seeking help with Amazon devices or services. If you use a search
+engine, use caution. Legitimate Amazon websites contain 'Amazon.com' such as 'Amazon.com/support.'
+
+--- CHUNK ID: scam_trends_004 ---
+TITLE: Prime Membership scams
+TEXT:
+Membership fee scams claim that a membership fee is owed, or that there's an issue
+with your membership. Scammers try to convince you to provide payment or bank account
+information to reinstate a membership. Amazon will never ask you to provide payment
+information for products or services over the phone. Visit the
+Message Center on the Amazon website or mobile app to review authentic emails from Amazon. To verify
+your
+Prime Membership or make payments, log in to Amazon, and under
+**Your Account*
+
+--- CHUNK ID: scam_trends_005 ---
+TITLE: Account suspension/deletion scams
+TEXT:
+Account suspension/deletion scams claim your account will be suspended or deleted
+unless you take specific action. Actions may include selecting a fraudulent link or
+providing information like payment details or login credentials, to 'verify your account'.
+Amazon never asks for your password or for sensitive personal information over the
+phone or on any external website. Don’t access any links or provide your information
+to anyone over the phone without authenticating the email or phone call. If
+
+--- CHUNK ID: scam_trends_006 ---
+TITLE: Fake recall/refund scams
+TEXT:
+Fake recall or refund scams involve fraudulent messages claiming your recent purchase
+has safety issues and needs immediate action. Scammers promise refunds but direct
+you to fake websites or unofficial channels to steal your personal information.
+
+Be wary of false urgency scammers that pressure you to act immediately. Amazon will
+never request sensitive information outside of Amazon's website or app. We do not
+send text messages about recalls. While our recall email notifications may include
+li
+
+--- CHUNK ID: scam_trends_007 ---
+TITLE: Recruitment scams
+TEXT:
+Recruitment scams are offering fictitious job opportunities, and usually come through
+unofficial channels, websites, emails, and text messages. They offer unsolicited job
+opportunities that claim to be from Amazon. They usually request that you provide
+personal information and payments to apply for jobs that don't exist.
+
+It's important to understand that these fraudsters are Amazon impersonators. Legitimate
+Amazon job opportunities never require upfront payment or sensitive personal information
+
+
+=== INTENT: check_return_eligibility ===
+
+--- CHUNK ID: amz_ret_001 ---
+TITLE: General Return Eligibility
+TEXT:
+Amazon is committed to making shopping seamless and worry-free. Customers may return eligible items when purchases do not meet expectations or needs change. Most items sold on Amazon.com can be returned within 30 days of delivery for: - Refund - Replacement - Exchange Items must generally be: - In original condition - Unused - Returned with original packaging and accessories Customers should review return eligibility: - On the product detail page before purchase - In Order History after placing 
+
+--- CHUNK ID: amz_ret_002 ---
+TITLE: Refund Processing Overview
+TEXT:
+A refund is issued after: 1. Amazon or the third-party seller receives the returned item 2. The item is inspected 3. The return is approved Return processing may take: - Up to 30 days under normal conditions - Longer in exceptional situations If additional information is required, Amazon contacts the customer with further instructions. Customers may also use Amazon support resources for: - Missing packages - Refund assistance - Product support - A-to-z Guarantee claims involving third-party sell
+
+--- CHUNK ID: amz_ret_003 ---
+TITLE: Standard 30-Day Return Window
+TEXT:
+Most items sold on Amazon.com can be returned within 30 days of delivery.
+
+--- CHUNK ID: amz_ret_004 ---
+TITLE: 7-Day Digital Purchase Returns
+TEXT:
+Applicable to: - Kindle books accidentally purchased from the Kindle Store that have not been read - Digital textbooks, workbooks, and educational content that have not been downloaded - Songs or albums accidentally purchased using Alexa from the Digital Music Store
+
+--- CHUNK ID: amz_ret_005 ---
+TITLE: 15-Day Apple Product Returns
+TEXT:
+Applicable to: - Apple brand products sold in new condition - Boost Infinite brand products sold in new condition - Amazon Haul items priced above $3 Notes: - AppleCare+ cancellations follow plan terms - Amazon Haul items priced at $3 or less are non-returnable and non-refundable
+
+--- CHUNK ID: amz_ret_006 ---
+TITLE: 90-Day Return Window
+TEXT:
+Applicable to: - Select Amazon Renewed items in Acceptable, Good, or Excellent condition - Most nonperishable baby products - Amazon Birthday Registry purchases made by someone other than the registry owner - Custom Gift List purchases - Mattresses excluding crib mattresses
+
+--- CHUNK ID: amz_ret_007 ---
+TITLE: 365-Day Renewed Premium Returns
+TEXT:
+A 180-day return window applies to: - Amazon Wedding Registry purchases made by someone other than the registry owner A 365-day return window applies to: - Amazon Renewed Premium products - Amazon Baby Registry purchases made by someone other than the registry owner
+
+--- CHUNK ID: amz_ret_008 ---
+TITLE: Customized and Final Sale Items
+TEXT:
+Some items cannot be returned or refunded. These include: - Perishable products - Products posing health or safety risks - Products with shipping restrictions - Customized or personalized products - Redeemable products - Amazon Pharmacy products - Pet medication products - Certain digital products - Automobiles
+
+--- CHUNK ID: amz_ret_009 ---
+TITLE: Damaged Final Sale Items
+TEXT:
+Products labeled as “Final Sale” are: - Non-returnable - Non-refundable Examples include: - Trading card games - Certain discounted items - Amazon Haul items priced at $3 or less If a non-returnable or Final Sale item arrives: - Damaged - Defective - Materially different from the order Customers should contact Customer Service for assistance.
+
+--- CHUNK ID: amz_ret_010 ---
+TITLE: Starting a Return Request
+TEXT:
+To initiate a return: 1. Go to Your Orders 2. Select “Return Items” beside the eligible item Amazon supports: - Over 8,000 return locations - Free returns for eligible items - Box-free returns - Label-free returns Most return locations are within a 5-mile radius of customer addresses.
+
+--- CHUNK ID: amz_ret_011 ---
+TITLE: Packaging and Condition Requirements
+TEXT:
+Returned items should include: - Original manufacturer packaging - Tags - Accessories - Components - Manuals - Certificates of authenticity - Inserts Additionally: - Hygiene seals and liners must remain intact - Items should be unused or in original condition Items must be returned before the “return by date” shown in: - Return confirmation emails - Return Request section in Order History
+
+--- CHUNK ID: amz_ret_012 ---
+TITLE: Separate Return Shipment Rules
+TEXT:
+Customers should: - Follow return instructions for each item - Avoid combining items from separate orders in the same package Before returning electronics or devices containing personal information: - Completely erase stored data - Follow manufacturer instructions Examples include: - Computers - Phones - Electronics If a refund is issued before the item is returned: - Customers may be charged if the item is not sent back Charges are reversed once Amazon processes the returned item. Defective haz
+
+--- CHUNK ID: amz_seg_001 ---
+TITLE: Amazon Pharmacy Policy
+TEXT:
+Amazon Pharmacy purchases are: - Non-returnable - Non-refundable Customers should consult Amazon Pharmacy Help for additional assistance.
+
+--- CHUNK ID: amz_seg_002 ---
+TITLE: Amazon Business Policy
+TEXT:
+Standard Amazon return policies also apply to Amazon Business purchases. Programs such as: - Spot Buys - Custom Quote purchases may have separate terms and conditions. Customers should consult: - Amazon Business Accounts Terms and Conditions - Feature Terms and Conditions
+
+--- CHUNK ID: amz_seg_003 ---
+TITLE: Amazon Luxury Policy
+TEXT:
+Amazon Luxury purchases may have: - Specialized support processes - Different damage fee structures Customers should use the Amazon Luxury Help Page for assistance.
+
+--- CHUNK ID: amz_seg_004 ---
+TITLE: Third-Party Seller Returns
+TEXT:
+For items fulfilled and shipped by third-party sellers: - Returns are sent directly to the seller instead of Amazon Third-party sellers must provide one of the following: - A U.S. return address - A prepaid return label - A full refund without requiring the item to be returned
+
+--- CHUNK ID: amz_seg_005 ---
+TITLE: A-to-z Guarantee Protection
+TEXT:
+Customers experiencing issues with: - Third-party sellers - Seller-shipped products - Seller-related disputes may use Amazon’s A-to-z Guarantee protection program.
+
+
+=== INTENT: check_restocking_fees ===
+
+--- CHUNK ID: amz_fee_001 ---
+TITLE: Return Shipping Fees
+TEXT:
+Return shipping costs, drop-off fee options, heavy or bulky item return fees, and high return rate shipping penalties.
+
+--- CHUNK ID: amz_fee_002 ---
+TITLE: Late Return Fees
+TEXT:
+Late return fees, return deadline penalties, and restocking charges when completing returns after the return-by date (20% or 100% of item price).
+
+--- CHUNK ID: amz_fee_003 ---
+TITLE: Damage Fees
+TEXT:
+Damage fee policies, missing parts penalties, and packaging condition fees for returned items and Amazon Luxury items.
+
+--- CHUNK ID: amz_fee_004 ---
+TITLE: Restocking Fees
+TEXT:
+Items subject to a one hundred percent restocking fee including opened software, activated video games, opened collectible cards, board games, and missing packaging.
+
+--- CHUNK ID: amz_fee_005 ---
+TITLE: Partial Refund Policies
+TEXT:
+All returned items are inspected before refunds are issued. Refunds may be reduced because of: - Customer use - Damage - Missing accessories - Missing manuals - Missing parts For currency-converted orders: - Refunds are issued in local currency - Original exchange rates are used
+
+
+=== INTENT: check_international_returns ===
+
+--- CHUNK ID: amz_int_001 ---
+TITLE: UPS Drop-Off Returns
+TEXT:
+Customers shipping from Amazon.com to Canada may return eligible purchases using prepaid UPS drop-off labels. Customers can locate nearby UPS drop-off locations using UPS services.
+
+--- CHUNK ID: amz_int_002 ---
+TITLE: DHL Drop-Off and Pickup Services
+TEXT:
+Amazon supports DHL Express return services in select countries. Available options include: - DHL drop-off locations - DHL Express pickup scheduling Customers selecting pickup services receive confirmation emails with return instructions and may schedule pickup through MyDHL+.
+
+--- CHUNK ID: amz_int_003 ---
+TITLE: Customer-Paid Return Shipping
+TEXT:
+Customers may return items using shipping services paid at their own expense. Amazon may reimburse up to $25 in return postage costs depending on: - Country - Return eligibility Customers can track return progress through Your Orders.
+
+--- CHUNK ID: amz_int_004 ---
+TITLE: Heavy and Bulky Item Returns
+TEXT:
+Weight and size limits for heavy and bulky item returns (50 pounds, 59 inches, 130 inches girth) and carrier pickup requirements.
+
+--- CHUNK ID: amz_int_005 ---
+TITLE: Discounted Purchase Refund Adjustments
+TEXT:
+If customers return items that were part of discount qualification offers, refund amounts may be reduced to account for discount adjustments.
+
+--- CHUNK ID: amz_int_006 ---
+TITLE: Returning Gifts
+TEXT:
+Customers may initiate gift returns using: - A 17-digit order number - Packing slips - Digital gift receipts If the order number is unavailable, customers should contact the gift giver. Gift exchanges and replacements require: - Returning the original gift - Placing a new order Gifted Kindle books may be exchanged for Amazon.com Gift Cards before acceptance.
+
+--- CHUNK ID: amz_int_007 ---
+TITLE: Bundle Purchase Returns
+TEXT:
+Items purchased in a Bundle with Savings promotion must be returned together. Partial refunds are not available for partial bundle returns.

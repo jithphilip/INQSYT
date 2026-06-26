@@ -70,7 +70,7 @@ def load_intent_resources():
     return chunks_df, embedder, index, classifier_data, all_vectors, intents_list, intents_desc, intent_to_desc, intent_to_samples
 
 @st.cache_data
-def get_llm_intent(query, intents_list, intents_desc):
+def get_llm_intent(query, intents_list, intents_desc, top_suggestions=None):
     try:
         OLLAMA_URL = st.secrets.get("OLLAMA_URL") or os.getenv("OLLAMA_URL") or "http://localhost:11434"
         OLLAMA_MODEL = st.secrets.get("OLLAMA_MODEL") or os.getenv("OLLAMA_MODEL") or "qwen2.5:7b"
@@ -120,12 +120,19 @@ Explanation: Any query about shipping to hotels, including missing hotel deliver
 Output: {"primary_intent": "check_shipping_policies", "secondary_intent": "report_missing_package"}
 """
     
+    suggestions_str = ""
+    if top_suggestions:
+        suggestions_str = "\nClassifier Guidance:\nOur statistical classifier is unsure but predicts the following candidate intents (ordered by probability):\n"
+        for rank, (intent, desc, prob) in enumerate(top_suggestions, 1):
+            suggestions_str += f"{rank}. **{intent}** (Confidence: {prob:.4f}): {desc}\n"
+        suggestions_str += "\nUse this guidance to prioritize these candidate intents if they fit the query. If none of these candidate intents are correct, choose from the other valid intents below.\n"
+
     prompt = f"""You are a precise e-commerce query routing assistant. 
 Your task is to classify the user's support query into one (or at most two) of the following 34 valid intents.
 
 Valid Intents & Descriptions:
 {intents_desc}
-
+{suggestions_str}
 Rules:
 1. Analyze the query carefully. Select the single best matching intent key and set it as "primary_intent".
 2. If the query is genuinely ambiguous and matches two intents, select the second intent key and set it as "secondary_intent". Otherwise, set "secondary_intent" to null.
@@ -206,18 +213,31 @@ def retrieve(query, top_k=3):
     is_llm_fallback = (margin <= 0.35) and (top1_prob < 0.13)
     
     if is_llm_fallback:
-        # Cascade to LLM router
-        primary, secondary = get_llm_intent(query, intents_list, intents_desc)
+        # Cascade to LLM router with Classifier Guidance
+        top_suggestions = []
+        for i in range(min(3, len(sorted_idxs))):
+            idx = sorted_idxs[i]
+            intent_name = le.inverse_transform([idx])[0]
+            prob = float(probs[idx])
+            desc = intent_to_desc.get(intent_name, "")
+            top_suggestions.append((intent_name, desc, prob))
+            
+        primary, secondary = get_llm_intent(query, intents_list, intents_desc, top_suggestions=top_suggestions)
         predicted_intent_list = [primary]
         if secondary:
             predicted_intent_list.append(secondary)
     else:
-        # Use Logistic Regression
-        # Multi-label search: if top-2 is close to top-1 (difference <= 0.2), search both
-        if (top1_prob - top2_prob) <= 0.2:
-            predicted_intent_list = [top1_intent, top2_intent]
-        else:
-            predicted_intent_list = [top1_intent]
+        # Use Logistic Regression with Cumulative Probability Mass Routing
+        # Route to top classes until cumulative probability >= 0.50 (min 1, max 3)
+        predicted_intent_list = []
+        cum_prob = 0.0
+        for idx in sorted_idxs:
+            intent_name = le.inverse_transform([idx])[0]
+            prob = float(probs[idx])
+            predicted_intent_list.append(intent_name)
+            cum_prob += prob
+            if cum_prob >= 0.50 or len(predicted_intent_list) >= 3:
+                break
             
     # Build intent table data
     intents_table_data = []

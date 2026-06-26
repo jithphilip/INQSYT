@@ -13,7 +13,7 @@ from huggingface_hub import HfApi
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 INQSYT_DIR = os.path.dirname(CURRENT_DIR)
-QUERIES_CSV_PATH = os.path.join(INQSYT_DIR, "Main_Data", "queries.csv")
+QUERIES_CSV_PATH = os.path.join(INQSYT_DIR, "Main_Data", "classifier_training_dataset_v2.csv")
 
 # Local save folder
 MODEL_SAVE_DIR = os.path.join(CURRENT_DIR, "bert_classifier")

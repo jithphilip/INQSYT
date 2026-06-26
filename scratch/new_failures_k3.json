@@ -1,0 +1,1226 @@
+[
+  {
+    "question": "Is it too late to edit my purchase?",
+    "true_intent": "modify_order",
+    "true_chunk_id": "amz_ord_001",
+    "predicted_intents": [
+      "modify_order",
+      "check_delivery_delay",
+      "manage_wallet_cards"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.3356941583342917,
+    "margin": 0.21424064401527868,
+    "retrieved_ids": [
+      "late_delivery_007",
+      "amz_can_001",
+      "manage_payment_methods_001",
+      "cancel_items_and_orders_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "late_delivery_007",
+        "bi_score": 0.5781731009483337,
+        "rerank_score": -4.034211158752441
+      },
+      {
+        "chunk_id": "amz_can_001",
+        "bi_score": 0.6066930890083313,
+        "rerank_score": -5.885080337524414
+      },
+      {
+        "chunk_id": "manage_payment_methods_001",
+        "bi_score": 0.5684487223625183,
+        "rerank_score": -6.552269458770752
+      },
+      {
+        "chunk_id": "cancel_items_and_orders_001",
+        "bi_score": 0.5857287049293518,
+        "rerank_score": -7.211424827575684
+      }
+    ]
+  },
+  {
+    "question": "Can I correct a typo in my delivery destination?",
+    "true_intent": "modify_address",
+    "true_chunk_id": "billing_shipping_addresses_001",
+    "predicted_intents": [
+      "check_shipping_policies",
+      "track_package",
+      "modify_order"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.14742351240266907,
+    "margin": 0.03288889866580173,
+    "retrieved_ids": [
+      "track_package_004",
+      "hotel_delivery_003",
+      "map_tracking_001",
+      "track_package_003",
+      "change_your_order_information_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "track_package_004",
+        "bi_score": 0.6672386527061462,
+        "rerank_score": -6.22764253616333
+      },
+      {
+        "chunk_id": "hotel_delivery_003",
+        "bi_score": 0.632474422454834,
+        "rerank_score": -6.558443546295166
+      },
+      {
+        "chunk_id": "map_tracking_001",
+        "bi_score": 0.6218365430831909,
+        "rerank_score": -6.737950801849365
+      },
+      {
+        "chunk_id": "track_package_003",
+        "bi_score": 0.6026182770729065,
+        "rerank_score": -7.214935302734375
+      },
+      {
+        "chunk_id": "change_your_order_information_001",
+        "bi_score": 0.6525478363037109,
+        "rerank_score": -7.397011756896973
+      }
+    ]
+  },
+  {
+    "question": "Can I get a VAT invoice for my digital purchases?",
+    "true_intent": "view_invoice",
+    "true_chunk_id": "print_an_invoice_001",
+    "predicted_intents": [
+      "check_tax_rates"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.5483134306786871,
+    "margin": 0.3057607359826856,
+    "retrieved_ids": [
+      "vat_rates_002",
+      "about_us_state_sales_and_use_taxes_002",
+      "vat_rates_001",
+      "about_us_state_sales_and_use_taxes_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "vat_rates_002",
+        "bi_score": 0.7384307384490967,
+        "rerank_score": -10.2041654586792
+      },
+      {
+        "chunk_id": "about_us_state_sales_and_use_taxes_002",
+        "bi_score": 0.6095396280288696,
+        "rerank_score": -10.614160537719727
+      },
+      {
+        "chunk_id": "vat_rates_001",
+        "bi_score": 0.670306921005249,
+        "rerank_score": -10.784049987792969
+      },
+      {
+        "chunk_id": "about_us_state_sales_and_use_taxes_001",
+        "bi_score": 0.6025344729423523,
+        "rerank_score": -11.468738555908203
+      }
+    ]
+  },
+  {
+    "question": "How do I submit feedback about my shopping experience?",
+    "true_intent": "submit_feedback",
+    "true_chunk_id": "amazon_consumer_surveys_001",
+    "predicted_intents": [
+      "submit_feedback",
+      "track_refund",
+      "manage_profile_settings"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.1909521838630667,
+    "margin": 0.11358144828153728,
+    "retrieved_ids": [
+      "add_a_shopping_profile_001",
+      "what_are_shopping_profiles_001",
+      "sign_out_of_your_amazon_account_in_the_amazon_shopping_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "add_a_shopping_profile_001",
+        "bi_score": 0.5981628894805908,
+        "rerank_score": -2.4446218013763428
+      },
+      {
+        "chunk_id": "what_are_shopping_profiles_001",
+        "bi_score": 0.6323872804641724,
+        "rerank_score": -3.307492256164551
+      },
+      {
+        "chunk_id": "sign_out_of_your_amazon_account_in_the_amazon_shopping_001",
+        "bi_score": 0.51920485496521,
+        "rerank_score": -9.582006454467773
+      }
+    ]
+  },
+  {
+    "question": "How can I file a complaint about the delivery service?",
+    "true_intent": "submit_feedback",
+    "true_chunk_id": "amazon_consumer_surveys_001",
+    "predicted_intents": [
+      "report_missing_package",
+      "check_shipping_policies",
+      "track_package"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.22100680917136262,
+    "margin": 0.12369559901411521,
+    "retrieved_ids": [
+      "track_package_004",
+      "missing_package_delivered_002",
+      "hotel_delivery_004",
+      "hotel_delivery_003",
+      "third_party_company_delivery_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "track_package_004",
+        "bi_score": 0.6259043216705322,
+        "rerank_score": -4.427494049072266
+      },
+      {
+        "chunk_id": "missing_package_delivered_002",
+        "bi_score": 0.6048517227172852,
+        "rerank_score": -4.593100547790527
+      },
+      {
+        "chunk_id": "hotel_delivery_004",
+        "bi_score": 0.5873225927352905,
+        "rerank_score": -4.9911088943481445
+      },
+      {
+        "chunk_id": "hotel_delivery_003",
+        "bi_score": 0.589889645576477,
+        "rerank_score": -5.738590717315674
+      },
+      {
+        "chunk_id": "third_party_company_delivery_001",
+        "bi_score": 0.5642309188842773,
+        "rerank_score": -6.038042068481445
+      }
+    ]
+  },
+  {
+    "question": "I want to share my thoughts on the new checkout design.",
+    "true_intent": "submit_feedback",
+    "true_chunk_id": "amazon_consumer_surveys_001",
+    "predicted_intents": [
+      "submit_feedback",
+      "other_query",
+      "manage_wallet_cards"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.14877419767558736,
+    "margin": 0.052198348639681036,
+    "retrieved_ids": [
+      "manage_payment_methods_001",
+      "check_your_gift_card_balance_001",
+      "change_your_default_payment_methods_001",
+      "manage_your_backup_payment_methods_001",
+      "change_your_order_information_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "manage_payment_methods_001",
+        "bi_score": 0.4656316041946411,
+        "rerank_score": -9.014206886291504
+      },
+      {
+        "chunk_id": "check_your_gift_card_balance_001",
+        "bi_score": 0.43298617005348206,
+        "rerank_score": -10.874334335327148
+      },
+      {
+        "chunk_id": "change_your_default_payment_methods_001",
+        "bi_score": 0.49914878606796265,
+        "rerank_score": -11.060464859008789
+      },
+      {
+        "chunk_id": "manage_your_backup_payment_methods_001",
+        "bi_score": 0.44060760736465454,
+        "rerank_score": -11.078293800354004
+      },
+      {
+        "chunk_id": "change_your_order_information_001",
+        "bi_score": 0.45806702971458435,
+        "rerank_score": -11.100652694702148
+      }
+    ]
+  },
+  {
+    "question": "Can I change the payment method my teen uses?",
+    "true_intent": "manage_teen_account",
+    "true_chunk_id": "set_order_approvals_for_a_teen_login_001",
+    "predicted_intents": [
+      "manage_teen_account",
+      "manage_wallet_cards"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.3915581201841366,
+    "margin": 0.09536008125070089,
+    "retrieved_ids": [
+      "what_is_a_teen_login_001",
+      "change_your_default_payment_methods_001",
+      "removing_a_teen_login_from_an_amazon_household_001",
+      "manage_your_backup_payment_methods_001",
+      "manage_payment_methods_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "what_is_a_teen_login_001",
+        "bi_score": 0.6366451978683472,
+        "rerank_score": 1.7718160152435303
+      },
+      {
+        "chunk_id": "change_your_default_payment_methods_001",
+        "bi_score": 0.6780081391334534,
+        "rerank_score": 0.42859935760498047
+      },
+      {
+        "chunk_id": "removing_a_teen_login_from_an_amazon_household_001",
+        "bi_score": 0.5967890024185181,
+        "rerank_score": -0.1355970799922943
+      },
+      {
+        "chunk_id": "manage_your_backup_payment_methods_001",
+        "bi_score": 0.5893105864524841,
+        "rerank_score": -1.126078486442566
+      },
+      {
+        "chunk_id": "manage_payment_methods_001",
+        "bi_score": 0.5909368395805359,
+        "rerank_score": -1.8605986833572388
+      }
+    ]
+  },
+  {
+    "question": "I want to change the email address linked to my profile.",
+    "true_intent": "manage_profile_settings",
+    "true_chunk_id": "what_are_mobile_phone_number_accounts_001",
+    "predicted_intents": [
+      "modify_address",
+      "manage_notifications"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.4291571189227736,
+    "margin": 0.299152483590516,
+    "retrieved_ids": [
+      "add_delete_and_manage_addresses_001",
+      "manage_an_email_address_already_in_use_error_001",
+      "change_your_subscription_email_preferences_001",
+      "change_your_order_information_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "add_delete_and_manage_addresses_001",
+        "bi_score": 0.5676443576812744,
+        "rerank_score": -3.760486602783203
+      },
+      {
+        "chunk_id": "manage_an_email_address_already_in_use_error_001",
+        "bi_score": 0.565844714641571,
+        "rerank_score": -4.372675895690918
+      },
+      {
+        "chunk_id": "change_your_subscription_email_preferences_001",
+        "bi_score": 0.598755955696106,
+        "rerank_score": -5.111924171447754
+      },
+      {
+        "chunk_id": "change_your_order_information_001",
+        "bi_score": 0.5377874970436096,
+        "rerank_score": -5.735982894897461
+      }
+    ]
+  },
+  {
+    "question": "Where do I change my primary account location?",
+    "true_intent": "manage_account_settings",
+    "true_chunk_id": "change_your_account_settings_001",
+    "predicted_intents": [
+      "modify_address",
+      "manage_profile_settings",
+      "reset_password"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.26882511779137686,
+    "margin": 0.16889380925567227,
+    "retrieved_ids": [
+      "add_delete_and_manage_addresses_001",
+      "change_your_order_information_001",
+      "why_cant_i_sign_into_my_account_001",
+      "change_your_password_001",
+      "what_are_mobile_phone_number_accounts_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "add_delete_and_manage_addresses_001",
+        "bi_score": 0.5436025857925415,
+        "rerank_score": -6.671945571899414
+      },
+      {
+        "chunk_id": "change_your_order_information_001",
+        "bi_score": 0.5583865642547607,
+        "rerank_score": -7.978355407714844
+      },
+      {
+        "chunk_id": "why_cant_i_sign_into_my_account_001",
+        "bi_score": 0.5092928409576416,
+        "rerank_score": -9.280401229858398
+      },
+      {
+        "chunk_id": "change_your_password_001",
+        "bi_score": 0.5685280561447144,
+        "rerank_score": -9.320089340209961
+      },
+      {
+        "chunk_id": "what_are_mobile_phone_number_accounts_001",
+        "bi_score": 0.5163592100143433,
+        "rerank_score": -9.400850296020508
+      }
+    ]
+  },
+  {
+    "question": "My transaction failed, how do I update the payment method?",
+    "true_intent": "resolve_declined_payment",
+    "true_chunk_id": "resolve_a_declined_payment_001",
+    "predicted_intents": [
+      "resolve_declined_payment",
+      "manage_wallet_cards"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.4811122335407643,
+    "margin": 0.14211338988600003,
+    "retrieved_ids": [
+      "manage_your_backup_payment_methods_001",
+      "change_your_default_payment_methods_001",
+      "manage_payment_methods_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "manage_your_backup_payment_methods_001",
+        "bi_score": 0.6315709352493286,
+        "rerank_score": 5.595777988433838
+      },
+      {
+        "chunk_id": "change_your_default_payment_methods_001",
+        "bi_score": 0.6670335531234741,
+        "rerank_score": 4.948054313659668
+      },
+      {
+        "chunk_id": "manage_payment_methods_001",
+        "bi_score": 0.6910988688468933,
+        "rerank_score": 3.5505170822143555
+      }
+    ]
+  },
+  {
+    "question": "How to update payment details on a pending transaction?",
+    "true_intent": "resolve_declined_payment",
+    "true_chunk_id": "resolve_a_declined_payment_001",
+    "predicted_intents": [
+      "manage_wallet_cards"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.5727456010612908,
+    "margin": 0.4962665004694278,
+    "retrieved_ids": [
+      "manage_payment_methods_001",
+      "change_your_order_information_001",
+      "change_your_default_payment_methods_001",
+      "manage_your_backup_payment_methods_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "manage_payment_methods_001",
+        "bi_score": 0.646273136138916,
+        "rerank_score": 2.477829933166504
+      },
+      {
+        "chunk_id": "change_your_order_information_001",
+        "bi_score": 0.648735523223877,
+        "rerank_score": 0.20279957354068756
+      },
+      {
+        "chunk_id": "change_your_default_payment_methods_001",
+        "bi_score": 0.6206902265548706,
+        "rerank_score": 0.0931810513138771
+      },
+      {
+        "chunk_id": "manage_your_backup_payment_methods_001",
+        "bi_score": 0.5693360567092896,
+        "rerank_score": -0.8838768601417542
+      }
+    ]
+  },
+  {
+    "question": "I received a demand for payment via gift cards.",
+    "true_intent": "report_payment_scam",
+    "true_chunk_id": "amz_sec_004",
+    "predicted_intents": [
+      "report_payment_scam",
+      "manage_wallet_cards",
+      "check_shipping_policies"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.2063251071360637,
+    "margin": 0.07732818681784698,
+    "retrieved_ids": [
+      "avoiding_payment_scams_001",
+      "scam_trends_007",
+      "scam_trends_002",
+      "check_your_gift_card_balance_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "avoiding_payment_scams_001",
+        "bi_score": 0.5611686110496521,
+        "rerank_score": -2.553443670272827
+      },
+      {
+        "chunk_id": "scam_trends_007",
+        "bi_score": 0.5257352590560913,
+        "rerank_score": -3.3032689094543457
+      },
+      {
+        "chunk_id": "scam_trends_002",
+        "bi_score": 0.5420783162117004,
+        "rerank_score": -3.5471999645233154
+      },
+      {
+        "chunk_id": "check_your_gift_card_balance_001",
+        "bi_score": 0.5172812938690186,
+        "rerank_score": -5.302656173706055
+      }
+    ]
+  },
+  {
+    "question": "Are opened video games or software eligible for returns?",
+    "true_intent": "check_return_eligibility",
+    "true_chunk_id": "amz_ret_004",
+    "predicted_intents": [
+      "check_restocking_fees"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.5054832690254545,
+    "margin": 0.3359362446367249,
+    "retrieved_ids": [
+      "amz_fee_004",
+      "amz_fee_005",
+      "amz_fee_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "amz_fee_004",
+        "bi_score": 0.6932213306427002,
+        "rerank_score": 0.7701761722564697
+      },
+      {
+        "chunk_id": "amz_fee_005",
+        "bi_score": 0.5951085686683655,
+        "rerank_score": -10.473214149475098
+      },
+      {
+        "chunk_id": "amz_fee_001",
+        "bi_score": 0.587253987789154,
+        "rerank_score": -10.522565841674805
+      }
+    ]
+  },
+  {
+    "question": "How do I check if my purchase can be returned?",
+    "true_intent": "check_return_eligibility",
+    "true_chunk_id": "amz_ret_006",
+    "predicted_intents": [
+      "check_return_eligibility",
+      "check_restocking_fees"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.38840598006552585,
+    "margin": 0.19904128478788938,
+    "retrieved_ids": [
+      "amz_ret_001",
+      "amz_ret_012",
+      "amz_ret_008"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "amz_ret_001",
+        "bi_score": 0.6814600825309753,
+        "rerank_score": 2.139352560043335
+      },
+      {
+        "chunk_id": "amz_ret_012",
+        "bi_score": 0.6938543319702148,
+        "rerank_score": -0.9468386173248291
+      },
+      {
+        "chunk_id": "amz_ret_008",
+        "bi_score": 0.7115916013717651,
+        "rerank_score": -1.4512027502059937
+      }
+    ]
+  },
+  {
+    "question": "What are the rules for returning items from outside the US?",
+    "true_intent": "check_international_returns",
+    "true_chunk_id": "amz_int_004",
+    "predicted_intents": [
+      "check_international_returns",
+      "check_return_eligibility"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.48595751787361163,
+    "margin": 0.3576456616592204,
+    "retrieved_ids": [
+      "amz_ret_012",
+      "amz_ret_011",
+      "amz_seg_004"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "amz_ret_012",
+        "bi_score": 0.7007863521575928,
+        "rerank_score": 3.3757076263427734
+      },
+      {
+        "chunk_id": "amz_ret_011",
+        "bi_score": 0.6741561889648438,
+        "rerank_score": 1.3074549436569214
+      },
+      {
+        "chunk_id": "amz_seg_004",
+        "bi_score": 0.6731544137001038,
+        "rerank_score": 0.02356104925274849
+      }
+    ]
+  },
+  {
+    "question": "How do I return a package from another country?",
+    "true_intent": "check_international_returns",
+    "true_chunk_id": "amz_int_001",
+    "predicted_intents": [
+      "check_international_returns",
+      "resolve_undeliverable_package"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.49066993789821567,
+    "margin": 0.34966469700745745,
+    "retrieved_ids": [
+      "undeliverable_package_002",
+      "amz_int_003",
+      "undeliverable_package_003"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "undeliverable_package_002",
+        "bi_score": 0.6307201981544495,
+        "rerank_score": 1.078575849533081
+      },
+      {
+        "chunk_id": "amz_int_003",
+        "bi_score": 0.6581925749778748,
+        "rerank_score": -0.3836314082145691
+      },
+      {
+        "chunk_id": "undeliverable_package_003",
+        "bi_score": 0.6026175022125244,
+        "rerank_score": -1.551106572151184
+      }
+    ]
+  },
+  {
+    "question": "Where do I edit my delivery alert preferences?",
+    "true_intent": "manage_delivery_alerts",
+    "true_chunk_id": "turn_off_text_updates_001",
+    "predicted_intents": [
+      "manage_notifications",
+      "modify_order",
+      "modify_address"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.19711270817284887,
+    "margin": 0.06042669394289782,
+    "retrieved_ids": [
+      "add_delete_and_manage_addresses_001",
+      "billing_shipping_addresses_002",
+      "change_your_subscription_email_preferences_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "add_delete_and_manage_addresses_001",
+        "bi_score": 0.6161608695983887,
+        "rerank_score": 1.7681705951690674
+      },
+      {
+        "chunk_id": "billing_shipping_addresses_002",
+        "bi_score": 0.604311466217041,
+        "rerank_score": -1.8564047813415527
+      },
+      {
+        "chunk_id": "change_your_subscription_email_preferences_001",
+        "bi_score": 0.6936849355697632,
+        "rerank_score": -5.185283660888672
+      }
+    ]
+  },
+  {
+    "question": "My tracking is stuck in transit, how to report delay?",
+    "true_intent": "check_delivery_delay",
+    "true_chunk_id": "missing_tracking_information_003",
+    "predicted_intents": [
+      "check_delivery_delay",
+      "track_package"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.44233216473938325,
+    "margin": 0.31435000212367686,
+    "retrieved_ids": [
+      "late_delivery_007",
+      "missing_tracking_information_005",
+      "map_tracking_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "late_delivery_007",
+        "bi_score": 0.5808201432228088,
+        "rerank_score": -3.753173351287842
+      },
+      {
+        "chunk_id": "missing_tracking_information_005",
+        "bi_score": 0.6393963098526001,
+        "rerank_score": -4.811461925506592
+      },
+      {
+        "chunk_id": "map_tracking_001",
+        "bi_score": 0.6522402763366699,
+        "rerank_score": -8.950441360473633
+      }
+    ]
+  },
+  {
+    "question": "What should I do if my shipping address was incorrect?",
+    "true_intent": "resolve_undeliverable_package",
+    "true_chunk_id": "undeliverable_package_002",
+    "predicted_intents": [
+      "modify_address",
+      "report_missing_item",
+      "report_missing_package"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.17934729806682162,
+    "margin": 0.04129105261739438,
+    "retrieved_ids": [
+      "missing_package_delivered_002",
+      "billing_shipping_addresses_001",
+      "add_delete_and_manage_addresses_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "missing_package_delivered_002",
+        "bi_score": 0.7015866041183472,
+        "rerank_score": 6.89537239074707
+      },
+      {
+        "chunk_id": "billing_shipping_addresses_001",
+        "bi_score": 0.6875823736190796,
+        "rerank_score": 5.680432319641113
+      },
+      {
+        "chunk_id": "add_delete_and_manage_addresses_001",
+        "bi_score": 0.638690173625946,
+        "rerank_score": 2.1277408599853516
+      }
+    ]
+  },
+  {
+    "question": "My shipment failed delivery because the business was closed.",
+    "true_intent": "resolve_undeliverable_package",
+    "true_chunk_id": "undeliverable_package_001",
+    "predicted_intents": [
+      "resolve_declined_payment",
+      "check_delivery_delay",
+      "report_missing_item"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.18399413731545963,
+    "margin": 0.02641510078773468,
+    "retrieved_ids": [
+      "late_delivery_007",
+      "missing_item_from_order_006",
+      "missing_item_from_order_005",
+      "missing_item_from_order_002",
+      "missing_tracking_information_005"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "late_delivery_007",
+        "bi_score": 0.542155385017395,
+        "rerank_score": -3.2374138832092285
+      },
+      {
+        "chunk_id": "missing_item_from_order_006",
+        "bi_score": 0.547002375125885,
+        "rerank_score": -4.186646461486816
+      },
+      {
+        "chunk_id": "missing_item_from_order_005",
+        "bi_score": 0.5362547636032104,
+        "rerank_score": -4.817246437072754
+      },
+      {
+        "chunk_id": "missing_item_from_order_002",
+        "bi_score": 0.5229220986366272,
+        "rerank_score": -5.327243804931641
+      },
+      {
+        "chunk_id": "missing_tracking_information_005",
+        "bi_score": 0.5353772640228271,
+        "rerank_score": -5.621528625488281
+      }
+    ]
+  },
+  {
+    "question": "Do I need to be home to receive a high-value package?",
+    "true_intent": "check_delivery_rules",
+    "true_chunk_id": "secure_delivery_otp_001",
+    "predicted_intents": [
+      "report_missing_package",
+      "check_shipping_policies",
+      "report_missing_item"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.20034163643799766,
+    "margin": 0.07398450848554461,
+    "retrieved_ids": [
+      "hotel_delivery_003",
+      "missing_item_from_order_006",
+      "hotel_delivery_004",
+      "hotel_delivery_002",
+      "missing_package_delivered_002"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "hotel_delivery_003",
+        "bi_score": 0.5382148027420044,
+        "rerank_score": -7.364129066467285
+      },
+      {
+        "chunk_id": "missing_item_from_order_006",
+        "bi_score": 0.5280828475952148,
+        "rerank_score": -7.607033729553223
+      },
+      {
+        "chunk_id": "hotel_delivery_004",
+        "bi_score": 0.5562475919723511,
+        "rerank_score": -8.446725845336914
+      },
+      {
+        "chunk_id": "hotel_delivery_002",
+        "bi_score": 0.5296249985694885,
+        "rerank_score": -9.466917991638184
+      },
+      {
+        "chunk_id": "missing_package_delivered_002",
+        "bi_score": 0.5638597011566162,
+        "rerank_score": -10.176902770996094
+      }
+    ]
+  },
+  {
+    "question": "Can I request that my package be left inside the garage?",
+    "true_intent": "check_delivery_rules",
+    "true_chunk_id": "secure_delivery_otp_001",
+    "predicted_intents": [
+      "report_missing_package",
+      "check_shipping_policies",
+      "report_missing_item"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.24823828871206244,
+    "margin": 0.14693882715992135,
+    "retrieved_ids": [
+      "missing_package_delivered_002",
+      "missing_item_from_order_006",
+      "hotel_delivery_004",
+      "hotel_delivery_003",
+      "third_party_company_delivery_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "missing_package_delivered_002",
+        "bi_score": 0.6256536245346069,
+        "rerank_score": -7.747121810913086
+      },
+      {
+        "chunk_id": "missing_item_from_order_006",
+        "bi_score": 0.5744688510894775,
+        "rerank_score": -8.457708358764648
+      },
+      {
+        "chunk_id": "hotel_delivery_004",
+        "bi_score": 0.5701058506965637,
+        "rerank_score": -8.544464111328125
+      },
+      {
+        "chunk_id": "hotel_delivery_003",
+        "bi_score": 0.5551044344902039,
+        "rerank_score": -8.593932151794434
+      },
+      {
+        "chunk_id": "third_party_company_delivery_001",
+        "bi_score": 0.5603187084197998,
+        "rerank_score": -9.023621559143066
+      }
+    ]
+  },
+  {
+    "question": "How do I manage my delivery preferences for my household?",
+    "true_intent": "check_delivery_rules",
+    "true_chunk_id": "secure_delivery_otp_001",
+    "predicted_intents": [
+      "manage_delivery_alerts"
+    ],
+    "is_fallback": true,
+    "top1_prob": 0.10442207588266283,
+    "margin": 0.005519020998429727,
+    "retrieved_ids": [
+      "manage_shipment_text_updates_001",
+      "push_notifications_tracking_003",
+      "turn_off_text_updates_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "manage_shipment_text_updates_001",
+        "bi_score": 0.5794839859008789,
+        "rerank_score": -4.414275169372559
+      },
+      {
+        "chunk_id": "push_notifications_tracking_003",
+        "bi_score": 0.4970840811729431,
+        "rerank_score": -7.907052993774414
+      },
+      {
+        "chunk_id": "turn_off_text_updates_001",
+        "bi_score": 0.5560696721076965,
+        "rerank_score": -8.914657592773438
+      }
+    ]
+  },
+  {
+    "question": "Where can I speak with a live agent about my account?",
+    "true_intent": "contact_support",
+    "true_chunk_id": "support_options_and_customer_service_002",
+    "predicted_intents": [
+      "contact_support",
+      "close_account",
+      "report_payment_scam"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.3046735947966382,
+    "margin": 0.22548590799824508,
+    "retrieved_ids": [
+      "request_the_closure_of_your_account_and_the_deletion_of_001",
+      "support_options_and_customer_service_004",
+      "what_happens_when_i_close_my_account_003",
+      "identifying_a_scam_001",
+      "scam_trends_005"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "request_the_closure_of_your_account_and_the_deletion_of_001",
+        "bi_score": 0.5676321983337402,
+        "rerank_score": -9.584295272827148
+      },
+      {
+        "chunk_id": "support_options_and_customer_service_004",
+        "bi_score": 0.5843105316162109,
+        "rerank_score": -9.61264419555664
+      },
+      {
+        "chunk_id": "what_happens_when_i_close_my_account_003",
+        "bi_score": 0.5484305024147034,
+        "rerank_score": -9.915811538696289
+      },
+      {
+        "chunk_id": "identifying_a_scam_001",
+        "bi_score": 0.5190262198448181,
+        "rerank_score": -10.234243392944336
+      },
+      {
+        "chunk_id": "scam_trends_005",
+        "bi_score": 0.5847939252853394,
+        "rerank_score": -10.444233894348145
+      }
+    ]
+  },
+  {
+    "question": "What should I do if my parcel was stolen?",
+    "true_intent": "report_missing_package",
+    "true_chunk_id": "missing_package_delivered_002",
+    "predicted_intents": [
+      "report_missing_item",
+      "report_missing_package",
+      "check_delivery_delay"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.20556930124611916,
+    "margin": 0.008542582224331158,
+    "retrieved_ids": [
+      "missing_item_from_order_003",
+      "missing_item_from_order_002",
+      "missing_item_from_order_005",
+      "missing_item_from_order_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "missing_item_from_order_003",
+        "bi_score": 0.6486706733703613,
+        "rerank_score": 1.2651424407958984
+      },
+      {
+        "chunk_id": "missing_item_from_order_002",
+        "bi_score": 0.6461808681488037,
+        "rerank_score": 1.2456190586090088
+      },
+      {
+        "chunk_id": "missing_item_from_order_005",
+        "bi_score": 0.6176050901412964,
+        "rerank_score": -1.6084823608398438
+      },
+      {
+        "chunk_id": "missing_item_from_order_001",
+        "bi_score": 0.6469523906707764,
+        "rerank_score": -1.7053883075714111
+      }
+    ]
+  },
+  {
+    "question": "Who do I contact about a missing or stolen shipment?",
+    "true_intent": "report_missing_package",
+    "true_chunk_id": "missing_package_delivered_002",
+    "predicted_intents": [
+      "report_missing_package",
+      "report_missing_item"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.47097689475319754,
+    "margin": 0.3073033644025941,
+    "retrieved_ids": [
+      "missing_item_from_order_003",
+      "missing_item_from_order_002",
+      "missing_item_from_order_005"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "missing_item_from_order_003",
+        "bi_score": 0.7162708044052124,
+        "rerank_score": 6.391550064086914
+      },
+      {
+        "chunk_id": "missing_item_from_order_002",
+        "bi_score": 0.7071880102157593,
+        "rerank_score": 2.6947569847106934
+      },
+      {
+        "chunk_id": "missing_item_from_order_005",
+        "bi_score": 0.6690729260444641,
+        "rerank_score": 0.9052245616912842
+      }
+    ]
+  },
+  {
+    "question": "My delivery was short one item, how to get a replacement?",
+    "true_intent": "report_missing_item",
+    "true_chunk_id": "missing_item_from_order_006",
+    "predicted_intents": [
+      "report_missing_item",
+      "check_delivery_delay"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.3916026986895442,
+    "margin": 0.27506299999945616,
+    "retrieved_ids": [
+      "missing_packing_slip_001",
+      "missing_item_from_order_002",
+      "missing_item_from_order_004",
+      "missing_tracking_information_002",
+      "late_delivery_007"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "missing_packing_slip_001",
+        "bi_score": 0.6425463557243347,
+        "rerank_score": -4.981423854827881
+      },
+      {
+        "chunk_id": "missing_item_from_order_002",
+        "bi_score": 0.667172908782959,
+        "rerank_score": -6.12237024307251
+      },
+      {
+        "chunk_id": "missing_item_from_order_004",
+        "bi_score": 0.6983474493026733,
+        "rerank_score": -6.275038719177246
+      },
+      {
+        "chunk_id": "missing_tracking_information_002",
+        "bi_score": 0.6009594202041626,
+        "rerank_score": -7.898200035095215
+      },
+      {
+        "chunk_id": "late_delivery_007",
+        "bi_score": 0.6168153285980225,
+        "rerank_score": -8.114371299743652
+      }
+    ]
+  },
+  {
+    "question": "How do I report phishing attempts on my account?",
+    "true_intent": "identify_phishing_scams",
+    "true_chunk_id": "report_suspicious_activity_001",
+    "predicted_intents": [
+      "identify_phishing_scams",
+      "report_payment_scam"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.34727128615017583,
+    "margin": 0.1741044066478689,
+    "retrieved_ids": [
+      "report_a_scam_001",
+      "amz_sec_001",
+      "avoiding_payment_scams_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "report_a_scam_001",
+        "bi_score": 0.7182720303535461,
+        "rerank_score": 5.220829963684082
+      },
+      {
+        "chunk_id": "amz_sec_001",
+        "bi_score": 0.6656602621078491,
+        "rerank_score": 3.2443389892578125
+      },
+      {
+        "chunk_id": "avoiding_payment_scams_001",
+        "bi_score": 0.5949212312698364,
+        "rerank_score": -0.41257476806640625
+      }
+    ]
+  },
+  {
+    "question": "How are tax rates determined for international shipping?",
+    "true_intent": "check_tax_rates",
+    "true_chunk_id": "vat_rates_001",
+    "predicted_intents": [
+      "check_international_returns"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.5526573797053416,
+    "margin": 0.3420973443581413,
+    "retrieved_ids": [
+      "amz_int_003",
+      "amz_int_004",
+      "amz_int_005",
+      "amz_int_001",
+      "amz_int_007"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "amz_int_003",
+        "bi_score": 0.5831063985824585,
+        "rerank_score": -9.59721565246582
+      },
+      {
+        "chunk_id": "amz_int_004",
+        "bi_score": 0.5629405975341797,
+        "rerank_score": -10.814125061035156
+      },
+      {
+        "chunk_id": "amz_int_005",
+        "bi_score": 0.6140662431716919,
+        "rerank_score": -11.212991714477539
+      },
+      {
+        "chunk_id": "amz_int_001",
+        "bi_score": 0.5669032335281372,
+        "rerank_score": -11.273086547851562
+      },
+      {
+        "chunk_id": "amz_int_007",
+        "bi_score": 0.5821596384048462,
+        "rerank_score": -11.316590309143066
+      }
+    ]
+  },
+  {
+    "question": "Where do I see the tax breakdown of my invoice?",
+    "true_intent": "check_tax_rates",
+    "true_chunk_id": "about_us_state_sales_and_use_taxes_002",
+    "predicted_intents": [
+      "view_invoice"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.5531361171700595,
+    "margin": 0.4128357524804269,
+    "retrieved_ids": [
+      "print_an_invoice_001",
+      "archived_orders_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "print_an_invoice_001",
+        "bi_score": 0.6498646140098572,
+        "rerank_score": -9.941060066223145
+      },
+      {
+        "chunk_id": "archived_orders_001",
+        "bi_score": 0.49071204662323,
+        "rerank_score": -11.388020515441895
+      }
+    ]
+  },
+  {
+    "question": "How to turn off marketing push notifications in the app?",
+    "true_intent": "manage_notifications",
+    "true_chunk_id": "change_your_subscription_email_preferences_001",
+    "predicted_intents": [
+      "manage_account_settings",
+      "manage_delivery_alerts"
+    ],
+    "is_fallback": false,
+    "top1_prob": 0.38320217198603823,
+    "margin": 0.11509179470658037,
+    "retrieved_ids": [
+      "push_notifications_tracking_003",
+      "turn_off_text_updates_001",
+      "unsubscribe_from_amazon_marketing_001"
+    ],
+    "retrieved_scores": [
+      {
+        "chunk_id": "push_notifications_tracking_003",
+        "bi_score": 0.5786011815071106,
+        "rerank_score": 3.9302210807800293
+      },
+      {
+        "chunk_id": "turn_off_text_updates_001",
+        "bi_score": 0.5842641592025757,
+        "rerank_score": -2.589691162109375
+      },
+      {
+        "chunk_id": "unsubscribe_from_amazon_marketing_001",
+        "bi_score": 0.6489490270614624,
+        "rerank_score": -6.030333518981934
+      }
+    ]
+  }
+]
