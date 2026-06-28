@@ -6,7 +6,18 @@ from sentence_transformers import SentenceTransformer
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-chunks_df = pd.read_json(os.path.join(CURRENT_DIR, "chunks_v2_experimental.jsonl"), lines=True)
+PIPELINE_DIR = os.path.dirname(CURRENT_DIR)
+
+PROJECT_DIR = os.path.dirname(PIPELINE_DIR)
+
+MAIN_DATA_DIR = os.path.join(PROJECT_DIR, "Main_Data")
+
+INDICES_DIR = os.path.join(PIPELINE_DIR, "indices")
+
+chunks_df = pd.read_json(
+    os.path.join(MAIN_DATA_DIR, "Chunks", "chunks_v2_fixed.jsonl"),
+    lines=True
+)
 
 embedder = SentenceTransformer("BAAI/bge-base-en-v1.5")
 
@@ -76,7 +87,10 @@ dimension = embeddings.shape[1]
 index = faiss.IndexFlatIP(dimension)
 index.add(embeddings)
 
-faiss.write_index(index, os.path.join(CURRENT_DIR, "faiss_index.bin"))
+faiss.write_index(
+    index,
+    os.path.join(INDICES_DIR, "faiss_index_v2.bin")
+)
 
 print("FAISS index saved successfully.")
 print(f"Indexed {index.ntotal} chunks.")

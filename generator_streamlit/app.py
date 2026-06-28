@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from sentence_transformers import CrossEncoder
 
-from retrieval import retrieve
+from dense_retriever import retrieve
 from generator_local import generate_response as generate_response_local
 from generator_groq import generate_response as generate_response_groq
 

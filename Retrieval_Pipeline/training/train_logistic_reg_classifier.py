@@ -11,16 +11,27 @@ from sklearn.preprocessing import LabelEncoder
 
 # Directories
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-INQSYT_DIR = os.path.dirname(CURRENT_DIR)
-ECOMMERCE_DATA_PATH = os.path.join(INQSYT_DIR, "raw_data", "ecommerce_dataset.jsonl")
-MODEL_SAVE_PATH = os.path.join(CURRENT_DIR, "intent_classifier.pkl")
+
+PIPELINE_DIR = os.path.dirname(CURRENT_DIR)
+
+PROJECT_DIR = os.path.dirname(PIPELINE_DIR)
+
+MAIN_DATA_DIR = os.path.join(PROJECT_DIR, "Main_Data")
+
+MODELS_DIR = os.path.join(PIPELINE_DIR, "models")
+
+MODEL_SAVE_PATH = os.path.join(MODELS_DIR, "intent_classifier_v3.pkl")
 
 # Load embedding model
 print("Loading BAAI/bge-base-en-v1.5 model...")
 embedder = SentenceTransformer("BAAI/bge-base-en-v1.5")
 
 # 1. Load data from queries.csv
-QUERIES_CSV_PATH = os.path.join(INQSYT_DIR, "Main_Data", "queries.csv")
+QUERIES_CSV_PATH = os.path.join(
+    MAIN_DATA_DIR,
+    "Training",
+    "classifier_training_dataset_v3.csv"
+)
 
 training_queries = []
 labels = []

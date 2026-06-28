@@ -10,26 +10,45 @@ from sentence_transformers import SentenceTransformer
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
+PIPELINE_DIR = os.path.dirname(CURRENT_DIR)
+
+PROJECT_DIR = os.path.dirname(PIPELINE_DIR)
+
+MAIN_DATA_DIR = os.path.join(PROJECT_DIR, "Main_Data")
+
+INDICES_DIR = os.path.join(PIPELINE_DIR, "indices")
+
+MODELS_DIR = os.path.join(PIPELINE_DIR, "models")
+
 @st.cache_resource
 def load_intent_resources():
     # Load chunks
-    chunks_df = pd.read_json(os.path.join(CURRENT_DIR, "Chunks.jsonl"), lines=True)
+    chunks_df = pd.read_json(
+        os.path.join(MAIN_DATA_DIR, "Chunks", "chunks_v2_fixed.jsonl"),
+        lines=True
+        )
     
     # Load embedder
     embedder = SentenceTransformer("BAAI/bge-base-en-v1.5")
     
     # Load FAISS index
-    index = faiss.read_index(os.path.join(CURRENT_DIR, "faiss_index.bin"))
+    index = faiss.read_index(
+        os.path.join(INDICES_DIR, "faiss_index_v2.bin")
+        )
     
     # Load classifier
-    with open(os.path.join(CURRENT_DIR, "intent_classifier.pkl"), "rb") as f:
+    with open(os.path.join(MODELS_DIR, "intent_classifier_v3.pkl"), "rb") as f:
         classifier_data = pickle.load(f)
         
     # Reconstruct raw embeddings from Flat index
     all_vectors = np.array([index.reconstruct(i) for i in range(index.ntotal)]).astype("float32")
     
     # Load intents schema and map each chunk_id to its intent
-    with open(os.path.join(CURRENT_DIR, "intents_schema.json"), "r") as f:
+    with open(
+        os.path.join(MAIN_DATA_DIR, "Intents", "intents_schema_v2.json"),
+        "r",
+        encoding="utf-8"
+        ) as f:
         intents_schema = json.load(f)
         
     chunk_to_intents = {}
@@ -67,7 +86,18 @@ def load_intent_resources():
                             samples.append(q)
         intent_to_samples[intent_name] = samples
         
-    return chunks_df, embedder, index, classifier_data, all_vectors, intents_list, intents_desc, intent_to_desc, intent_to_samples
+    return (
+        chunks_df,
+        embedder,
+        index,
+        classifier_data,
+        all_vectors,
+        intents_list,
+        intents_desc,
+        intent_to_desc,
+        intent_to_samples,
+        intents_schema
+    )
 
 @st.cache_data
 def get_llm_intent(query, intents_list, intents_desc, top_suggestions=None):
@@ -177,8 +207,19 @@ User support query: "{query}"
         return "other_query", None
 
 def retrieve(query, top_k=3):
-    chunks_df, embedder, index, classifier_data, all_vectors, intents_list, intents_desc, intent_to_desc, intent_to_samples = load_intent_resources()
-    
+    (
+        chunks_df,
+        embedder,
+        index,
+        classifier_data,
+        all_vectors,
+        intents_list,
+        intents_desc,
+        intent_to_desc,
+        intent_to_samples,
+        intents_schema
+    ) = load_intent_resources()
+
     # 1. Classify the user query intent
     clf = classifier_data["classifier"]
     le = classifier_data["label_encoder"]
@@ -332,8 +373,6 @@ def retrieve(query, top_k=3):
         
     # Build all linked chunks for predicted intents
     all_linked_chunks = []
-    with open(os.path.join(CURRENT_DIR, "intents_schema.json"), "r") as f:
-        intents_schema = json.load(f)
         
     linked_chunks = []
     for intent in predicted_intent_list:

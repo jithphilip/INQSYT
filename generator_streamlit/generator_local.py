@@ -17,22 +17,25 @@ def generate_response(query, retrieved_chunks):
     context = "\n\n---\n\n".join(retrieved_chunks)
 
     prompt = f"""
-You are a customer support chatbot.
-
-Answer the user's question using ONLY the provided context.
-
-If the answer is not present in the context, say:
-"I don't have enough information to answer that."
-
-Do not make up policies.
-Do not mention retrieved chunks.
-
-Context:
-{context}
-
-User question:
-{query}
-"""
+    You are a customer support chatbot.
+    
+    Your task is to answer ONLY using the information provided in the context below.
+    
+    Rules:
+    - Do NOT use outside knowledge.
+    - Do NOT infer or guess missing information.
+    - Do NOT invent policies, procedures, fees, or timelines.
+    - If the context does not fully answer the user's question, respond exactly:
+    "I don't have enough information to answer that."
+    - If multiple retrieved passages contain relevant information, combine them into a single coherent answer.
+    - Do not mention the context or retrieved documents in your response.
+    
+    Context:
+    {context}
+    
+    User Question:
+    {query}
+    """
 
     try:
         response = requests.post(
