@@ -1,16 +1,92 @@
-# Python cache files
+# =========================
+# Python cache
+# =========================
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
 
-# Environments
+# =========================
+# Virtual environments
+# =========================
 .env
-.venv
-env/
+.env.*
+!.env.example
+.venv/
 venv/
+env/
 ENV/
 
-# Streamlit config/secrets (prevent committing secrets)
-.streamlit/config.toml
+# =========================
+# Local inspection/debug files
+# =========================
+repo_tree.txt
+git_status.txt
+git_files.txt
+large_files.txt
+
+# =========================
+# Streamlit secrets
+# =========================
 .streamlit/secrets.toml
+.streamlit/config.toml
+
+# =========================
+# OS / editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Logs / temporary files
+# =========================
+*.log
+logs/
+tmp/
+temp/
+
+# =========================
+# ML model weights / checkpoints
+# =========================
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+
+chroma_db/
+chromadb/
+vector_store/
+vector_db/
+qdrant_storage/
+weaviate_storage/
+
+# =========================
+# Hugging Face / local caches
+# =========================
+.cache/
+raw_data/.cache/
+huggingface/
+hf_cache/
+transformers_cache/
+
+# =========================
+# Runtime uploads
+# =========================
+uploads/
+uploaded_files/
+raw_uploads/
+
+# =========================
+# Local databases
+# =========================
+*.sqlite
+*.sqlite3
+*.db

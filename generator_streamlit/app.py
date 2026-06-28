@@ -1,11 +1,21 @@
+import os
+import sys
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(CURRENT_DIR)
+
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+    
 import streamlit as st
+import pandas as pd
 from sentence_transformers import CrossEncoder
 
-from retrieval import retrieve
+from Retrieval_Pipeline.retrieval.dense_retriever import retrieve
 from generator_local import generate_response as generate_response_local
 from generator_groq import generate_response as generate_response_groq
 
-st.title("RAG Chatbot Demo : Model Comparison")
+st.title("RAG Chatbot Demo : Intent-Based Routing")
 
 # Cache the CrossEncoder reranker loading
 @st.cache_resource
@@ -29,41 +39,72 @@ if st.button("Generate Response"):
 
     with st.spinner("Retrieving chunks and generating responses..."):
 
-        # 1. Retrieve a wider pool of candidate chunks using the Bi-Encoder in retrieval.py
+        # 1. Retrieve candidate chunks using Intent-Guided Bi-Encoder retrieval
         initial_candidates_count = max(15, top_k * 2)
-        candidate_chunks = retrieve(
+        retrieval_output = retrieve(
             query,
             top_k=initial_candidates_count
         )
+        
+        candidate_results = retrieval_output["candidate_results"]
+        predicted_intents = retrieval_output["predicted_intents"]
+        linked_chunks = retrieval_output.get("linked_chunks", [])
+        chunk_to_bi_score = retrieval_output.get("chunk_to_bi_score", {})
+        all_linked_chunks = retrieval_output.get("all_linked_chunks", [])
 
         # 2. Re-rank candidate chunks using Cross-Encoder directly in the app
-        if candidate_chunks:
+        chunk_to_rerank_score = {}
+        if all_linked_chunks:
             reranker = load_reranker()
-            pairs = [[query, chunk] for chunk in candidate_chunks]
+            pairs = []
+            for item in all_linked_chunks:
+                chunk_text = item["content"]
+                if item["chunk_type"] == "table" and item["table_markdown"]:
+                    chunk_text = f"{item['content']}\n\n{item['table_markdown']}"
+                elif item["chunk_type"] == "list" and item["list_markdown"]:
+                    chunk_text = item["list_markdown"]
+                formatted_chunk = f"Title: {item['chunk_title']}\nContent: {chunk_text}"
+                pairs.append([query, formatted_chunk])
+            
             rerank_scores = reranker.predict(pairs)
+            for item, rerank_score in zip(all_linked_chunks, rerank_scores):
+                chunk_to_rerank_score[item["chunk_id"]] = float(rerank_score)
+                
+        # Populate rerank_score in candidate_results
+        for res in candidate_results:
+            res["rerank_score"] = chunk_to_rerank_score.get(res["chunk_id"], 0.0)
             
-            # Sort candidate chunks based on score descending
-            reranked = sorted(
-                zip(candidate_chunks, rerank_scores),
-                key=lambda x: x[1],
-                reverse=True
-            )
-            
-            # Extract the top_k elements after re-ranking
-            retrieved_chunks = [chunk for chunk, score in reranked[:top_k]]
-        else:
-            retrieved_chunks = []
+        # Sort candidate results based on score descending
+        reranked = sorted(
+            candidate_results,
+            key=lambda x: x.get("rerank_score", 0.0),
+            reverse=True
+        )
+        
+        # Apply Dynamic K Thresholding (min_k = top_k, max_k = top_k + 2, margin = 4.0)
+        retrieved_chunks = []
+        if reranked:
+            top_score = reranked[0].get("rerank_score", 0.0)
+            min_k = top_k
+            max_k = min(10, top_k + 2)
+            for i, res in enumerate(reranked[:max_k]):
+                score = res.get("rerank_score", 0.0)
+                if i < min_k or (top_score - score) <= 4.0:
+                    retrieved_chunks.append(res)
+
+        # Extract text chunks for the generators
+        chunk_strings = [item["chunk"] for item in retrieved_chunks]
 
         # 3. Call the Groq model using the re-ranked chunks
         response_groq = generate_response_groq(
             query,
-            retrieved_chunks
+            chunk_strings
         )
 
         # 4. Call the local model using the same re-ranked chunks
         response_local = generate_response_local(
             query,
-            retrieved_chunks
+            chunk_strings
         )
 
     st.subheader("ollama-3.3-70b-versatile model generated response")
@@ -72,8 +113,64 @@ if st.button("Generate Response"):
     st.subheader("qwen2.5:7b generated response")
     st.write(response_local)
 
-    st.subheader("Top Retrieved Chunks")
+    st.subheader("Intent Predictions and Scores")
+    # Build intents DataFrame
+    intent_rows = []
+    for item in predicted_intents:
+        intent_rows.append({
+            "intent_id": item["intent_id"],
+            "confidence": f"{item['confidence']:.4f}",
+            "description": item["description"],
+            "is_selected": item["is_selected"],
+            "intent_metadata": item["intent_metadata"]
+        })
+    df_intents = pd.DataFrame(intent_rows)
+    st.dataframe(df_intents, use_container_width=True)
 
-    for i, chunk in enumerate(retrieved_chunks):
-        st.markdown(f"### Chunk {i+1}")
-        st.write(chunk)
+    st.subheader("3. chunk retriever")
+    # Build chunks DataFrame
+    selected_chunk_ids = {item["chunk_id"] for item in retrieved_chunks}
+    chunk_rows = []
+    for item in all_linked_chunks:
+        cid = item["chunk_id"]
+        bi_score = chunk_to_bi_score.get(cid, 0.0)
+        rerank_score = chunk_to_rerank_score.get(cid, None)
+        
+        if rerank_score is not None:
+            confidence_str = f"{bi_score:.4f}, {rerank_score:.4f}"
+        else:
+            confidence_str = f"{bi_score:.4f}, N/A"
+            
+        is_selected_str = "Yes" if cid in selected_chunk_ids else "No"
+        
+        # Content preview (includes title)
+        content_preview = f"Title: {item['chunk_title']}\n\nContent: {item['content']}"
+        if len(content_preview) > 300:
+            content_preview = content_preview[:300] + "..."
+            
+        meta_str = ""
+        if item["chunk_type"] == "table" and item["table_markdown"]:
+            meta_str = item["table_markdown"]
+        elif item["chunk_type"] == "list" and item["list_markdown"]:
+            meta_str = item["list_markdown"]
+            
+        chunk_rows.append({
+            "chunk_id": cid,
+            "from_intent_id": item["from_intent_id"],
+            "parent_page": item["parent_page"],
+            "confidence (bi-enc, cross-enc)": confidence_str,
+            "is_selected": is_selected_str,
+            "content": content_preview,
+            "chunk_metadata": meta_str
+        })
+    df_chunks = pd.DataFrame(chunk_rows)
+    st.dataframe(df_chunks, use_container_width=True)
+
+    st.subheader("Top Retrieved Chunks passed to LLM")
+    for i, item in enumerate(retrieved_chunks):
+        st.markdown(f"### Chunk {i+1} (ID: `{item['chunk_id']}`)")
+        st.markdown(f"**Parent Page:** `{item['source_file']}`")
+        st.markdown(f"**Intent Classified:** `{item['intent']}`")
+        st.markdown(f"**Vector Similarity (Bi-Encoder):** `{item['score']:.4f}` | **Rerank Score (Cross-Encoder):** `{item['rerank_score']:.4f}`")
+        st.write(item["chunk"])
+        st.markdown("---")
