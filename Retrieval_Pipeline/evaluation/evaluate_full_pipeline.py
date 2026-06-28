@@ -36,18 +36,37 @@ def generate_topic(row):
     return topic
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 PIPELINE_DIR = os.path.dirname(CURRENT_DIR)
 
-# 1. Load datasets
-chunks_df = pd.read_json(os.path.join(PIPELINE_DIR, "data", "Chunks.jsonl"), lines=True)
-qa_df = pd.read_csv(os.path.join(PIPELINE_DIR, "data", "qa_dataset.csv"))
-embeddings = np.load(os.path.join(PIPELINE_DIR, "embeddings", "chunk_embeddings.npy")).astype("float32")
+PROJECT_DIR = os.path.dirname(PIPELINE_DIR)
 
-faiss.normalize_L2(embeddings)
+MAIN_DATA_DIR = os.path.join(PROJECT_DIR, "Main_Data")
+
+INDICES_DIR = os.path.join(PIPELINE_DIR, "indices")
+
+MODELS_DIR = os.path.join(PIPELINE_DIR, "models")
+
+# 1. Load datasets
+chunks_df = pd.read_json(
+    os.path.join(MAIN_DATA_DIR, "Chunks", "chunks_v2_fixed.jsonl"),
+    lines=True
+)
+qa_df = pd.read_csv(
+    os.path.join(MAIN_DATA_DIR, "Evaluation", "eval_dataset_v2.csv")
+)
 
 # Load intents schema and map each chunk_id to its intent
 import json
-with open(os.path.join(PIPELINE_DIR, "data", "intents_schema.json"), "r", encoding="utf-8") as f:
+with open(
+    os.path.join(
+        MAIN_DATA_DIR,
+        "Intents",
+        "intents_schema_v2.json"
+    ),
+    "r",
+    encoding="utf-8"
+) as f:
     intents_schema = json.load(f)
     
 chunk_to_intents = {}
@@ -61,10 +80,15 @@ for entry in intents_schema:
 chunks_df["intents"] = chunks_df["chunk_id"].map(chunk_to_intents)
 chunks_df["intents"] = chunks_df["intents"].apply(lambda x: x if isinstance(x, list) else ["other_query"])
 
-# Build FAISS Index (for fallback/global search if needed)
-dimension = embeddings.shape[1]
-index = faiss.IndexFlatIP(dimension)
-index.add(embeddings)
+index = faiss.read_index(
+    os.path.join(INDICES_DIR, "faiss_index_v2.bin")
+)
+
+embeddings = np.array(
+    [index.reconstruct(i) for i in range(index.ntotal)],
+    dtype="float32"
+)
+
 print(f"Indexed {index.ntotal} chunks")
 
 # 2. Load Models
@@ -72,7 +96,10 @@ embed_model = SentenceTransformer('BAAI/bge-base-en-v1.5')
 reranker = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
 
 # Load Classifier
-CLASSIFIER_PATH = os.path.join(PIPELINE_DIR, "..", "generator_streamlit", "intent_classifier.pkl")
+CLASSIFIER_PATH = os.path.join(
+    MODELS_DIR,
+    "intent_classifier_v3.pkl"
+)
 with open(CLASSIFIER_PATH, "rb") as f:
     classifier_data = pickle.load(f)
 clf = classifier_data["classifier"]

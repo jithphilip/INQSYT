@@ -126,3 +126,6 @@ We are building a production-style Amazon Customer Support RAG system. The archi
 - Preserve this architecture unless explicitly asked to change it. 
 - When suggesting improvements, prefer incremental changes over redesigning the system.
 - Several architectural decisions have already been experimentally validated (e.g., chunk retrieval documents, reranking pipeline, intent schema). Assume these decisions are fixed and only implement the requested modifications unless explicitly asked for a redesign.
+
+# Workspace Constraints Protocol
+- **Archive Directory**: Do NOT read, modify, or interact with the `Archive` directory unless explicitly instructed to do so by the user.
