@@ -103,3 +103,26 @@ DO ONLY WHAT I TELL YOU TO FUCKING DO. DONT JUMP AHEAD AND THINK YOU CAN DO WHAT
 
 # Strict Obedience Protocol
 Go slow.Recheck your logic.DO THINGS EXACTLY AS I SAY IT
+
+# Architecture Preservation Protocol
+We are building a production-style Amazon Customer Support RAG system. The architecture is:
+
+**Knowledge Base:** 
+- 138 curated chunks.
+- Chunk embeddings are generated from retrieval documents consisting of: Title, LLM-generated overview, Original chunk content, Markdown tables (if present), Sample queries, Jargon/synonyms.
+- These retrieval documents are embedded using `BAAI/bge-base-en-v1.5` and indexed in FAISS.
+- The original chunk content remains the source of truth for answer generation.
+
+**Retrieval Pipeline:**
+- Intent routing
+- Dense retrieval
+- Cross-Encoder reranking
+- LLM generation
+
+**Evaluation:**
+- Uses Recall@1, Recall@3, Recall@5 and Recall@7.
+
+**Strict Rule:** 
+- Preserve this architecture unless explicitly asked to change it. 
+- When suggesting improvements, prefer incremental changes over redesigning the system.
+- Several architectural decisions have already been experimentally validated (e.g., chunk retrieval documents, reranking pipeline, intent schema). Assume these decisions are fixed and only implement the requested modifications unless explicitly asked for a redesign.

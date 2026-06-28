@@ -10,7 +10,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PIPELINE_DIR = os.path.dirname(CURRENT_DIR)
 
 # Load chunk data
-df = pd.read_json(os.path.join(PIPELINE_DIR, "data", "Chunks.jsonl"), lines=True)
+df = pd.read_json(os.path.join(PIPELINE_DIR, "data", "chunks_v2_experimental.jsonl"), lines=True)
 
 # Load embedding model
 model = SentenceTransformer('BAAI/bge-base-en-v1.5')

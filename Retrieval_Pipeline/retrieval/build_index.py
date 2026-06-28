@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-chunks_df = pd.read_json(os.path.join(CURRENT_DIR, "Chunks.jsonl"), lines=True)
+chunks_df = pd.read_json(os.path.join(CURRENT_DIR, "chunks_v2_experimental.jsonl"), lines=True)
 
 embedder = SentenceTransformer("BAAI/bge-base-en-v1.5")
 
