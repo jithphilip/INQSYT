@@ -1,0 +1,138 @@
+[
+  {
+    "intent": "modify_order",
+    "description": "Canceling items, changing shipping addresses or delivery speeds on open orders, and archiving orders."
+  },
+  {
+    "intent": "modify_address",
+    "description": "Adding, deleting, and editing default or secondary shipping addresses in the address book."
+  },
+  {
+    "intent": "view_invoice",
+    "description": "Viewing, printing, and downloading official billing invoices or tax receipts."
+  },
+  {
+    "intent": "submit_feedback",
+    "description": "Taking customer satisfaction surveys and managing automated machine translation preferences in chat."
+  },
+  {
+    "intent": "reset_password",
+    "description": "Password resets, Two-Step Verification (2SV/MFA), login recovery, and login troubleshooting."
+  },
+  {
+    "intent": "manage_teen_account",
+    "description": "Teen logins, household settings, and teen order approvals."
+  },
+  {
+    "intent": "manage_profile_settings",
+    "description": "Shopping profiles, mobile device accounts, switching profiles, and signing out of devices."
+  },
+  {
+    "intent": "manage_account_settings",
+    "description": "Language preferences, marketing unsubscribe, third-party app access, and order archives."
+  },
+  {
+    "intent": "close_account",
+    "description": "Closing account requests and consequences."
+  },
+  {
+    "intent": "manage_wallet_cards",
+    "description": "Adding/editing cards in the wallet, backup payment settings, default payments, and gift card balances."
+  },
+  {
+    "intent": "convert_currency",
+    "description": "Currency of preference, exchange rates, and select card currencies."
+  },
+  {
+    "intent": "resolve_declined_payment",
+    "description": "Resolving declined checkout payments."
+  },
+  {
+    "intent": "investigate_unknown_charge",
+    "description": "Tracking down unrecognized charges on credit card/bank statements."
+  },
+  {
+    "intent": "report_payment_scam",
+    "description": "Payment scams, general security guidelines, scam trends, and reporting scams."
+  },
+  {
+    "intent": "check_return_eligibility",
+    "description": "Return windows, item eligibility policies, return requests, and pharmacy/luxury/business return rules."
+  },
+  {
+    "intent": "check_restocking_fees",
+    "description": "Return restocking fees and damage deductions."
+  },
+  {
+    "intent": "check_international_returns",
+    "description": "Return policies for international purchases."
+  },
+  {
+    "intent": "track_refund",
+    "description": "Tracking return shipments, refund status timelines, and refund methods."
+  },
+  {
+    "intent": "check_promotional_balance",
+    "description": "Checking promotional credit and benefit balances."
+  },
+  {
+    "intent": "track_package",
+    "description": "Package tracking links, map tracking, and photo delivery confirmations."
+  },
+  {
+    "intent": "manage_delivery_alerts",
+    "description": "SMS/push notification tracking settings and text alerts."
+  },
+  {
+    "intent": "check_delivery_delay",
+    "description": "Handling late deliveries, carrier delays, and missing scans/tracking numbers."
+  },
+  {
+    "intent": "resolve_undeliverable_package",
+    "description": "Package returned to sender as undeliverable."
+  },
+  {
+    "intent": "check_delivery_rules",
+    "description": "Secure OTP delivery instructions, delivery windows, and prison delivery rules."
+  },
+  {
+    "intent": "contact_support",
+    "description": "Standard customer support phone numbers, help chat, support tickets, fax requests, and currency help."
+  },
+  {
+    "intent": "request_bereavement_support",
+    "description": "Deceased account closure processes and documentation guidelines."
+  },
+  {
+    "intent": "submit_legal_poa",
+    "description": "Submitting Power of Attorney (POA) documentation."
+  },
+  {
+    "intent": "report_missing_package",
+    "description": "Handling packages marked as delivered but not received, check carrier contact info."
+  },
+  {
+    "intent": "report_missing_item",
+    "description": "Handling items/parts missing from a package, empty boxes, or missing packing slips."
+  },
+  {
+    "intent": "check_customs_regulations",
+    "description": "Customs clearance requirements, uploading identity documents, South Korea PCCC codes, Taiwan EZ WAY, and Argentina CUIL."
+  },
+  {
+    "intent": "check_shipping_policies",
+    "description": "Shipping to hotels, freight forwarders/third-party companies, signature requirements on delivery, packaging programs (Frustration-Free), and Fulfilled by Amazon (FBA) terms."
+  },
+  {
+    "intent": "identify_phishing_scams",
+    "description": "Recognizing fake emails, phone calls, SMS text messages, and websites, and reporting suspicious communications."
+  },
+  {
+    "intent": "check_tax_rates",
+    "description": "How US state sales tax calculations work, estimated tax at checkout, and international VAT rates."
+  },
+  {
+    "intent": "manage_notifications",
+    "description": "Managing email preferences, newsletter updates, and out-of-stock restock email alerts."
+  }
+]
