@@ -7,6 +7,26 @@
             "amz_ord_merged_01",
             "amz_can_merged_01",
             "amz_rep_merged_01"
+        ],
+        "sample_queries": [
+            "Can I cancel an order that has already shipped?",
+            "How do I cancel my order or remove items before shipping?",
+            "What is the refund process for a canceled Amazon order?",
+            "Can I change the shipping address or payment method on an order I just placed?",
+            "Why can't I change my delivery address on the Amazon mobile app?",
+            "How do I update the shipping address for an item I bought from a third-party seller?",
+            "Can I add more groceries to my Amazon Fresh or Whole Foods order before it's delivered?",
+            "How do I change the quantity of an item on my order before it dispatches?",
+            "How do I cancel an Amazon order before it ships?",
+            "What should I do if my order has already shipped and I cannot cancel it?",
+            "How much time do I have to cancel an order from a third-party seller?",
+            "How do I refuse a delivery if it's too late to cancel the package?",
+            "Where do I go in my account to submit an order cancellation request?",
+            "How do I request a replacement for an item that arrived damaged or defective?",
+            "Do I need to send a picture if my product is broken and I want a replacement?",
+            "What happens if the item I want to replace is out of stock?",
+            "Can I get a replacement for a defective gift, or do I have to place a new order?",
+            "Do replacement orders ship faster than the original order?"
         ]
     },
     {
@@ -18,6 +38,28 @@
             "multiple_addresses_001",
             "change_your_order_information_001",
             "billing_shipping_addresses_merged_01"
+        ],
+        "sample_queries": [
+            "How do I change my default shipping address on my Amazon account?",
+            "Why can't I delete an old address from my address book?",
+            "If I update my address in my account settings, will it update my open orders?",
+            "How do I change the delivery address for an order I already placed?",
+            "Why is Amazon asking me to re-enter my credit card number after changing my address?",
+            "Can I use an email alias if my main email is already in use?",
+            "How do I release an email address from an old Amazon account to use on a new one?",
+            "What does e-mail address already in use mean when creating an account?",
+            "How do I send items in one order to different addresses?",
+            "Can I ship multiple items to multiple addresses at checkout?",
+            "How do I send gifts to multiple people in the same Amazon order?",
+            "Where is the option to ship to multiple addresses?",
+            "Can I change my delivery speed after placing an order?",
+            "How do I edit the shipping address or payment method on a placed order?",
+            "How do I update my order details before the item ships?",
+            "How do I add my business hours so Amazon doesn't deliver when the office is closed?",
+            "Why is my order delayed due to accent marks or special characters in my shipping address?",
+            "Can I put delivery instructions like an access code in Address Line 2?",
+            "Should I type 'N/A' in the second address line if I don't have an apartment number?",
+            "Where do I go in my account to add weekend or holiday delivery hours for a business address?"
         ]
     },
     {
@@ -26,6 +68,14 @@
         "source_chunks": [
             "print_an_invoice_001",
             "archived_orders_001"
+        ],
+        "sample_queries": [
+            "How do I download or print an invoice for an order?",
+            "How to get a printable PDF invoice of my purchases?",
+            "Where can I find the official billing receipt for tax purposes?",
+            "How do I archive an order to hide it from my purchase history?",
+            "How do I unarchive an order on Amazon?",
+            "Where can I view my list of archived orders?"
         ]
     },
     {
@@ -34,6 +84,14 @@
         "source_chunks": [
             "machine_translation_001",
             "amazon_consumer_surveys_001"
+        ],
+        "sample_queries": [
+            "How does machine translation work on product detail pages?",
+            "Can I view the original English text of a translated product?",
+            "How do I report a bad or incorrect translation on Amazon?",
+            "Does Amazon send customer satisfaction surveys?",
+            "How do I know if an Amazon survey request is real or fake?",
+            "Are there rewards for participating in Amazon surveys?"
         ]
     },
     {
@@ -47,6 +105,31 @@
             "verify_your_email_for_a_new_account_001",
             "what_is_twostep_verification_001",
             "why_cant_i_sign_into_my_account_001"
+        ],
+        "sample_queries": [
+            "Why am I not receiving the Amazon security code text message?",
+            "How do I unblock the Amazon verification code number on my iPhone?",
+            "What should I do if I can't get the login code sent to my phone?",
+            "How do I enable premium text messages on my Android so I can get my Amazon OTP?",
+            "What phone number does Amazon use to send security codes?",
+            "How do I edit my Amazon account password?",
+            "What should I do to change my current passcode?",
+            "Where in my account can I update my login password?",
+            "How do I recover my Amazon account if 2FA code is not working?",
+            "How long does it take for Amazon to disable Two-Step Verification during recovery?",
+            "What documents are required to verify my identity for account recovery?",
+            "How do I reset my password if I forgot it?",
+            "What is the password assistance process on Amazon?",
+            "Where do I enter the OTP to reset my login password?",
+            "How do I verify my email address when creating a new account?",
+            "What should I do if I didn't receive the verification email code?",
+            "Why is email verification required for my new Amazon profile?",
+            "Can I use an authenticator app for two-step verification codes?",
+            "How do I enable or disable 2-step verification on Amazon?",
+            "What is two-step verification and how does it secure my account?",
+            "What should I check if I can't log into my Amazon account?",
+            "Can I sign into my Amazon account using WhatsApp to get an OTP?",
+            "Does my login phone number need to include the country code?"
         ]
     },
     {
@@ -57,6 +140,20 @@
             "removing_a_teen_login_from_an_amazon_household_001",
             "set_order_approvals_for_a_teen_login_001",
             "what_is_a_teen_login_001"
+        ],
+        "sample_queries": [
+            "How do I approve my teenager's purchase on Amazon?",
+            "How long does a parent have to approve a teen order before it expires?",
+            "Where can I view pending orders placed by my teen?",
+            "How do I manually remove a teen profile from my Amazon household?",
+            "How do I transition a teen login to a regular Amazon account when they turn 18?",
+            "What happens to a teen's order history and wishlist when they are removed from the household?",
+            "Can I turn off manual approvals for my teen's purchases?",
+            "How do I configure spending limits and order approvals for a teen login?",
+            "Where are the teen profile approval settings in Manage Your Household?",
+            "What features and restrictions are associated with a teen login?",
+            "Can teen logins purchase digital content or sign up for Subscribe & Save?",
+            "Which Prime benefits can adults share with a teen account?"
         ]
     },
     {
@@ -73,6 +170,40 @@
             "what_are_mobile_phone_number_accounts_001",
             "what_are_shopping_profiles_001",
             "change_your_order_information_001"
+        ],
+        "sample_queries": [
+            "How many shopping profiles can I have on one Amazon account?",
+            "How do I create a new Amazon shopping profile for a family member?",
+            "Can I use my Prime Video or Alexa profile for Amazon shopping?",
+            "How do I delete or remove a shopping profile if I reached the limit?",
+            "How do I set up a teen shopping profile for a 13-17 year old?",
+            "Does my Amazon gift card balance ever expire?",
+            "How do I check my current Amazon gift card balance?",
+            "Where do I go to redeem a gift card claim code?",
+            "Are mobile device logins secure and how can I view active sessions?",
+            "How do I manage my Amazon login credentials on my mobile phone?",
+            "How do I update account settings using the Amazon Shopping app?",
+            "Does signing out of the app delete my cart or settings?",
+            "How do I sign out of the Amazon app on my iPhone or Android?",
+            "Where is the logout option in the mobile app menu?",
+            "How do I log out of my Amazon account on a desktop browser?",
+            "Is it necessary to sign out on a shared computer?",
+            "Where is the sign out button on the Amazon website?",
+            "How do I link my Amazon account to partner websites?",
+            "Is it safe to sign in to other apps using my Amazon credentials?",
+            "What is Login with Amazon (LwA) and how do I use it on third-party sites?",
+            "Do my saved passwords carry over when using account switching?",
+            "How do I add a secondary account to the Switch Accounts list?",
+            "How do I switch between multiple Amazon accounts on the same device?",
+            "Can I add an email address to a phone number account later?",
+            "How do I create or log into an account using only my phone number?",
+            "What is a mobile-only Amazon account?",
+            "What is a shopping profile on Amazon and how does it work?",
+            "How do shopping profiles personalize recommendations and sizes?",
+            "Can family members have their own shopping profiles under one account?",
+            "Can I change my delivery speed after placing an order?",
+            "How do I edit the shipping address or payment method on a placed order?",
+            "How do I update my order details before the item ships?"
         ]
     },
     {
@@ -86,6 +217,30 @@
             "manage_thirdparty_apps_and_services_with_data_access_th_001",
             "unsubscribe_from_amazon_marketing_001",
             "archived_orders_001"
+        ],
+        "sample_queries": [
+            "How do I change my Amazon language settings to Spanish?",
+            "Can I talk to Amazon customer service in Spanish?",
+            "Why are some parts of Amazon or emails still in English if my language is set to Spanish?",
+            "Are product descriptions and order tracking available in Spanish on Amazon.com?",
+            "How do I update my name, email, or phone number on Amazon?",
+            "What is the process to edit my login details?",
+            "Where can I manage my personal account settings?",
+            "Does changing the language on desktop update the mobile app too?",
+            "How do I switch the website language from English to Spanish?",
+            "Why is my Amazon page showing in a different language even though I changed it?",
+            "How can I set one of my duplicate accounts as the default?",
+            "How do I fix the duplicate email address sign-in error?",
+            "Why does Amazon say multiple accounts use the same email?",
+            "How do I revoke data sharing permissions for third-party services?",
+            "How do I view or remove apps that have access to my Amazon data?",
+            "Where is the Login with Amazon manager located in my settings?",
+            "How can I opt out of receiving physical mail and flyers from Amazon?",
+            "How do I stop Amazon from sending me marketing and promo emails?",
+            "Where are the marketing unsubscribe settings located?",
+            "How do I archive an order to hide it from my purchase history?",
+            "How do I unarchive an order on Amazon?",
+            "Where can I view my list of archived orders?"
         ]
     },
     {
@@ -95,6 +250,20 @@
             "request_the_closure_of_your_account_and_the_deletion_of_001",
             "what_happens_when_i_close_my_account_merged",
             "amz_acc_merged_01"
+        ],
+        "sample_queries": [
+            "How do I delete my Amazon account permanently?",
+            "How do I request deletion of all my personal data from Amazon systems?",
+            "Can I cancel my account closure request after submitting it?",
+            "Will I lose access to my Kindle books and Prime Video if I delete my account?",
+            "What happens to my gift card balance after account closure?",
+            "Can I still access my order history and invoices after my account is deleted?",
+            "What should I download before I close my Amazon account forever?",
+            "How do I permanently close my Amazon account and delete my personal information?",
+            "If I close my Amazon account, can I get it back or restore it later?",
+            "What happens to my Seller Central or Brand Registry account if I delete my main Amazon account?",
+            "How long do I have to verify my account closure request through email or text?",
+            "Do I need to close my international Amazon accounts separately if I have more than one?"
         ]
     },
     {
@@ -107,6 +276,27 @@
             "manage_payment_methods_001",
             "manage_your_backup_payment_methods_001",
             "change_your_order_information_001"
+        ],
+        "sample_queries": [
+            "How do I check the remaining balance on my Amazon gift card?",
+            "Why doesn't my physical Amazon gift card show the amount printed on it?",
+            "Does my gift card balance include promotional certificates I received?",
+            "Where can I see my gift card transaction history to see what I spent?",
+            "How do I set a default credit card for one-click purchases?",
+            "How to change my preferred card for billing?",
+            "Where do I update my primary payment settings?",
+            "Does my Amazon gift card balance ever expire?",
+            "How do I check my current Amazon gift card balance?",
+            "Where do I go to redeem a gift card claim code?",
+            "How do I add a new credit card or bank account to my wallet?",
+            "How do I delete or update an expired payment card?",
+            "Where do I manage saved payment methods in my account?",
+            "How do I disable backup payment methods on my account?",
+            "How does Amazon use backup payment cards if my default card is declined?",
+            "What is a backup payment method and how do I enable it?",
+            "Can I change my delivery speed after placing an order?",
+            "How do I edit the shipping address or payment method on a placed order?",
+            "How do I update my order details before the item ships?"
         ]
     },
     {
@@ -117,6 +307,35 @@
             "amazon_currency_converter_exchange_rates_001",
             "amazon_currency_converter_requirements_001",
             "select_your_card_currency_for_amazon_currency_converter_001"
+        ],
+        "sample_queries": [
+            "How do I change my preferred currency from USD to something else when shopping internationally?",
+            "Why was my credit card charged in USD instead of my selected currency at checkout?",
+            "What are the requirements to pay in my preferred currency using the Amazon Currency Converter?",
+            "How do I delete my saved passport or national ID from my Amazon account?",
+            "Does the name on my customs ID need to perfectly match the shipping address on my order?",
+            "How long does it take for my customs ID to be permanently deleted from Amazon's database?",
+            "Will Amazon automatically delete my ID information if I haven't ordered anything internationally in a while?",
+            "What happens if my customs ID has an error or missing information?",
+            "What is the EZ WAY app and do I need it to get my Amazon package in Taiwan?",
+            "How do I register my Personal Customs Clearance Code (PCCC) for a delivery to South Korea?",
+            "Can I use my non-Korean name for an Amazon order shipping to Korea?",
+            "What is a CUIL number and why do I need it for shipments to Argentina?",
+            "Do I need a special permit to import toys or electronics into Thailand?",
+            "How do I format the shipping address to send an Amazon package to my hotel?",
+            "Will Amazon refund me if the hotel front desk loses my package after it was delivered?",
+            "What information should I confirm with my hotel before placing an Amazon order?",
+            "What happens if my tracking shows delivered to the concierge but I never received it?",
+            "Can I add special delivery instructions for a hotel drop-off?",
+            "How does Amazon calculate exchange rates for currency conversion?",
+            "Where can I view the exchange rate applied to my order?",
+            "What fee does Amazon charge for currency conversion?",
+            "What are the requirements to use Amazon Currency Converter?",
+            "Can I pay in my local currency using any credit card?",
+            "Why is the currency converter option not appearing at checkout?",
+            "How do I choose or change my card's currency at checkout?",
+            "How to update my card currency preference in my account?",
+            "What should I do if Amazon detects the wrong currency for my card?"
         ]
     },
     {
@@ -124,6 +343,11 @@
         "description": "Resolving declined checkout payments.",
         "source_chunks": [
             "resolve_a_declined_payment_001"
+        ],
+        "sample_queries": [
+            "How do I retry my payment on an existing order?",
+            "What should I do if my bank blocks my Amazon purchase?",
+            "Why was my payment declined and how do I fix it?"
         ]
     },
     {
@@ -131,6 +355,14 @@
         "description": "Tracking down unrecognized charges on credit card/bank statements.",
         "source_chunks": [
             "unknown_amazon_payment_charges_merged"
+        ],
+        "sample_queries": [
+            "Why does my bank statement show an unknown charge from Amazon?",
+            "How do I investigate unexpected transactions on my account?",
+            "What should I do if I suspect an unauthorized purchase?",
+            "Is the unknown charge on my card for Amazon Prime or a digital service?",
+            "Why did Amazon charge my card for a cancelled order?",
+            "Why are there separate smaller charges for my split Amazon order?"
         ]
     },
     {
@@ -142,6 +374,28 @@
             "report_a_scam_001",
             "scam_trends_merged",
             "amz_sec_merged_01"
+        ],
+        "sample_queries": [
+            "How do I protect myself from payment scams on Amazon?",
+            "What are common warning signs of gift card scams?",
+            "What should I do if someone asks me to pay using an Amazon gift card?",
+            "How can I tell if a message or call is actually from Amazon?",
+            "How do I verify the authenticity of an Amazon communication?",
+            "What are the common indicators of a spoofing or phishing scam?",
+            "Where can I report a suspicious email, call, or text message?",
+            "How do I submit phishing notifications to Amazon security?",
+            "What should I do if I fell for a scam on Amazon?",
+            "What are the latest scam methods targeting Amazon customers?",
+            "What is the order confirmation scam or account suspension scam?",
+            "How are scammers trying to steal personal details or gift cards recently?",
+            "Does Amazon call customers to ask for tech support access?",
+            "How do I know if an Amazon recall or refund email is fake?",
+            "Are Amazon recruitment emails asking for upfront payment legitimate?",
+            "How do I report a phishing email or scam call pretending to be from Amazon?",
+            "What should I do if I accidentally gave a scammer remote access to my device or my banking info?",
+            "Can I report a fake Amazon email if I don't even have an Amazon account?",
+            "How do I report a brushing scam or an unsolicited package I received in the mail?",
+            "Where do I report Amazon gift card fraud or a suspicious third-party seller?"
         ]
     },
     {
@@ -161,6 +415,78 @@
             "amz_seg_merged_02",
             "amz_ret_merged_02",
             "amz_ret_merged_01"
+        ],
+        "sample_queries": [
+            "How long does a refund take?",
+            "whats the return window for amazon products?",
+            "whats the standard return window for amazon products?",
+            "Can I return a Kindle book I bought by mistake if I haven't read it yet?",
+            "How many days do I have to return a digital textbook if I haven't downloaded it?",
+            "Can I get a refund for a song I accidentally bought using Alexa?",
+            "Can I return a new Apple product within 15 days?",
+            "Are Amazon Haul items that cost less than three dollars returnable?",
+            "Where do I find the return rules for my AppleCare+ plan?",
+            "Can I return a mattress if I've had it for two months?",
+            "What is the return window for Amazon Renewed items?",
+            "How many days do I have to return baby products?",
+            "How long do I have to return an Amazon Renewed Premium item?",
+            "Can I return a wedding registry gift after six months?",
+            "What is the return window for a baby registry item bought by a guest?",
+            "How do I start a return for my order?",
+            "Are there return drop-off locations near my house?",
+            "Do I need to print a label or find a box to send my item back?",
+            "Can I put items from two different orders in the same return box?",
+            "Do I need to delete my personal information before returning a laptop or phone?",
+            "Will I get charged again if I got my refund early but haven't shipped the item back yet?",
+            "What happens to my refund if I open a software package or activate a video game?",
+            "Will Amazon deduct money from my refund if the item is returned damaged or missing the manual?",
+            "Can I get a full refund if I return a luxury item that shows signs of use?",
+            "How much will I be charged if I miss the return deadline and send my item back late?",
+            "Are there extra shipping fees for returning heavy or bulky items?",
+            "Can I be penalized with shipping charges if I have a very high return rate?",
+            "How do I request a replacement for an item that arrived damaged?",
+            "Is the shipping speed the same for a replacement order?",
+            "Do I need to upload pictures of a defective product to get it replaced?",
+            "What happens if the item I want to replace is out of stock?",
+            "If a gift I received is damaged, can I get a replacement?",
+            "How do I cancel an Amazon order before it ships?",
+            "What should I do if my order has already shipped and I cannot cancel it?",
+            "How long do I have to cancel an order placed with a third-party seller?",
+            "Can I simply refuse delivery if it is too late to cancel my package?",
+            "Do I need seller approval to cancel an order once fulfillment starts?",
+            "Can I change the delivery address or payment method before my order is dispatched?",
+            "How do I add more items to my Amazon Fresh or Whole Foods delivery?",
+            "Do I have to cancel my third-party order to change the shipping address?",
+            "Why can I only cancel an order on the mobile app instead of changing the quantity?",
+            "Can I modify the billing address on my order details page?",
+            "How do I close my Amazon account and delete my personal information?",
+            "Can I reopen or restore my Amazon account after it has been closed?",
+            "What happens to my Seller or Brand Registry accounts if I delete my main Amazon account?",
+            "Do I have to submit a separate closure request if I have multiple Amazon accounts?",
+            "How long do I have to verify my account closure request via email or text?",
+            "How does the Amazon Luxury Policy policy work?",
+            "What are the rules regarding Amazon Luxury Policy?",
+            "Can you explain the details for Amazon Luxury Policy?",
+            "Can I return Amazon Pharmacy items?",
+            "Do Amazon Business purchases follow the normal return policy?",
+            "Can Spot Buy orders be returned?",
+            "Are Custom Quote purchases covered?",
+            "Why can't I return my pharmacy order?",
+            "How do I return an item sold by a third-party seller?",
+            "What if the seller doesn't provide a return label?",
+            "Where do marketplace returns go?",
+            "Can a seller refund me without asking for the item back?",
+            "What if the seller doesn't respond?",
+            "What is Amazon's standard return policy?",
+            "How many days do I have to return an item?",
+            "Can I exchange an item instead of getting a refund?",
+            "What condition should returned items be in?",
+            "Can I replace a defective item?",
+            "Which Amazon items cannot be returned?",
+            "Can I return a personalized product?",
+            "Are digital products refundable?",
+            "Can I return pet medication?",
+            "Why is my return request ineligible?"
         ]
     },
     {
@@ -169,6 +495,18 @@
         "source_chunks": [
             "amz_fee_merged_01",
             "amz_fee_merged_02"
+        ],
+        "sample_queries": [
+            "Why was I charged a restocking fee?",
+            "Can Amazon deduct money from my refund?",
+            "What happens if I return a damaged item?",
+            "Do opened software returns incur a fee?",
+            "Why wasn't I refunded the full amount?",
+            "Are Amazon returns free?",
+            "Why did I pay for return shipping?",
+            "Do heavy items have return fees?",
+            "Why was I charged because of frequent returns?",
+            "Which return option is free?"
         ]
     },
     {
@@ -180,6 +518,27 @@
             "amz_int_006",
             "amz_int_merged_01",
             "amz_int_merged_02"
+        ],
+        "sample_queries": [
+            "How does the Customer-Paid Return Shipping policy work?",
+            "What are the rules regarding Customer-Paid Return Shipping?",
+            "Can you explain the details for Customer-Paid Return Shipping?",
+            "What are the size and weight limits for a package to be considered a heavy or bulky return?",
+            "Do I have to pay extra return shipping fees if my item weighs over 50 pounds?",
+            "Can I drop off an item that is 130 inches in girth, or do I need to schedule a home pickup?",
+            "How do I return a gift if I only have the 17-digit order number?",
+            "Can I return a Kindle book that someone gifted to me before I accept it?",
+            "What do I need to do if I want to exchange a gift instead of getting a refund?",
+            "How do I return an Amazon order from Canada?",
+            "Can I use DHL for Amazon returns?",
+            "Where is the nearest UPS drop-off?",
+            "Are international returns prepaid?",
+            "Which countries support DHL returns?",
+            "Why was my refund reduced after returning an item?",
+            "Do I have to return an entire bundle?",
+            "Can I return only one item from a bundle?",
+            "How do discounts affect refunds?",
+            "What happens to Bundle with Savings returns?"
         ]
     },
     {
@@ -195,6 +554,37 @@
             "amz_track_003",
             "amz_track_004",
             "amz_track_005"
+        ],
+        "sample_queries": [
+            "How does the Declined Refunds policy work?",
+            "What are the rules regarding Declined Refunds?",
+            "Can you explain the details for Declined Refunds?",
+            "How does the Tracking Through Your Returns policy work?",
+            "What are the rules regarding Tracking Through Your Returns?",
+            "Can you explain the details for Tracking Through Your Returns?",
+            "How does the Return Status Types policy work?",
+            "What are the rules regarding Return Status Types?",
+            "Can you explain the details for Return Status Types?",
+            "If I return a gift someone else bought for me, who gets the refund?",
+            "How is the refund issued if the person who purchased the gift returns the item?",
+            "Can I get an Amazon gift card balance if I return a gift I received?",
+            "Can I return or get a refund for my Amazon Pharmacy order?",
+            "Do the standard return policies apply to my Amazon Business account purchases?",
+            "Where can I find the return rules for Amazon Business Spot Buys or Custom Quotes?",
+            "Are there different damage fees or support processes for returning Amazon Luxury items?",
+            "Where do I send a return for an item I bought from a third-party seller?",
+            "What are third-party sellers required to provide when I want to make a return?",
+            "What should I do if a third-party seller refuses my return or won't provide a prepaid shipping label?",
+            "How does the A-to-z Guarantee protect me when dealing with third-party seller disputes?",
+            "How do I return an Amazon.com purchase from Canada using UPS?",
+            "Can I schedule a DHL pickup for my return if I live in a supported country?",
+            "Will Amazon reimburse me for return postage if I pay for my own shipping label?",
+            "How much does Amazon reimburse for customer-paid international return shipping?",
+            "How do I track a return if I use a customer-paid shipping service instead of an Amazon label?",
+            "If I return one item from a ",
+            "How does returning part of a discounted order affect my refund amount?",
+            "Why was my refund reduced after I returned an item that qualified me for a discount?",
+            "Can I return just the camera if I bought a camera and lens bundle deal?"
         ]
     },
     {
@@ -202,6 +592,11 @@
         "description": "Checking promotional credit and benefit balances.",
         "source_chunks": [
             "check_your_credit_and_benefit_balances_001"
+        ],
+        "sample_queries": [
+            "How do I check my remaining promotional credit or reward balance?",
+            "How do I use my promotional balance during checkout?",
+            "Where can I view active credits applied to my Amazon profile?"
         ]
     },
     {
@@ -214,6 +609,29 @@
             "track_package_002",
             "track_package_003",
             "track_package_004"
+        ],
+        "sample_queries": [
+            "How do I see exactly where my Amazon delivery driver is on a map?",
+            "Why did the number of stops remaining disappear from my Amazon map tracking?",
+            "Why can't I see the map tracking for a gift I bought from someone's wish list?",
+            "How do I set up alerts on my phone for when the delivery map is available to view?",
+            "Why isn't map tracking available for my package?",
+            "Why did the Amazon delivery driver take a picture of my package?",
+            "Where can I find the delivery photo of my Amazon package?",
+            "What does Amazon use the delivery photos for?",
+            "How do I see exactly where the driver left my package?",
+            "How does the Track package in Your Orders policy work?",
+            "What are the rules regarding Track package in Your Orders?",
+            "Can you explain the details for Track package in Your Orders?",
+            "How does the Track packages from third-party sellers policy work?",
+            "What are the rules regarding Track packages from third-party sellers?",
+            "Can you explain the details for Track packages from third-party sellers?",
+            "How does the Understanding delivery statuses policy work?",
+            "What are the rules regarding Understanding delivery statuses?",
+            "Can you explain the details for Understanding delivery statuses?",
+            "How does the Fix a delivery issue policy work?",
+            "What are the rules regarding Fix a delivery issue?",
+            "Can you explain the details for Fix a delivery issue?"
         ]
     },
     {
@@ -224,6 +642,26 @@
             "push_notifications_tracking_003",
             "shipment_text_updates_terms_001",
             "turn_off_text_updates_001"
+        ],
+        "sample_queries": [
+            "How does the Sign Up for and Manage Shipment Updates via Text for All Orders policy work?",
+            "What are the rules regarding Sign Up for and Manage Shipment Updates via Text for All Orders?",
+            "Can you explain the details for Sign Up for and Manage Shipment Updates via Text for All Orders?",
+            "Can you explain the details for Check Your Push Notifications in the Amazon App?",
+            "Can you explain the details for Enable Push Notifications on Your Device?",
+            "Can you explain the details for Push Notifications for Shipment Tracking?",
+            "How does the Check Your Push Notifications in the Amazon App policy work?",
+            "How does the Enable Push Notifications on Your Device policy work?",
+            "How does the Push Notifications for Shipment Tracking policy work?",
+            "What are the rules regarding Check Your Push Notifications in the Amazon App?",
+            "What are the rules regarding Enable Push Notifications on Your Device?",
+            "What are the rules regarding Push Notifications for Shipment Tracking?",
+            "How does the Amazon Shipment Updates via Text Updates Terms and Conditions policy work?",
+            "What are the rules regarding Amazon Shipment Updates via Text Updates Terms and Conditions?",
+            "Can you explain the details for Amazon Shipment Updates via Text Updates Terms and Conditions?",
+            "How does the Turn Off Shipment Updates via Text for a Specific Package policy work?",
+            "What are the rules regarding Turn Off Shipment Updates via Text for a Specific Package?",
+            "Can you explain the details for Turn Off Shipment Updates via Text for a Specific Package?"
         ]
     },
     {
@@ -234,6 +672,41 @@
             "missing_tracking_information_001",
             "missing_tracking_information_002",
             "missing_tracking_information_003"
+        ],
+        "sample_queries": [
+            "Can you explain the details for Guaranteed deliveries?",
+            "Can you explain the details for How we\u2019ll contact you if a delivery is late?",
+            "Can you explain the details for If 48 hours have passed since your estimated delivery date?",
+            "Can you explain the details for Late Deliveries?",
+            "Can you explain the details for Related Pages?",
+            "Can you explain the details for What to do if your delivery is late?",
+            "Can you explain the details for Why some deliveries are delayed?",
+            "Can you explain the details for Why wait for 48 hours?",
+            "How does the Guaranteed deliveries policy work?",
+            "How does the How we\u2019ll contact you if a delivery is late policy work?",
+            "How does the If 48 hours have passed since your estimated delivery date policy work?",
+            "How does the Late Deliveries policy work?",
+            "How does the Related Pages policy work?",
+            "How does the What to do if your delivery is late policy work?",
+            "How does the Why some deliveries are delayed policy work?",
+            "How does the Why wait for 48 hours policy work?",
+            "What are the rules regarding Guaranteed deliveries?",
+            "What are the rules regarding How we\u2019ll contact you if a delivery is late?",
+            "What are the rules regarding If 48 hours have passed since your estimated delivery date?",
+            "What are the rules regarding Late Deliveries?",
+            "What are the rules regarding Related Pages?",
+            "What are the rules regarding What to do if your delivery is late?",
+            "What are the rules regarding Why some deliveries are delayed?",
+            "What are the rules regarding Why wait for 48 hours?",
+            "How does the Missing Tracking Information policy work?",
+            "What are the rules regarding Missing Tracking Information?",
+            "Can you explain the details for Missing Tracking Information?",
+            "How does the Orders Sold and Fulfilled by Amazon policy work?",
+            "What are the rules regarding Orders Sold and Fulfilled by Amazon?",
+            "Can you explain the details for Orders Sold and Fulfilled by Amazon?",
+            "How does the Orders Sold and Fulfilled by Third-Party Sellers policy work?",
+            "What are the rules regarding Orders Sold and Fulfilled by Third-Party Sellers?",
+            "Can you explain the details for Orders Sold and Fulfilled by Third-Party Sellers?"
         ]
     },
     {
@@ -243,6 +716,17 @@
             "undeliverable_package_001",
             "undeliverable_package_002",
             "undeliverable_package_003"
+        ],
+        "sample_queries": [
+            "How does the Undeliverable Packages policy work?",
+            "What are the rules regarding Undeliverable Packages?",
+            "Can you explain the details for Undeliverable Packages?",
+            "How does the What Happens with Undelivered Packages policy work?",
+            "What are the rules regarding What Happens with Undelivered Packages?",
+            "Can you explain the details for What Happens with Undelivered Packages?",
+            "How does the Refund Times for Undeliverable Packages policy work?",
+            "What are the rules regarding Refund Times for Undeliverable Packages?",
+            "Can you explain the details for Refund Times for Undeliverable Packages?"
         ]
     },
     {
@@ -252,6 +736,22 @@
             "delivery_windows_001",
             "secure_delivery_otp_001",
             "shipping_prisons_001"
+        ],
+        "sample_queries": [
+            "Where can I see the estimated delivery time for my Amazon package?",
+            "Are Amazon's delivery windows guaranteed?",
+            "What happens if the delivery driver misses my estimated delivery window?",
+            "Why did the delivery window for my package change?",
+            "What is the 6-digit code Amazon sent me for my delivery?",
+            "How do I find the One-Time Password (OTP) for my Amazon package?",
+            "Can I give my Amazon delivery OTP to a friend or neighbor if I am not home?",
+            "What happens if I miss my Amazon delivery because I didn't have the OTP?",
+            "If I bought a gift for someone, how do they get the delivery password?",
+            "Can I ship an Amazon package to an inmate at a prison or correctional facility?",
+            "Which shipping carrier does Amazon use for deliveries to prisons?",
+            "What happens if a correctional facility refuses to accept my Amazon package?",
+            "Are there restricted items I cannot send to a prison via Amazon?",
+            "How do I format the shipping address and ID for a prison delivery?"
         ]
     },
     {
@@ -262,6 +762,20 @@
             "fax_requests_001",
             "support_options_and_customer_service_001",
             "support_options_and_customer_service_002"
+        ],
+        "sample_queries": [
+            "Which currencies are supported by Amazon Currency Converter?",
+            "Can I pay in Canadian Dollars or Euros on Amazon.com?",
+            "Where is the list of active currencies for international shopping?",
+            "Does Amazon accept documents or account verifications via fax?",
+            "Why did Amazon ask me to fax my billing information?",
+            "Is it safe to send my bank details to Amazon via fax?",
+            "How do I contact Amazon Customer Service for help?",
+            "Where do I find the phone number, email, or chat link for support?",
+            "What are my options for self-service help on Amazon?",
+            "How does the How to get Customer Service support policy work?",
+            "What are the rules regarding How to get Customer Service support?",
+            "Can you explain the details for How to get Customer Service support?"
         ]
     },
     {
@@ -269,6 +783,17 @@
         "description": "Deceased account closure processes and documentation guidelines.",
         "source_chunks": [
             "bereavement_support_001"
+        ],
+        "sample_queries": [
+            "Can you explain the details for Protecting account information?",
+            "Can you explain the details for You don't have access to the account?",
+            "Can you explain the details for You have access to the email address or phone number associated with the account?",
+            "How does the Protecting account information policy work?",
+            "How does the You don't have access to the account policy work?",
+            "How does the You have access to the email address or phone number associated with the account policy work?",
+            "What are the rules regarding Protecting account information?",
+            "What are the rules regarding You don't have access to the account?",
+            "What are the rules regarding You have access to the email address or phone number associated with the account?"
         ]
     },
     {
@@ -276,6 +801,11 @@
         "description": "Submitting Power of Attorney (POA) documentation.",
         "source_chunks": [
             "power_of_attorneypoa_support_001"
+        ],
+        "sample_queries": [
+            "How do I submit Power of Attorney documents to manage someone else's account?",
+            "What is the process to close a deceased relative's Amazon profile?",
+            "How do I get bereavement or POA customer support?"
         ]
     },
     {
@@ -283,6 +813,32 @@
         "description": "Handling packages marked as delivered but not received, check carrier contact info.",
         "source_chunks": [
             "missing_package_delivered_002"
+        ],
+        "sample_queries": [
+            "Can you explain the details for 1 - Confirm shipping address in Your Orders?",
+            "Can you explain the details for 2 - Search for a notice of delivery attempt?",
+            "Can you explain the details for 3 - Check around the delivery location?",
+            "Can you explain the details for 4 - Ask your household members and neighbors?",
+            "Can you explain the details for 5 - Wait 48 hours for the package to be delivered?",
+            "Can you explain the details for 6 - You can check with the carrier?",
+            "Can you explain the details for Find a Missing Package that Shows as Delivered?",
+            "Can you explain the details for What to do next??",
+            "How does the 1 - Confirm shipping address in Your Orders policy work?",
+            "How does the 2 - Search for a notice of delivery attempt policy work?",
+            "How does the 3 - Check around the delivery location policy work?",
+            "How does the 4 - Ask your household members and neighbors policy work?",
+            "How does the 5 - Wait 48 hours for the package to be delivered policy work?",
+            "How does the 6 - You can check with the carrier policy work?",
+            "How does the Find a Missing Package that Shows as Delivered policy work?",
+            "How does the What to do next? policy work?",
+            "What are the rules regarding 1 - Confirm shipping address in Your Orders?",
+            "What are the rules regarding 2 - Search for a notice of delivery attempt?",
+            "What are the rules regarding 3 - Check around the delivery location?",
+            "What are the rules regarding 4 - Ask your household members and neighbors?",
+            "What are the rules regarding 5 - Wait 48 hours for the package to be delivered?",
+            "What are the rules regarding 6 - You can check with the carrier?",
+            "What are the rules regarding Find a Missing Package that Shows as Delivered?",
+            "What are the rules regarding What to do next??"
         ]
     },
     {
@@ -294,6 +850,25 @@
             "missing_item_from_order_003",
             "missing_packing_slip_001",
             "ships_with_other_items_001"
+        ],
+        "sample_queries": [
+            "How does the Find a Missing Item from Your Order policy work?",
+            "What are the rules regarding Find a Missing Item from Your Order?",
+            "Can you explain the details for Find a Missing Item from Your Order?",
+            "How does the Find a missing item shipped by Amazon policy work?",
+            "What are the rules regarding Find a missing item shipped by Amazon?",
+            "Can you explain the details for Find a missing item shipped by Amazon?",
+            "How does the Find a missing item shipped and sold by a third-party seller policy work?",
+            "What are the rules regarding Find a missing item shipped and sold by a third-party seller?",
+            "Can you explain the details for Find a missing item shipped and sold by a third-party seller?",
+            "How do I print an invoice or receipt for my Amazon order?",
+            "Can I still return an Amazon item if I lost the packing slip?",
+            "Why didn't my Amazon package come with a packing slip inside?",
+            "Where do I go in my account to view the invoice for a past order?",
+            "Why did Amazon split my order into multiple boxes?",
+            "How does Amazon decide which items ship together in one package?",
+            "Will my items arrive in the same box if I buy them all at once?",
+            "How can I find out if my items are grouped together or shipping separately?"
         ]
     },
     {
@@ -302,6 +877,18 @@
         "source_chunks": [
             "customs_regs_merged_01",
             "customs_regs_merged_02"
+        ],
+        "sample_queries": [
+            "Why does Amazon require my ID or passport for international shipments?",
+            "How do I delete my saved ID from my Amazon account?",
+            "If I ship a package to a friend in another country, whose ID do I provide for customs?",
+            "Does Amazon automatically delete my customs ID if I stop ordering internationally?",
+            "How long does it take for my ID to be completely erased from Amazon's database?",
+            "What is the EZ WAY app and do I need it for Taiwan deliveries?",
+            "How do I get a Personal Customs Clearance Code (PCCC) for South Korea?",
+            "Can I use my English name on an order to Korea if my PCCC is in Korean?",
+            "What is a CUIL and why do I need to register it on the AFIP site for Argentina?",
+            "Do I need a TISI NSW permit to import electronics or toys into Thailand?"
         ]
     },
     {
@@ -314,6 +901,26 @@
             "packaging_programs_002",
             "sign_for_order_001",
             "third_party_company_delivery_001"
+        ],
+        "sample_queries": [
+            "What does \\",
+            "Do I get free shipping on Fulfilled by Amazon items?",
+            "Who handles customer service and returns for FBA orders?",
+            "Why did my FBA item come from a different seller's inventory?",
+            "Where can I find the invoice for an item fulfilled by Amazon?",
+            "Can I ship an Amazon order to a hotel?",
+            "What happens if my hotel loses my package?",
+            "Can Amazon refund a package delivered to a hotel?",
+            "What hotel information should I include in the address?",
+            "Should I contact the hotel before shipping?",
+            "What should I do if I won't be home to sign for my Amazon delivery?",
+            "Can I change the shipping address on an order that requires an adult signature?",
+            "How do I pick up my package if I missed the delivery that needed a signature?",
+            "What happens if I just refuse the delivery for an item I couldn't sign for?",
+            "Does Amazon require someone to be home to sign for expensive items?",
+            "Will Amazon refund or replace an item if a freight forwarder or third-party warehouse loses it after delivery?",
+            "What should a buyer's club do if an Amazon package arrives with damaged packaging?",
+            "Can Amazon customer service talk directly to my freight forwarder about a missing package?"
         ]
     },
     {
@@ -325,6 +932,23 @@
             "how_to_identify_fake_text_messages_sms_001",
             "how_to_identify_fake_websites_001",
             "report_suspicious_activity_001"
+        ],
+        "sample_queries": [
+            "How do I spot a fake or spoofed Amazon email?",
+            "What email addresses does Amazon actually use to contact customers?",
+            "What should I do if I receive a suspicious shipping confirmation email?",
+            "How do I know if an Amazon support phone call is a scam?",
+            "Does Amazon call customers to ask for passwords or credit cards?",
+            "What should I do if a caller claims my package is lost and asks for bank details?",
+            "How can I tell if a text message claiming to be from Amazon is fake?",
+            "Does Amazon send SMS alerts about locked accounts or refunds?",
+            "What should I do if I click a link in a suspicious text message?",
+            "How do I check if a website claiming to be Amazon is real?",
+            "What are the official domain names used by Amazon?",
+            "What should I do if I entered my password on a suspicious site?",
+            "How do I contact Amazon security about potential unauthorized access?",
+            "How do I report suspicious changes to my account or orders?",
+            "What should I do if I notice an order I didn't place in my history?"
         ]
     },
     {
@@ -334,6 +958,17 @@
             "about_us_state_sales_and_use_taxes_001",
             "vat_rates_001",
             "vat_rates_002"
+        ],
+        "sample_queries": [
+            "Why was sales tax added to my Amazon order total?",
+            "How does Amazon calculate state-specific sales tax?",
+            "Which states are subject to marketplace facilitator tax laws?",
+            "How does the Physical Products policy work?",
+            "What are the rules regarding Physical Products?",
+            "Can you explain the details for Physical Products?",
+            "How does the Digital Products policy work?",
+            "What are the rules regarding Digital Products?",
+            "Can you explain the details for Digital Products?"
         ]
     },
     {
@@ -342,6 +977,15 @@
         "source_chunks": [
             "availability_alerts_001",
             "change_your_subscription_email_preferences_001"
+        ],
+        "sample_queries": [
+            "How do I get an email notification when an out-of-stock item comes back to Amazon?",
+            "If I sign up for an availability alert, does it reserve the item for me?",
+            "Where is the \\",
+            "How do I know when a sold-out product is back in stock?",
+            "How do I edit my subscription preferences for Amazon deals or Prime?",
+            "How long does it take for changes to email subscriptions to take effect?",
+            "Where is the communication preference center for newsletter emails?"
         ]
     }
 ]
