@@ -1,38 +1,31 @@
+import os
 import pandas as pd
 import numpy as np
 import faiss
-
 from sentence_transformers import SentenceTransformer
 
-# Load chunks
-chunks_df = pd.read_csv("D:/INQYST/Week 1/Task2 - Retrieval/data/chunks.csv")
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Load embedding model
-embedder = SentenceTransformer(
-    "sentence-transformers/all-MiniLM-L6-v2"
-)
+chunks_df = pd.read_csv(os.path.join(CURRENT_DIR, "Chunks.csv"))
 
-# Generate embeddings
+embedder = SentenceTransformer("BAAI/bge-base-en-v1.5")
+
+texts = chunks_df["chunk"].tolist()
+
 embeddings = embedder.encode(
-    chunks_df["chunk"].tolist(),
+    texts,
+    convert_to_numpy=True,
     show_progress_bar=True
-)
+).astype("float32")
 
-# Convert to numpy float32
-embeddings = np.array(embeddings).astype("float32")
+faiss.normalize_L2(embeddings)
 
-# Create FAISS index
 dimension = embeddings.shape[1]
 
-index = faiss.IndexFlatL2(dimension)
-
-# Add embeddings
+index = faiss.IndexFlatIP(dimension)
 index.add(embeddings)
 
-# Save index
-faiss.write_index(
-    index,
-    "faiss_index.bin"
-)
+faiss.write_index(index, os.path.join(CURRENT_DIR, "faiss_index.bin"))
 
-print("FAISS index saved successfully!")
+print("FAISS index saved successfully.")
+print(f"Indexed {index.ntotal} chunks.")
