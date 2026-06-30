@@ -875,8 +875,9 @@
         "intent": "check_customs_regulations",
         "description": "Customs clearance requirements, uploading identity documents, South Korea PCCC codes, Taiwan EZ WAY, and Argentina CUIL.",
         "source_chunks": [
-            "customs_regs_merged_01",
-            "customs_regs_merged_02"
+            "customs_regs_001",
+            "customs_regs_002",
+            "customs_regs_003"
         ],
         "sample_queries": [
             "Why does Amazon require my ID or passport for international shipments?",
@@ -896,7 +897,7 @@
         "description": "Shipping to hotels, freight forwarders/third-party companies, signature requirements on delivery, packaging programs (Frustration-Free), and Fulfilled by Amazon (FBA) terms.",
         "source_chunks": [
             "fulfilled_by_amazon_001",
-            "hotel_delivery_merged_01",
+            "hotel_delivery_001",
             "packaging_programs_001",
             "packaging_programs_002",
             "sign_for_order_001",
