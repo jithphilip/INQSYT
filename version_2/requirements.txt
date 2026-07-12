@@ -1,0 +1,43 @@
+# Core ML
+torch
+
+# Embeddings
+sentence-transformers
+
+# Vector Search
+faiss-cpu
+
+# Data Handling
+numpy
+pandas
+
+# Progress Bars
+tqdm
+
+# Evaluation Metrics
+scikit-learn
+
+# Environment Variables (optional)
+python-dotenv
+
+# Langgraph
+langgraph
+
+# langchain
+langchain-core
+
+# pnggenerator
+grandalf
+
+# GroqAI
+groq
+
+# App UI
+streamlit
+
+# gemini
+google-genai
+
+# excel
+openpyxl
+

@@ -1,0 +1,341 @@
+question,reference_chunk_id,intent
+Can I make edits to a shipment before it goes out?,42,modify_order
+How do I stop my purchase from shipping?,70,modify_order
+I need to alter items in my shopping cart order.,72,modify_order
+Is there a way to cancel my package delivery?,70,modify_order
+I want to remove something from my recent order.,42,modify_order
+Could you help me change my item quantity?,72,modify_order
+How do I adjust an order that is pending?,72,modify_order
+"I placed an order by mistake, how do I cancel it?",70,modify_order
+Is it too late to edit my purchase?,42,modify_order
+I want to cancel a transaction I just made.,70,modify_order
+Where do I go to update my delivery location?,66,modify_address
+I need to change the shipping address for my package.,66,modify_address
+Is it possible to edit my street address?,66,modify_address
+How do I add a new location to my address book?,66,modify_address
+Can I correct a typo in my delivery destination?,54,modify_address
+I need to update my default shipping address.,66,modify_address
+How do I remove outdated addresses from my account?,66,modify_address
+Can you show me where to edit my home address?,66,modify_address
+I want to enter a new shipping address for future orders.,66,modify_address
+How to change the shipping destination on a pending order?,66,modify_address
+How do I download a PDF of my order receipt?,117,view_invoice
+Where can I print my official tax invoice?,117,view_invoice
+I need a copy of my billing receipt for tax purposes.,60,view_invoice
+How do I get an invoice for my business expense?,117,view_invoice
+Can you show me where to find order invoices?,117,view_invoice
+I want to save my proof of purchase to my computer.,60,view_invoice
+How do I print a receipt for a past order?,117,view_invoice
+Where is the invoice download link in my order history?,117,view_invoice
+Can I get a VAT invoice for my digital purchases?,117,view_invoice
+I need my invoice PDF for an order from last month.,117,view_invoice
+How do I submit feedback about my shopping experience?,94,submit_feedback
+Where is the customer satisfaction survey?,94,submit_feedback
+I want to rate my recent interaction with support.,94,submit_feedback
+How can I file a complaint about the delivery service?,94,submit_feedback
+Where do I send suggestions for app improvement?,94,submit_feedback
+I want to share my thoughts on the new checkout design.,94,submit_feedback
+How to fill out the delivery feedback form?,94,submit_feedback
+Where can I write a review about Amazon's service?,94,submit_feedback
+I want to leave feedback for a third-party merchant.,94,submit_feedback
+How do I submit my opinion on a product search feature?,94,submit_feedback
+How do I change my account login password?,8,reset_password
+"I forgot my password, how do I recover my account?",14,reset_password
+Where do I go to update my login credentials?,8,reset_password
+How do I set up two-step verification for security?,12,reset_password
+I need to reset my security passcode.,1,reset_password
+How can I make my account password stronger?,8,reset_password
+What should I do if my login details aren't working?,20,reset_password
+How to disable or enable multi-factor authentication?,1,reset_password
+I want to update the password for my shopping profile.,8,reset_password
+Where is the password reset link on the login page?,14,reset_password
+How do I approve a purchase made by my teenager?,3,manage_teen_account
+I want to remove my teen from our household account.,15,manage_teen_account
+How do I set order limits for my teen's profile?,15,manage_teen_account
+Can I monitor my teen's shopping activity?,17,manage_teen_account
+How do I add a teen login to my family settings?,17,manage_teen_account
+What are the rules for teen accounts and approvals?,15,manage_teen_account
+How to delete a teenager's login from my profile?,17,manage_teen_account
+Where do I view pending orders from my teen?,3,manage_teen_account
+How do I set up a teen account for my child?,17,manage_teen_account
+Can I change the payment method my teen uses?,15,manage_teen_account
+How do I change my shopping profile name?,65,manage_profile_settings
+Where do I switch to a different user profile in the app?,79,manage_profile_settings
+How do I sign out of my Amazon account on this device?,84,manage_profile_settings
+I want to edit my profile picture and personal info.,65,manage_profile_settings
+How do I manage my public shopping profile settings?,65,manage_profile_settings
+Where is the account switcher option located?,88,manage_profile_settings
+How do I delete a secondary profile from my account?,65,manage_profile_settings
+I want to change the email address linked to my profile.,65,manage_profile_settings
+How to update my contact information in settings?,79,manage_profile_settings
+Where do I configure my personal profile details?,65,manage_profile_settings
+How do I change the language settings to Spanish?,6,manage_account_settings
+Where do I manage my third-party app data access?,78,manage_account_settings
+How do I configure my account region and country preferences?,6,manage_account_settings
+Where is the setting to manage cookies and privacy?,78,manage_account_settings
+How do I update my language preference in my account?,6,manage_account_settings
+Where do I manage my data privacy and security settings?,78,manage_account_settings
+How to opt out of third-party data collection?,78,manage_account_settings
+Where do I change my primary account location?,5,manage_account_settings
+How do I access my stored login history?,83,manage_account_settings
+Where can I view my data sharing preferences?,78,manage_account_settings
+How do I permanently delete my Amazon account?,82,close_account
+I want to close my account and remove my personal data.,82,close_account
+What happens if I deactivate my shopping profile?,93,close_account
+Steps to close my Amazon account forever.,82,close_account
+How do I delete my profile data and account history?,82,close_account
+I want to cancel my registration and delete my account.,82,close_account
+What is the procedure to shut down my account?,82,close_account
+How do I request complete deletion of my profile?,82,close_account
+Can I temporarily deactivate my shopping account?,93,close_account
+Where is the close account link in settings?,82,close_account
+How do I delete an expired credit card from my wallet?,106,manage_wallet_cards
+Where do I add a backup payment method?,80,manage_wallet_cards
+How do I update my debit card billing address?,73,manage_wallet_cards
+I want to edit my saved credit card details.,76,manage_wallet_cards
+How do I add a new payment card to my account?,76,manage_wallet_cards
+Where can I manage my saved credit and debit cards?,76,manage_wallet_cards
+How to update the expiration date on my wallet card?,73,manage_wallet_cards
+Can I set a default card for all my purchases?,73,manage_wallet_cards
+How do I remove an old payment method from checkout?,76,manage_wallet_cards
+Where do I manage my digital wallet settings?,73,manage_wallet_cards
+How does the Amazon currency converter work at checkout?,103,convert_currency
+How do I change the currency of preference on my card?,100,convert_currency
+Where are the currency converter settings located?,101,convert_currency
+How do I select the billing currency for my credit card?,106,convert_currency
+What are the exchange rates used for international orders?,103,convert_currency
+Why is my card being charged in USD instead of my currency?,101,convert_currency
+How to turn on or off the currency converter?,101,convert_currency
+Can I view prices in my local currency while browsing?,100,convert_currency
+How to avoid conversion fees at checkout?,101,convert_currency
+Where can I see the exchange rate details for my order?,102,convert_currency
+Why was my credit card declined during checkout?,96,resolve_declined_payment
+How do I retry a payment for a failed order?,96,resolve_declined_payment
+"My transaction failed, how do I update the payment method?",80,resolve_declined_payment
+How do I fix a declined card error?,96,resolve_declined_payment
+What should I do if my order payment is suspended?,96,resolve_declined_payment
+How do I resolve a failed transaction notification?,96,resolve_declined_payment
+Why is my bank declining the charge from Amazon?,96,resolve_declined_payment
+How to update payment details on a pending transaction?,80,resolve_declined_payment
+What steps do I follow after a payment decline?,96,resolve_declined_payment
+How can I check why my payment didn't go through?,96,resolve_declined_payment
+Why was my card charged by Amazon without my knowledge?,99,investigate_unknown_charge
+I see an unrecognized Amazon billing fee on my statement.,99,investigate_unknown_charge
+What is this AMZ Prime descriptor charge on my bank statement?,97,investigate_unknown_charge
+How do I report an unauthorized charge on my account?,99,investigate_unknown_charge
+There is a charge from Amazon that I don't remember making.,98,investigate_unknown_charge
+How do I find out what an Amazon transaction was for?,99,investigate_unknown_charge
+Why did Amazon charge me $14.99 out of nowhere?,98,investigate_unknown_charge
+How to investigate a mysterious charge on my credit card?,99,investigate_unknown_charge
+I see multiple charges from Amazon but only placed one order.,99,investigate_unknown_charge
+How do I check my account for unauthorized purchases?,99,investigate_unknown_charge
+How do I report a suspicious gift card scam?,45,report_payment_scam
+"I think I fell for a payment scam, what should I do?",30,report_payment_scam
+How to report fraudulent activity involving Amazon gift cards?,45,report_payment_scam
+I received a demand for payment via gift cards.,30,report_payment_scam
+Where do I flag a fake agent asking for payment?,27,report_payment_scam
+How do I report a scammer asking for my account details?,29,report_payment_scam
+What should I do if I sent gift cards to a scammer?,30,report_payment_scam
+How do I report fake billing scams on my account?,34,report_payment_scam
+Where can I report phone call scams claiming to be Amazon?,25,report_payment_scam
+How do I flag a phishing site requesting payment info?,27,report_payment_scam
+What is the return window for items bought on Amazon?,109,check_return_eligibility
+Can I return an item after the 30-day limit?,109,check_return_eligibility
+Are opened video games or software eligible for returns?,112,check_return_eligibility
+What items are non-returnable under Amazon policy?,110,check_return_eligibility
+How do I check if my purchase can be returned?,112,check_return_eligibility
+What is the return policy for electronics?,111,check_return_eligibility
+Can I return a used item for a full refund?,112,check_return_eligibility
+How to know if a seller product is eligible for returns?,108,check_return_eligibility
+What is the policy for returning opened cosmetics?,111,check_return_eligibility
+Is there a deadline to ship back my return package?,108,check_return_eligibility
+Does Amazon charge restocking fees for opened items?,112,check_restocking_fees
+How much is deducted from my refund for damaged returns?,112,check_restocking_fees
+What are the restocking fee rules for electronics?,112,check_restocking_fees
+Why did I receive a partial refund for my return?,112,check_restocking_fees
+Are there return fee deductions for opened boxes?,112,check_restocking_fees
+How do I avoid restocking fees on returned purchases?,112,check_restocking_fees
+What is the fee policy for returning damaged goods?,112,check_restocking_fees
+Does a third-party seller charge restocking fees?,112,check_restocking_fees
+Why was money deducted from my return refund?,112,check_restocking_fees
+How do I check if my return will have a restocking fee?,112,check_restocking_fees
+How do returns work for international shipping?,41,check_international_returns
+Who pays for return shipping on overseas orders?,41,check_international_returns
+How do I print an international return shipping label?,41,check_international_returns
+What are the rules for returning items from outside the US?,41,check_international_returns
+How do I return a package from another country?,41,check_international_returns
+Does Amazon provide free international return shipping?,41,check_international_returns
+How do I return an order from Canada or Europe?,41,check_international_returns
+What carrier should I use for international returns?,41,check_international_returns
+How long do international return refunds take?,108,check_international_returns
+Where do I find international return instructions?,41,check_international_returns
+How do I check the status of my returned package refund?,114,track_refund
+Where do I track my refund transaction?,114,track_refund
+How long does a refund take to credit to my bank account?,113,track_refund
+"I shipped my return, when will my refund be issued?",108,track_refund
+How to check if my refund was sent to my credit card?,114,track_refund
+Where is my refund receipt in my account details?,114,track_refund
+Why has my refund not appeared in my bank account yet?,114,track_refund
+What is the average processing time for return refunds?,113,track_refund
+How do I track a refund sent to my gift card balance?,114,track_refund
+Where do I find my return refund confirmation?,114,track_refund
+Where do I see my Amazon rewards points balance?,75,check_promotional_balance
+How do I check my promotional credits balance?,75,check_promotional_balance
+Where is my benefit balance listed in my account?,75,check_promotional_balance
+How do I find my available promotional credit total?,75,check_promotional_balance
+How do I check if I have rewards points to spend?,75,check_promotional_balance
+Where are my digital promotional credits shown?,75,check_promotional_balance
+How do I apply promotional balance at checkout?,75,check_promotional_balance
+Why did my promotional credit disappear?,75,check_promotional_balance
+How do I check my Amazon promotional rewards?,75,check_promotional_balance
+Where do I view my active benefit balances?,75,check_promotional_balance
+Where is my order right now on the tracking map?,133,track_package
+How do I view my delivery driver's location in real time?,51,track_package
+Where do I find the tracking number for my package?,133,track_package
+How do I see my delivery status and ETA?,133,track_package
+Where do I track my incoming Amazon shipment?,133,track_package
+How do I check the tracking info for a recent order?,129,track_package
+Where can I view photo proof of delivery for my package?,52,track_package
+How to see the tracking progress of my delivery?,133,track_package
+Where is the live package tracker map option?,51,track_package
+How do I check which carrier is delivering my order?,126,track_package
+How do I sign up for SMS shipping notifications?,131,manage_delivery_alerts
+Where do I disable text delivery alerts?,135,manage_delivery_alerts
+How do I manage email alerts for my packages?,135,manage_delivery_alerts
+I want to receive push notifications for delivery status.,131,manage_delivery_alerts
+How to turn on text message updates for my order?,132,manage_delivery_alerts
+Where do I edit my delivery alert preferences?,131,manage_delivery_alerts
+How do I stop receiving SMS updates about my orders?,135,manage_delivery_alerts
+Where is the option to enable order delivery texts?,123,manage_delivery_alerts
+How to configure my shipment notification settings?,131,manage_delivery_alerts
+How do I receive mobile alerts when a package arrives?,131,manage_delivery_alerts
+"My order is past its delivery date, what should I do?",134,check_delivery_delay
+Who do I contact about a delayed package scan?,134,check_delivery_delay
+"My tracking says late delivery, where is my order?",127,check_delivery_delay
+Why is my package delayed at the carrier facility?,127,check_delivery_delay
+My order was supposed to arrive today but is delayed.,134,check_delivery_delay
+How do I report a missed delivery date?,134,check_delivery_delay
+What happens if my shipment is delayed by weather?,127,check_delivery_delay
+"My tracking is stuck in transit, how to report delay?",134,check_delivery_delay
+Why is my Amazon delivery taking longer than expected?,128,check_delivery_delay
+How do I request compensation for a late delivery?,127,check_delivery_delay
+Why was my package marked as undeliverable?,137,resolve_undeliverable_package
+"My order is being returned to sender, how do I fix it?",124,resolve_undeliverable_package
+What should I do if my shipping address was incorrect?,124,resolve_undeliverable_package
+Does Amazon reship packages marked undeliverable?,136,resolve_undeliverable_package
+How do I get a refund for an undeliverable package?,136,resolve_undeliverable_package
+My shipment failed delivery because the business was closed.,136,resolve_undeliverable_package
+What causes a package to be returned as undeliverable?,136,resolve_undeliverable_package
+How do I correct my address for an undeliverable order?,137,resolve_undeliverable_package
+Who do I contact if my carrier says undeliverable?,137,resolve_undeliverable_package
+Will I be charged return shipping for an undeliverable parcel?,136,resolve_undeliverable_package
+What is a secure delivery OTP and how do I find it?,61,check_delivery_rules
+What are the rules for shipping to a prison facility?,62,check_delivery_rules
+How do I schedule a specific delivery time slot?,127,check_delivery_rules
+Do I need to be home to receive a high-value package?,61,check_delivery_rules
+What are the guidelines for delivery access codes?,61,check_delivery_rules
+How do I set delivery instructions for my driver?,127,check_delivery_rules
+What is the policy for delivery password verification?,61,check_delivery_rules
+Can I request that my package be left inside the garage?,126,check_delivery_rules
+What are the rules for apartment building deliveries?,61,check_delivery_rules
+How do I manage my delivery preferences for my household?,133,check_delivery_rules
+How do I open a live support chat with customer service?,86,contact_support
+What is the customer support phone number for Amazon?,86,contact_support
+How do I open a customer support help ticket?,86,contact_support
+Where can I speak with a live agent about my account?,86,contact_support
+How to contact Amazon corporate support or helpdesk?,86,contact_support
+Is there a toll-free number to call for support?,86,contact_support
+How do I start a support chat session?,86,contact_support
+Where do I submit a help request for my order?,86,contact_support
+How do I get in touch with customer care?,86,contact_support
+Where is the customer support contact page?,86,contact_support
+How do I close the account of a deceased family member?,68,request_bereavement_support
+What is the bereavement support policy for estate accounts?,68,request_bereavement_support
+How do I transfer ownership of a deceased person's account?,68,request_bereavement_support
+Who do I contact to report the death of an account holder?,68,request_bereavement_support
+How to handle account closure after a family member's passing?,68,request_bereavement_support
+What documentation is needed for deceased account support?,68,request_bereavement_support
+How do I close an Amazon account for a deceased relative?,68,request_bereavement_support
+Where do I submit a death certificate for account closure?,68,request_bereavement_support
+How does Amazon handle estate account management?,68,request_bereavement_support
+How do I cancel subscriptions for a deceased customer?,68,request_bereavement_support
+Where do I submit power of attorney documents for account access?,81,submit_legal_poa
+How do I upload legal POA paperwork to my profile?,81,submit_legal_poa
+Who reviews power of attorney requests at Amazon?,81,submit_legal_poa
+What is the process to authorize account access with a POA?,81,submit_legal_poa
+Where do I send legal guardianship documents?,81,submit_legal_poa
+How to upload court authorization forms to my account?,81,submit_legal_poa
+What is the fax or upload link for POA documentation?,81,submit_legal_poa
+How do I add a legal representative using power of attorney?,81,submit_legal_poa
+Where do I register my POA paperwork for order management?,81,submit_legal_poa
+How long does power of attorney approval take?,81,submit_legal_poa
+My package shows as delivered but I cannot find it anywhere.,126,report_missing_package
+How do I report a missing package that was marked delivered?,126,report_missing_package
+My order says it arrived yesterday but it's not on my doorstep.,134,report_missing_package
+What should I do if my parcel was stolen?,126,report_missing_package
+I checked everywhere but my delivered order is missing.,126,report_missing_package
+How to report a missing package delivery?,126,report_missing_package
+"My carrier tracking shows delivered, but no package arrived.",126,report_missing_package
+Who do I contact about a missing or stolen shipment?,124,report_missing_package
+What steps do I follow if my package was left in a wrong spot?,126,report_missing_package
+How do I request a replacement for a missing delivered order?,124,report_missing_package
+One of the products I ordered was not inside the delivery package.,126,report_missing_item
+How do I report a missing item from my shipment?,124,report_missing_item
+My box was damaged and some items were missing.,124,report_missing_item
+"I only received half of my order, who do I contact?",124,report_missing_item
+How to claim a refund for a missing item in a package?,124,report_missing_item
+"My delivery was short one item, how to get a replacement?",124,report_missing_item
+The shipping envelope was empty when it was delivered.,125,report_missing_item
+Where do I report a missing item from a multi-item package?,124,report_missing_item
+How do I tell Amazon that a product was left out of my shipment?,124,report_missing_item
+What to do if an item is missing from my package?,124,report_missing_item
+Why do I need to upload my passport or ID for international orders?,47,check_customs_regulations
+How do I enter my PCCC code for South Korea customs clearance?,49,check_customs_regulations
+How do I clear my Amazon shipment in Argentina using my CUIL ID?,47,check_customs_regulations
+What are the customs ID requirements for importing shipments?,48,check_customs_regulations
+Where do I submit my customs registration details?,47,check_customs_regulations
+What is the personal customs clearance code requirement?,49,check_customs_regulations
+Why is my package held at customs for identification?,47,check_customs_regulations
+How to resolve customs documentation issues for my order?,47,check_customs_regulations
+What ID is required to ship packages to Taiwan?,48,check_customs_regulations
+How do I link my EZ WAY details for customs clearance?,47,check_customs_regulations
+Can I ship my Amazon orders to a hotel or resort?,120,check_shipping_policies
+How do deliveries to freight forwarders or shipping companies work?,122,check_shipping_policies
+Do I need to sign for my package upon delivery?,64,check_shipping_policies
+What are the shipping rules for hotel guest deliveries?,120,check_shipping_policies
+Can I ship to a third-party shipping agent or consolidator?,122,check_shipping_policies
+What is the policy for delivery signature requirements?,64,check_shipping_policies
+Can my order be delivered to a commercial warehouse?,64,check_shipping_policies
+What are the guidelines for hotel shipping on Amazon?,120,check_shipping_policies
+How does shipping to a third-party freight forwarder work?,122,check_shipping_policies
+Do all deliveries require a signature at the door?,64,check_shipping_policies
+How do I know if an Amazon survey email is real or fake?,23,identify_phishing_scams
+How can I tell if a support message is a phishing attempt?,29,identify_phishing_scams
+How do I spot a fake security alert message?,26,identify_phishing_scams
+Where do I report suspicious calls claiming my account is locked?,25,identify_phishing_scams
+How do I know if an email about an order is authentic?,23,identify_phishing_scams
+What are the signs of a phishing scam email?,29,identify_phishing_scams
+How to report spoofed SMS messages to Amazon?,26,identify_phishing_scams
+Where do I forward fake emails for investigation?,23,identify_phishing_scams
+How to verify if an Amazon domain is genuine?,27,identify_phishing_scams
+How do I report phishing attempts on my account?,34,identify_phishing_scams
+Why did my order tax change during checkout?,115,check_tax_rates
+How is tax calculated on digital Kindle books?,119,check_tax_rates
+What is the sales tax rate for my delivery address?,115,check_tax_rates
+How do I apply for a tax-exempt purchase?,116,check_tax_rates
+Why am I being charged VAT on my digital orders?,119,check_tax_rates
+Where can I find tax calculation details for my transaction?,115,check_tax_rates
+Does Amazon charge tax on gift card purchases?,116,check_tax_rates
+How are tax rates determined for international shipping?,115,check_tax_rates
+Where do I see the tax breakdown of my invoice?,115,check_tax_rates
+Why was I charged European VAT on a physical item?,118,check_tax_rates
+How do I stop receiving out-of-stock restock email alerts?,53,manage_notifications
+Where do I configure my Subscribe & Save alert notifications?,53,manage_notifications
+How do I manage my email preferences and subscription settings?,4,manage_notifications
+How to turn off marketing push notifications in the app?,16,manage_notifications
+Where do I set up alerts for when an item is back in stock?,53,manage_notifications
+How do I manage notifications for my shopping cart alerts?,131,manage_notifications
+Where is the notification center settings page?,131,manage_notifications
+How to opt out of promotional emails from Amazon?,16,manage_notifications
+How do I turn on Subscribe and Save email updates?,4,manage_notifications
+Where do I manage restock notifications?,131,manage_notifications

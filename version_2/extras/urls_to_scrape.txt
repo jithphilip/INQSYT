@@ -1,0 +1,71 @@
+# Amazon Help Page URLs to Scrape
+# ================================
+# Format:  category | page_name | url
+# 
+# - "category" becomes the folder name inside raw_data/
+# - "page_name" becomes the markdown filename
+# - One URL per line
+# - Lines starting with # are comments
+# - Blank lines are ignored
+#
+# Add your URLs below:
+# ================================
+
+
+Payment Methods | Accepted Payment Methods | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GFBWMNXEPYVJAY9A
+Payment Methods | Amazon Currency Converter Exchange Rates | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GDVF7JHSLREZFKL4
+Payment Methods | Amazon Currency Converter Requirements | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GEC47LAK95ESY2JW
+Payment Methods | Amazon Currency Converter Supported Currencies | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GACF9K9BWLFMF8ZN
+Payment Methods | Select Your Card Currency for Amazon Currency Converter | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GC6KVCQQQFWKPCGQ
+Payment Methods | About Currency of Preference on International Shopping | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GCFKTYVC8YXJLQDH
+
+Payment Issues and Restrictions | Resolve a Declined Payment | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=G6P826S3WMEV8SPN  
+Payment Issues and Restrictions | Unknown Amazon Payment Charges | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GSNBBJP63SM65UDB
+Payment Issues and Restrictions | Avoiding Payment Scams | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=G3KGTPA8B42CKBJ4
+
+Communications from Amazon.com | Identifying a scam | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=G4YFYCCNUSENA23B   
+Communications from Amazon.com | Report a scam | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GRGRY7AQ3LMPXVCV 
+Communications from Amazon.com | Verify Your Email for a New Account | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GU3U2EU63RCFDAP2  
+Communications from Amazon.com | Amazon Consumer Surveys | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=G58ZQEGH2H25HAQR  
+Communications from Amazon.com | Machine Translation | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GU64X99NVH4MZBZW  
+Communications from Amazon.com | Fax Requests | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GQ6X9K9358LDSJRA
+Communications from Amazon.com | How to identify fake emails | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=Teu845SZK0ApsIgmGC 
+Communications from Amazon.com | How to identify fake text messages/SMS | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=T2W6VB0DExBF3oyVvx 
+Communications from Amazon.com | How to identify fake phone calls | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=T3rnIphp327SSKYl8e
+Communications from Amazon.com | How to identify fake websites | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=TFdMXlDPP3fvF122x1 
+Communications from Amazon.com | Scam trends | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=TapjnwRvIRtlgyLPSl
+Communications from Amazon.com | Report Suspicious Activity | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=T3MYikBay7swNeFqFo  
+
+Managing Your Account | Cancel Items and Orders | https://www.amazon.com/gp/help/customer/display.html?nodeId=GSL37WQTJZUYA9QE
+Managing Your Account | What are Shopping Profiles? | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=T0MhVXZmePWB0G6ttw
+Managing Your Account | Add a Shopping Profile | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=TE9UR1c1VsPhWeLGcl 
+Managing Your Account | Change Your Order Information | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GSWAYSNV7RBSTND9 
+Managing Your Account | Archived Orders | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=G7882F7JTSV9N5BS
+Managing Your Account | Add, Delete, and Manage Addresses | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GQT5HV6YYGNDSFNW
+Managing Your Account | Check your Gift Card Balance | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GJDWQ6WX5MKQP3E6
+Managing Your Account | Manage Payment Methods | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GNQFBWDZJN838JZF 
+Managing Your Account | Manage your backup payment methods | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GQFGFNDV6BAUQ346 
+Managing Your Account | Change your default payment methods | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=G4MVXVJB8QKE7MLW
+Managing Your Account | Manage your amazon accounts on mobile devices | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=G5LD93RTW3MMDKCR
+Managing Your Account | Power of Attorney(POA) Support | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=TCouxVXY0LmWAy8NEi
+Managing Your Account | Request the Closure of Your Account and the Deletion of Your Personal Information | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GDK92DNLSGWTV6MP
+Managing Your Account | Sign out of Your Amazon Account on the Amazon Website | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GQL359FK7DM8294C 
+Managing Your Account | Sign out of Your Amazon Account in the Amazon Shopping App | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GCY4YRXDGMGEQWTZ  
+Managing Your Account | What are mobile phone number accounts? | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GG3RU889NM34H3YR
+Managing Your Account | Use Switch Accounts | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GVJHDP5AF9RB7R4R
+Managing Your Account | Use Login with Amazon | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=G4CY3HAXTSFLGC22 
+Managing Your Account | Manage third-party apps and services with data access through Login with Amazon | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GSNRZP4F7NYG36N6
+Managing Your Account | Support Options and Customer Service | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GSD587LKW72HKU2V
+Managing Your Account | What happens when i close my account? | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GBDB29JHRPFBDVYV
+Managing Your Account | Bereavement Support | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=TzcJJiVFnIi3pG2yDA
+Managing Your Account | Check your credit and benefit balances | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=TzQnumpZFz1aqEoHiK
+
+Tax, Regulatory Fees, and Tax Exemptions | Print an Invoice | https://www.amazon.com/gp/help/customer/display.html?nodeId=GRPUHK7RCNVRBURD
+Tax, Regulatory Fees, and Tax Exemptions | About US State Sales and Use Taxes | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=G202036190
+Tax, Regulatory Fees, and Tax Exemptions | VAT Rates | https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GSF5MREL4MX7PTVG
+
+
+
+ 
+ 
+  

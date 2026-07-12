@@ -1,0 +1,804 @@
+[
+  {
+    "intent": "modify_order",
+    "description": "Modify an existing open order by canceling items, changing the shipping address, adjusting delivery speed, or archiving the order.",
+    "sample_queries": [
+      "Can I cancel an item from my current order?",
+      "How do I change the shipping address for my order?",
+      "I need to upgrade my shipping speed, can I do that?",
+      "Can I archive an order that I don't want to cancel?",
+      "I want to remove a product from my open order.",
+      "Is it possible to change the delivery date of my order?",
+      "How can I modify my order after it's been placed?",
+      "Can I change the shipping method for part of my order?"
+    ],
+    "source_chunks": [
+      72,
+      70,
+      42,
+      66,
+      64
+    ]
+  },
+  {
+    "intent": "modify_address",
+    "description": "Update or manage shipping addresses in the address book, including adding, editing, or deleting default or secondary addresses.",
+    "sample_queries": [
+      "How do I change my default shipping address?",
+      "Can I add a new address to my address book?",
+      "I need to edit one of my saved addresses.",
+      "How do I remove an old address?",
+      "What is my current default shipping address?",
+      "Can I have multiple addresses saved?",
+      "How do I update my secondary address?",
+      "I want to delete my default address, can I do that?"
+    ],
+    "source_chunks": [
+      66,
+      54
+    ]
+  },
+  {
+    "intent": "view_invoice",
+    "description": "Customers want to access, view, or obtain a copy of their official invoices or tax receipts.",
+    "sample_queries": [
+      "How do I view my latest invoice?",
+      "Can I download a copy of my tax receipt?",
+      "I need a printed copy of my invoice, how can I get it?",
+      "Where can I find my invoice for this month?",
+      "Can you show me my previous invoices?",
+      "How do I access my billing statement?",
+      "I lost my invoice, can I get another one?",
+      "Can I view my invoice online?"
+    ],
+    "source_chunks": [
+      117,
+      60,
+      67
+    ]
+  },
+  {
+    "intent": "submit_feedback",
+    "description": "Customers want to provide feedback on their experience, participate in satisfaction surveys, or manage their preferences for automated translation services in chat.",
+    "sample_queries": [
+      "I want to give feedback on our chat service.",
+      "How do I take a customer satisfaction survey?",
+      "Can I stop getting machine translations in chat?",
+      "I'd like to provide feedback on my recent chat.",
+      "How do I change my translation preferences?",
+      "I need to take a survey about my experience.",
+      "Where do I submit feedback about the chat?",
+      "Can I opt out of automated translations?",
+      "I have comments about the chat service, how do I share them?",
+      "How can I provide feedback on the chat support?"
+    ],
+    "source_chunks": [
+      94
+    ]
+  },
+  {
+    "intent": "reset_password",
+    "description": "Customer needs help resetting their password, recovering their login, or troubleshooting login issues, possibly related to Two-Step Verification.",
+    "sample_queries": [
+      "I forgot my password, how do I reset it?",
+      "Can you help me recover my account, I forgot my login details?",
+      "My 2SV isn't working, can I reset my password?",
+      "How do I troubleshoot my login issue?",
+      "I'm having trouble logging in, can you assist with a password reset?",
+      "I need to reset my password but I'm stuck on the verification step.",
+      "Can I get help with login recovery?",
+      "How do I reset my password if I have Two-Step Verification enabled?",
+      "I'm unable to login, can you help me reset my password?",
+      "What do I do if I'm having trouble with my login and password?"
+    ],
+    "source_chunks": [
+      20,
+      14,
+      12,
+      8,
+      5,
+      1
+    ]
+  },
+  {
+    "intent": "manage_teen_account",
+    "description": "Manage settings and permissions for a teen's account, including login credentials, household settings, and order approvals.",
+    "sample_queries": [
+      "How do I set up my teen's account to require my approval for orders?",
+      "Can I limit my teen's access to certain features on their account?",
+      "How do I change my teen's login password?",
+      "What are the household settings I can control for my teen's account?",
+      "How do I view and approve my teen's orders?",
+      "Can I set a spending limit for my teen's account?",
+      "How do I manage my teen's account permissions?",
+      "What settings can I control for my teen's login and account?"
+    ],
+    "source_chunks": [
+      15,
+      3,
+      17,
+      5
+    ]
+  },
+  {
+    "intent": "manage_profile_settings",
+    "description": "Manage shopping profiles, mobile device accounts, and switching between profiles, including signing out of devices.",
+    "sample_queries": [
+      "How do I switch to a different shopping profile?",
+      "Can I sign out of a device?",
+      "I want to change my mobile device account.",
+      "How do I manage my shopping profiles?",
+      "Can I switch profiles on my mobile device?",
+      "How do I log out of a device I'm no longer using?",
+      "I need to update my profile settings.",
+      "How do I remove a device from my account?",
+      "Can I have multiple shopping profiles?",
+      "How do I sign out of all my devices?"
+    ],
+    "source_chunks": [
+      79,
+      89,
+      84,
+      65,
+      88,
+      85
+    ]
+  },
+  {
+    "intent": "manage_account_settings",
+    "description": "Manage personal account settings, including language preferences, marketing communications, third-party app connections, and order history archives.",
+    "sample_queries": [
+      "How do I change my language settings?",
+      "Can I unsubscribe from marketing emails?",
+      "What third-party apps are connected to my account?",
+      "How do I view my order history?",
+      "Can I change my account settings on mobile?",
+      "How do I manage app permissions?",
+      "Where can I find my account settings?",
+      "How do I opt out of promotional messages?",
+      "Can I access my order archives?"
+    ],
+    "source_chunks": [
+      5,
+      6,
+      16,
+      78,
+      79,
+      90,
+      91,
+      92,
+      93,
+      94,
+      131,
+      132,
+      2,
+      4,
+      15,
+      44,
+      66,
+      82,
+      83,
+      89
+    ]
+  },
+  {
+    "intent": "close_account",
+    "description": "Customer wants to close their account or understand the process and implications of doing so.",
+    "sample_queries": [
+      "How do I close my account?",
+      "What happens when I close my account?",
+      "Can I close my account online?",
+      "Will closing my account affect my subscription?",
+      "How do I cancel and close my account?",
+      "What are the consequences of closing my account?",
+      "Can I reopen a closed account?",
+      "How long does it take to close an account?",
+      "What do I need to do to close my account permanently?"
+    ],
+    "source_chunks": [
+      82,
+      92,
+      93,
+      94,
+      44,
+      83
+    ]
+  },
+  {
+    "intent": "manage_wallet_cards",
+    "description": "Manage cards in the wallet, including adding, editing, or removing them, and configuring payment settings such as default payments and gift card balances.",
+    "sample_queries": [
+      "How do I add a new card to my wallet?",
+      "Can I edit the payment settings for my stored cards?",
+      "What is the process to remove a card from my wallet?",
+      "How do I set a default payment method?",
+      "Can I view my gift card balance in the wallet?",
+      "How do I update the expiration date of a card in my wallet?",
+      "Is it possible to have multiple default payment methods?",
+      "How do I change the order of my stored cards?",
+      "What happens to my gift card balance if I remove the card from my wallet?"
+    ],
+    "source_chunks": [
+      73,
+      76,
+      74,
+      80,
+      106,
+      77
+    ]
+  },
+  {
+    "intent": "convert_currency",
+    "description": "Get current exchange rates or convert an amount to a different currency.",
+    "sample_queries": [
+      "What's the current exchange rate from USD to EUR?",
+      "Can you convert 100 USD to British Pounds?",
+      "How much is 500 Euros in US Dollars today?",
+      "What's the exchange rate for Japanese Yen to US Dollars?",
+      "Convert 2000 Pesos to US Dollars.",
+      "What is 1500 USD in Canadian Dollars?",
+      "Can I get the current exchange rate for Australian Dollars to USD?",
+      "How many Euros is 300 US Dollars?",
+      "Convert 1000 GBP to USD."
+    ],
+    "source_chunks": [
+      103,
+      102,
+      105,
+      104,
+      101,
+      100,
+      106,
+      107
+    ]
+  },
+  {
+    "intent": "resolve_declined_payment",
+    "description": "Customer needs help resolving a payment that was declined during checkout.",
+    "sample_queries": [
+      "My payment was declined during checkout, can you help me?",
+      "What do I do if my payment didn't go through?",
+      "How can I fix a declined payment on my order?",
+      "My card was declined, can I try again?",
+      "Can you assist me with a payment that didn't process?",
+      "I got a declined payment error, what's next?",
+      "How do I resolve a failed payment on my purchase?",
+      "My payment was rejected, can you guide me through the process?"
+    ],
+    "source_chunks": [
+      96,
+      80,
+      73,
+      104,
+      86
+    ]
+  },
+  {
+    "intent": "investigate_unknown_charge",
+    "description": "Identify and understand unfamiliar transactions on a credit card or bank statement.",
+    "sample_queries": [
+      "I don't recognize this charge on my statement",
+      "What's this transaction on my bank statement?",
+      "Can you help me figure out who charged me $X?",
+      "I'm trying to find out what this unknown charge is",
+      "There's a weird transaction on my credit card statement",
+      "Can you look into a suspicious charge on my account?",
+      "I need help identifying an unfamiliar transaction",
+      "What is this charge on my bank statement for?"
+    ],
+    "source_chunks": [
+      98,
+      97,
+      99
+    ]
+  },
+  {
+    "intent": "report_payment_scam",
+    "description": "Customer wants to report a payment scam or get information on how to identify and report scams, and general security guidelines.",
+    "sample_queries": [
+      "I think I just got scammed, how do I report it?",
+      "What are some common payment scams I should watch out for?",
+      "How can I report a suspicious transaction?",
+      "Can you tell me about the latest scam trends?",
+      "I gave my payment info to a scammer, what should I do?",
+      "Where can I find guidelines on online security?",
+      "How do I know if a payment request is a scam?",
+      "I want to report a scam, what's the best way to do it?"
+    ],
+    "source_chunks": [
+      34,
+      30,
+      29,
+      35,
+      95,
+      45,
+      46,
+      25,
+      32,
+      24,
+      26,
+      36,
+      37,
+      27,
+      23
+    ]
+  },
+  {
+    "intent": "check_return_eligibility",
+    "description": "Determine if an item is eligible for return, considering factors like return windows, item-specific policies, and special rules for pharmacy, luxury, or business returns.",
+    "sample_queries": [
+      "Can I return this item?",
+      "What is the return policy for this product?",
+      "Is my item eligible for a return?",
+      "How do I know if I can return this?",
+      "What are the return rules for pharmacy items?",
+      "Can I return a luxury item?",
+      "What is the return window for this item?",
+      "Are business purchases returnable?"
+    ],
+    "source_chunks": [
+      108,
+      109,
+      40,
+      110,
+      111,
+      112
+    ]
+  },
+  {
+    "intent": "check_restocking_fees",
+    "description": "I want to know the restocking fees and any damage deductions for my order.",
+    "sample_queries": [
+      "What are the restocking fees for my order?",
+      "How much will I be charged for restocking?",
+      "Can you tell me the damage deductions for my return?",
+      "What are the fees for restocking and damage?",
+      "How do restocking fees and damage deductions work?",
+      "Can I get details on restocking fees and damage charges?",
+      "What will I be charged for restocking and damage?",
+      "Are there any restocking fees or damage deductions?"
+    ],
+    "source_chunks": [
+      112
+    ]
+  },
+  {
+    "intent": "check_international_returns",
+    "description": "Understand return policies and procedures for international purchases made on our platform.",
+    "sample_queries": [
+      "What are the return policies for international orders?",
+      "Can I return an item bought from another country?",
+      "How do I initiate a return for an international purchase?",
+      "What are the steps to return a product from outside my country?",
+      "Are there specific instructions for returning international orders?",
+      "How do international returns work on your platform?",
+      "Can I get a refund for an international purchase return?",
+      "What do I need to do to return an item purchased internationally?"
+    ],
+    "source_chunks": [
+      41,
+      108,
+      111,
+      112,
+      113,
+      114
+    ]
+  },
+  {
+    "intent": "track_refund",
+    "description": "Track the status of a refund, including shipment returns, expected timelines, and refund methods.",
+    "sample_queries": [
+      "Where is my refund?",
+      "How long until I get my refund?",
+      "What's the status of my return?",
+      "Can I track my refund shipment?",
+      "When will my refund be processed?",
+      "What method will my refund be sent through?",
+      "How do I know when my refund is on the way?",
+      "Can you update me on my refund status?"
+    ],
+    "source_chunks": [
+      114,
+      113,
+      129,
+      111,
+      108,
+      136,
+      112,
+      133,
+      130,
+      124,
+      126
+    ]
+  },
+  {
+    "intent": "check_promotional_balance",
+    "description": "Check the current balance of promotional credits or benefits.",
+    "sample_queries": [
+      "What's my promotional balance?",
+      "How much promotional credit do I have left?",
+      "Can you check my benefit balance?",
+      "What is my current promotional balance?",
+      "How many promotional credits do I have?",
+      "Check my promotional credit balance.",
+      "What's the status of my promotional benefits?",
+      "Can I see my promotional balance?",
+      "What is my promotional credit balance?"
+    ],
+    "source_chunks": [
+      75
+    ]
+  },
+  {
+    "intent": "track_package",
+    "description": "Track the status and location of a package, including viewing delivery confirmations and tracking details.",
+    "sample_queries": [
+      "Where is my package?",
+      "Track my order",
+      "Can I see the delivery confirmation photo?",
+      "What's the current status of my shipment?",
+      "How can I track my package on a map?",
+      "When will my package arrive?",
+      "Can you show me the package tracking details?",
+      "I want to see where my delivery is"
+    ],
+    "source_chunks": [
+      133,
+      51,
+      52,
+      129,
+      126,
+      130,
+      131,
+      134,
+      124,
+      132,
+      127,
+      56,
+      120,
+      57,
+      137,
+      121,
+      135
+    ]
+  },
+  {
+    "intent": "manage_delivery_alerts",
+    "description": "Manage settings for receiving SMS, push notifications, or text alerts related to delivery updates.",
+    "sample_queries": [
+      "How do I set up delivery alerts on my phone?",
+      "Can I change my delivery notification settings?",
+      "I want to stop getting SMS alerts about my deliveries.",
+      "How can I get push notifications for my package delivery?",
+      "What are the options for delivery tracking alerts?",
+      "Can I customize my delivery alert notifications?",
+      "How do I turn off delivery text alerts?",
+      "I need to update my notification settings for delivery updates.",
+      "How can I receive delivery alerts on my mobile device?"
+    ],
+    "source_chunks": [
+      131,
+      132,
+      135,
+      123,
+      133
+    ]
+  },
+  {
+    "intent": "check_delivery_delay",
+    "description": "I'm concerned about a delayed delivery. I want to know if my package is late and what's causing the delay.",
+    "sample_queries": [
+      "Why is my package taking so long to arrive?",
+      "Is my delivery delayed?",
+      "I haven't received my package on time, what's going on?",
+      "Can you tell me if there's a delay with my order?",
+      "My package was supposed to arrive yesterday, but it hasn't. What's happening?",
+      "I'm missing a tracking update, can you help?",
+      "How do I know if my delivery is running late?",
+      "What's causing the delay with my shipment?"
+    ],
+    "source_chunks": [
+      127,
+      134,
+      128,
+      133,
+      130,
+      129
+    ]
+  },
+  {
+    "intent": "resolve_undeliverable_package",
+    "description": "Resolve issues with a package that was returned to the sender as undeliverable.",
+    "sample_queries": [
+      "My package was returned to sender, what can I do?",
+      "How do I resend a package that was undeliverable?",
+      "Package came back to sender, how do I fix this?",
+      "What happens when a package is marked undeliverable?",
+      "Can I reship a package that was returned to sender?",
+      "My order was returned as undeliverable, what's next?",
+      "How can I get a replacement for an undeliverable package?",
+      "Package was sent back to sender, can I get a refund?"
+    ],
+    "source_chunks": [
+      136,
+      137,
+      133,
+      124
+    ]
+  },
+  {
+    "intent": "check_delivery_rules",
+    "description": "I need information on how deliveries are handled, including OTP delivery instructions, delivery windows, and special rules for prison deliveries.",
+    "sample_queries": [
+      "What are the delivery rules for prisons?",
+      "How do OTP deliveries work?",
+      "Can you explain delivery windows?",
+      "What are the instructions for OTP delivery?",
+      "How does delivery to a prison work?",
+      "What are the delivery windows for my area?",
+      "Can you tell me about OTP delivery rules?",
+      "How do I receive OTP deliveries?",
+      "What are the special delivery rules for prisons?"
+    ],
+    "source_chunks": [
+      62,
+      61,
+      56,
+      126,
+      127,
+      137,
+      133
+    ]
+  },
+  {
+    "intent": "contact_support",
+    "description": "Get help from customer support through various channels such as phone, chat, or submitting a ticket.",
+    "sample_queries": [
+      "How do I contact customer support?",
+      "What is the support phone number?",
+      "Can I get help through live chat?",
+      "How do I submit a support ticket?",
+      "What is the fax number for support requests?",
+      "I need help with a transaction, who can I contact?",
+      "How can I reach out to your support team?",
+      "What are the support hours?"
+    ],
+    "source_chunks": [
+      86
+    ]
+  },
+  {
+    "intent": "request_bereavement_support",
+    "description": "Customer needs assistance with closing a deceased person's account, including required documentation and next steps.",
+    "sample_queries": [
+      "How do I close my deceased parent's account?",
+      "What documents are needed to close a deceased person's account?",
+      "Can you help me with bereavement support for account closure?",
+      "What is the process for closing an account of a deceased family member?",
+      "I need to close my deceased spouse's account, what do I need to do?",
+      "What are the steps to close a deceased person's account and remove it from the system?",
+      "How do I request account closure due to bereavement?",
+      "What documentation is required to close a deceased person's account?"
+    ],
+    "source_chunks": [
+      68,
+      69,
+      81,
+      82
+    ]
+  },
+  {
+    "intent": "submit_legal_poa",
+    "description": "Customer wants to provide or upload Power of Attorney (POA) documentation to support their case or account.",
+    "sample_queries": [
+      "How do I submit a Power of Attorney document?",
+      "I need to upload a POA form, what's the process?",
+      "Can you help me attach a Power of Attorney to my account?",
+      "What are the steps to submit a legal POA document?",
+      "How do I provide POA documentation for my case?",
+      "I have a Power of Attorney document, how do I send it to you?",
+      "What's required to submit a POA form?",
+      "Can I email or upload my Power of Attorney paperwork?"
+    ],
+    "source_chunks": [
+      81
+    ]
+  },
+  {
+    "intent": "report_missing_package",
+    "description": "Report a package marked as delivered but not received, and request assistance with tracking or filing a claim.",
+    "sample_queries": [
+      "My package says it was delivered but I didn't get it",
+      "I never received my package, can you help?",
+      "Package marked as delivered, but I'm missing it",
+      "How do I report a missing package that says delivered?",
+      "My order was marked delivered but I can't find it",
+      "What do I do if my package was delivered but I didn't get it?",
+      "Can you help me with a package that says delivered but I didn't receive?",
+      "I didn't receive my package, it says delivered"
+    ],
+    "source_chunks": [
+      126,
+      124,
+      134,
+      121,
+      133,
+      137,
+      122,
+      136,
+      128,
+      127,
+      130
+    ]
+  },
+  {
+    "intent": "report_missing_item",
+    "description": "Report missing items or parts from a package, including empty boxes or missing packing slips.",
+    "sample_queries": [
+      "My package arrived empty, what do I do?",
+      "I'm missing a part from my order, can you help?",
+      "The packing slip is not in my package, can I get a replacement?",
+      "I received a damaged box with items missing, how do I report it?",
+      "My order is incomplete, some items are missing.",
+      "The package I received was empty, how do I get a refund or replacement?",
+      "I'm missing an item from my package, what are my options?",
+      "Can I report a missing item from a package that was delivered weeks ago?"
+    ],
+    "source_chunks": [
+      124,
+      134,
+      125,
+      126,
+      60
+    ]
+  },
+  {
+    "intent": "check_customs_regulations",
+    "description": "Understand customs regulations and requirements for importing goods, including necessary documents and codes for specific countries.",
+    "sample_queries": [
+      "What are the customs clearance requirements for shipping to South Korea?",
+      "Do I need to upload identity documents for customs clearance?",
+      "How do I find the PCCC code for my shipment to South Korea?",
+      "What is the EZ WAY system in Taiwan and how does it work?",
+      "How do I obtain a CUIL number for shipping to Argentina?",
+      "What documents are needed for customs clearance in Argentina?",
+      "Can you explain the customs regulations for importing goods to South Korea?",
+      "How do I comply with Taiwan's customs regulations for e-commerce shipments?",
+      "What are the specific customs requirements for shipping to Argentina?"
+    ],
+    "source_chunks": [
+      49,
+      48,
+      47
+    ]
+  },
+  {
+    "intent": "check_shipping_policies",
+    "description": "I want to know about shipping policies, including delivery to hotels or freight forwarders, signature requirements, special packaging options, and Fulfilled by Amazon terms.",
+    "sample_queries": [
+      "What are the shipping policies for hotels?",
+      "Can I have my package delivered to a freight forwarder?",
+      "Do I need a signature upon delivery?",
+      "What is Frustration-Free packaging?",
+      "How does Fulfilled by Amazon work for shipping?",
+      "What are the terms for shipping to a third-party company?",
+      "Can I get a package delivered without a signature?",
+      "What packaging programs do you offer?",
+      "How do I know if my package requires a signature?"
+    ],
+    "source_chunks": [
+      120,
+      121,
+      122,
+      64,
+      57,
+      126,
+      133,
+      52,
+      124,
+      125,
+      62,
+      130,
+      132,
+      128,
+      54,
+      127,
+      129
+    ]
+  },
+  {
+    "intent": "check_refund_policies",
+    "description": "Understand refund policies, including timelines, criteria, and types of refunds available.",
+    "sample_queries": [
+      "What are the refund policies for your company?",
+      "How long does it take to get a refund?",
+      "What are the criteria for getting a refund?",
+      "What types of refunds do you offer?",
+      "Can you explain your refund timeline?",
+      "What is the refund policy for [specific product/service]?",
+      "How do refunds work for cancellations?",
+      "What are the conditions for a full refund?"
+    ],
+    "source_chunks": [
+      113,
+      108,
+      112,
+      114,
+      109,
+      110,
+      111
+    ]
+  },
+  {
+    "intent": "identify_phishing_scams",
+    "description": "Identify and report suspicious communications, such as fake emails, phone calls, SMS text messages, and websites, that may be phishing scams.",
+    "sample_queries": [
+      "How can I tell if an email is a phishing scam?",
+      "What are common signs of a phishing phone call?",
+      "I received a suspicious text message, what should I do?",
+      "How do I know if a website is fake or not?",
+      "Can you help me identify a phishing scam?",
+      "What should I do if I think I've been targeted by a phishing scam?",
+      "How can I report a suspicious email?",
+      "What are some common phishing tactics I should be aware of?",
+      "Is this message a phishing scam?"
+    ],
+    "source_chunks": [
+      29,
+      26,
+      25,
+      34,
+      23,
+      27,
+      35,
+      37,
+      30,
+      45,
+      36,
+      95
+    ]
+  },
+  {
+    "intent": "check_tax_rates",
+    "description": "Understand how tax rates are calculated, including US state sales tax and international VAT rates.",
+    "sample_queries": [
+      "What is the sales tax rate in California?",
+      "How is VAT calculated for international orders?",
+      "Can you explain how state tax works at checkout?",
+      "What are the current tax rates for US states?",
+      "How do I know how much tax I'll pay on my order?",
+      "What is the VAT rate for orders shipped to Europe?",
+      "Can you break down the tax calculation for my order?",
+      "How does tax calculation work for online purchases?"
+    ],
+    "source_chunks": [
+      115,
+      116,
+      118,
+      119
+    ]
+  },
+  {
+    "intent": "manage_notifications",
+    "description": "Customers want to control the types of emails they receive, including updating their newsletter subscriptions, managing out-of-stock product restock alerts, and modifying other email preferences.",
+    "sample_queries": [
+      "How do I unsubscribe from your newsletter?",
+      "Can I change my email preferences to only receive restock alerts?",
+      "I want to stop getting promotional emails from you.",
+      "How do I sign up for out-of-stock notifications?",
+      "Can I update my newsletter subscription to only receive weekly updates?",
+      "I don't want to receive any more emails about new products.",
+      "How can I manage the types of emails I receive from your company?",
+      "I want to receive restock alerts for this product, how do I set that up?"
+    ],
+    "source_chunks": [
+      16,
+      4,
+      53,
+      132,
+      135,
+      131,
+      90
+    ]
+  }
+]

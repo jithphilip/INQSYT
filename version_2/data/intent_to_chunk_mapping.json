@@ -1,0 +1,403 @@
+[
+  {
+    "intent": "modify_order",
+    "chunk_ids": [
+      72,
+      70,
+      42,
+      66,
+      64
+    ]
+  },
+  {
+    "intent": "modify_address",
+    "chunk_ids": [
+      66,
+      54
+    ]
+  },
+  {
+    "intent": "view_invoice",
+    "chunk_ids": [
+      117,
+      60,
+      67
+    ]
+  },
+  {
+    "intent": "submit_feedback",
+    "chunk_ids": [
+      94
+    ]
+  },
+  {
+    "intent": "reset_password",
+    "chunk_ids": [
+      20,
+      14,
+      12,
+      8,
+      5,
+      1
+    ]
+  },
+  {
+    "intent": "manage_teen_account",
+    "chunk_ids": [
+      15,
+      3,
+      17,
+      5
+    ]
+  },
+  {
+    "intent": "manage_profile_settings",
+    "chunk_ids": [
+      79,
+      89,
+      84,
+      65,
+      88,
+      85
+    ]
+  },
+  {
+    "intent": "manage_account_settings",
+    "chunk_ids": [
+      5,
+      6,
+      16,
+      78,
+      79,
+      90,
+      91,
+      92,
+      93,
+      94,
+      131,
+      132,
+      2,
+      4,
+      15,
+      44,
+      66,
+      82,
+      83,
+      89
+    ]
+  },
+  {
+    "intent": "close_account",
+    "chunk_ids": [
+      82,
+      92,
+      93,
+      94,
+      44,
+      83
+    ]
+  },
+  {
+    "intent": "manage_wallet_cards",
+    "chunk_ids": [
+      73,
+      76,
+      74,
+      80,
+      106,
+      77
+    ]
+  },
+  {
+    "intent": "convert_currency",
+    "chunk_ids": [
+      103,
+      102,
+      105,
+      104,
+      101,
+      100,
+      106,
+      107
+    ]
+  },
+  {
+    "intent": "resolve_declined_payment",
+    "chunk_ids": [
+      96,
+      80,
+      73,
+      104,
+      86
+    ]
+  },
+  {
+    "intent": "investigate_unknown_charge",
+    "chunk_ids": [
+      98,
+      97,
+      99
+    ]
+  },
+  {
+    "intent": "report_payment_scam",
+    "chunk_ids": [
+      34,
+      30,
+      29,
+      35,
+      95,
+      45,
+      46,
+      25,
+      32,
+      24,
+      26,
+      36,
+      37,
+      27,
+      23
+    ]
+  },
+  {
+    "intent": "check_return_eligibility",
+    "chunk_ids": [
+      108,
+      109,
+      40,
+      110,
+      111,
+      112
+    ]
+  },
+  {
+    "intent": "check_restocking_fees",
+    "chunk_ids": [
+      112
+    ]
+  },
+  {
+    "intent": "check_international_returns",
+    "chunk_ids": [
+      41,
+      108,
+      111,
+      112,
+      113,
+      114
+    ]
+  },
+  {
+    "intent": "track_refund",
+    "chunk_ids": [
+      114,
+      113,
+      129,
+      111,
+      108,
+      136,
+      112,
+      133,
+      130,
+      124,
+      126
+    ]
+  },
+  {
+    "intent": "check_promotional_balance",
+    "chunk_ids": [
+      75
+    ]
+  },
+  {
+    "intent": "track_package",
+    "chunk_ids": [
+      133,
+      51,
+      52,
+      129,
+      126,
+      130,
+      131,
+      134,
+      124,
+      132,
+      127,
+      56,
+      120,
+      57,
+      137,
+      121,
+      135
+    ]
+  },
+  {
+    "intent": "manage_delivery_alerts",
+    "chunk_ids": [
+      131,
+      132,
+      135,
+      123,
+      133
+    ]
+  },
+  {
+    "intent": "check_delivery_delay",
+    "chunk_ids": [
+      127,
+      134,
+      128,
+      133,
+      130,
+      129
+    ]
+  },
+  {
+    "intent": "resolve_undeliverable_package",
+    "chunk_ids": [
+      136,
+      137,
+      133,
+      124
+    ]
+  },
+  {
+    "intent": "check_delivery_rules",
+    "chunk_ids": [
+      62,
+      61,
+      56,
+      126,
+      127,
+      137,
+      133
+    ]
+  },
+  {
+    "intent": "contact_support",
+    "chunk_ids": [
+      86
+    ]
+  },
+  {
+    "intent": "request_bereavement_support",
+    "chunk_ids": [
+      68,
+      69,
+      81,
+      82
+    ]
+  },
+  {
+    "intent": "submit_legal_poa",
+    "chunk_ids": [
+      81
+    ]
+  },
+  {
+    "intent": "report_missing_package",
+    "chunk_ids": [
+      126,
+      124,
+      134,
+      121,
+      133,
+      137,
+      122,
+      136,
+      128,
+      127,
+      130
+    ]
+  },
+  {
+    "intent": "report_missing_item",
+    "chunk_ids": [
+      124,
+      134,
+      125,
+      126,
+      60
+    ]
+  },
+  {
+    "intent": "check_customs_regulations",
+    "chunk_ids": [
+      49,
+      48,
+      47
+    ]
+  },
+  {
+    "intent": "check_shipping_policies",
+    "chunk_ids": [
+      120,
+      121,
+      122,
+      64,
+      57,
+      126,
+      133,
+      52,
+      124,
+      125,
+      62,
+      130,
+      132,
+      128,
+      54,
+      127,
+      129
+    ]
+  },
+  {
+    "intent": "check_refund_policies",
+    "chunk_ids": [
+      113,
+      108,
+      112,
+      114,
+      109,
+      110,
+      111
+    ]
+  },
+  {
+    "intent": "identify_phishing_scams",
+    "chunk_ids": [
+      29,
+      26,
+      25,
+      34,
+      23,
+      27,
+      35,
+      37,
+      30,
+      45,
+      36,
+      95
+    ]
+  },
+  {
+    "intent": "check_tax_rates",
+    "chunk_ids": [
+      115,
+      116,
+      118,
+      119
+    ]
+  },
+  {
+    "intent": "manage_notifications",
+    "chunk_ids": [
+      16,
+      4,
+      53,
+      132,
+      135,
+      131,
+      90
+    ]
+  }
+]
