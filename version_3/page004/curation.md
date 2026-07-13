@@ -56,14 +56,27 @@ Discussed whether Tap to Pay and HSA/FSA registration are distinct enough to be 
 
 | url | change_type | change_instruction | change_reason | change_evidence | is_approved |
 |---|---|---|---|---|---|
-| https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GNQFBWDZJN838JZF | MERGE | Merge `add_payment_method`, `remove_payment_method`, `register_hsa_fsa_card`, and `pay_with_tap_to_pay` into `manage_payment_methods`. | All four actions are different ways of configuring, managing, or registering payment methods on the account. Consolidating them into a single intent avoids redundancy. | "Add or update your payment methods through Your Payments in Your Account." | No |
-| https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GNQFBWDZJN838JZF | DELETE | Delete candidate intent `change_order_payment_method`. | The page does not natively support updating payment methods for open orders; it redirects the user to "Change Your Order Information". | "To change the payment method for an open order, go to Change Your Order Information (https://www.amazon.com/gp/help/customer/display.html?nodeId=GSWAYSNV7RBSTND9)." | No |
+| https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GNQFBWDZJN838JZF | MERGE | Merge `add_payment_method`, `remove_payment_method`, `register_hsa_fsa_card`, and `pay_with_tap_to_pay` into `manage_payment_methods`. | All four actions are different ways of configuring, managing, or registering payment methods on the account. Consolidating them into a single intent avoids redundancy. | "Add or update your payment methods through Your Payments in Your Account." | Yes |
+| https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GNQFBWDZJN838JZF | DELETE | Delete candidate intent `change_order_payment_method`. | The page does not natively support updating payment methods for open orders; it redirects the user to "Change Your Order Information". | "To change the payment method for an open order, go to Change Your Order Information (https://www.amazon.com/gp/help/customer/display.html?nodeId=GSWAYSNV7RBSTND9)." | Yes |
 
 ### STEP_1_CHECKS
 
 | check_type | check_name | check_instruction | is_approved |
 |---|---|---|---|
-| check_format | check_output_formats | Verify that PAGE_INTENT_CANDIDATES and PAGE_INTENT_CHANGE_PROPOSALS conform to their expected schemas. | No |
-| check_evidence | check_intent_grounding | Verify that every candidate intent and every proposed change is supported by evidence from the source page. | No |
-| check_reasoning | check_change_proposal_reasons | Verify that every proposed MERGE, SPLIT, RENAME, ADD, or DELETE is reasonable and clearly justified. | No |
-| check_coverage | check_intent_coverage | Verify that no obvious customer goal or refinement proposal directly supported by the page has been omitted. | No |
+| check_format | check_output_formats | Verify that PAGE_INTENT_CANDIDATES and PAGE_INTENT_CHANGE_PROPOSALS conform to their expected schemas. | Yes |
+| check_evidence | check_intent_grounding | Verify that every candidate intent and every proposed change is supported by evidence from the source page. | Yes |
+| check_reasoning | check_change_proposal_reasons | Verify that every proposed MERGE, SPLIT, RENAME, ADD, or DELETE is reasonable and clearly justified. | Yes |
+| check_coverage | check_intent_coverage | Verify that no obvious customer goal or refinement proposal directly supported by the page has been omitted. | Yes |
+
+### Human Approvals and Rejections (Iteration 1)
+
+| proposal | decision | rationale |
+|---|---|---|
+| Proposal 1 (MERGE): Merge payment card setup/checkout features into `manage_payment_methods` | Approved | Grouping the CRUD and specific settings actions on payment cards simplifies taxonomy. |
+| Proposal 2 (DELETE): Delete `change_order_payment_method` | Approved | Redirects to external page. |
+
+### Final Curation Decisions (Iteration 1)
+Applied all approved proposals:
+- Merged `add_payment_method`, `remove_payment_method`, `register_hsa_fsa_card`, and `pay_with_tap_to_pay` into `manage_payment_methods`.
+- Deleted `change_order_payment_method` because it redirects to the open orders page.
+
