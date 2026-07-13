@@ -61,17 +61,33 @@ Discussed whether `return_shipped_order` and `contact_third_party_seller` are va
 
 | url | change_type | change_instruction | change_reason | change_evidence | is_approved |
 |---|---|---|---|---|---|
-| https://www.amazon.com/gp/help/customer/display.html?nodeId=GSL37WQTJZUYA9QE | MERGE | Merge `cancel_item` into `cancel_order`. | Both are executed through the exact same flow under "Your Orders" -> "View or edit order" -> "Cancel items", with the only difference being whether specific items or all items are selected. Consolidating them simplifies the taxonomy. | "To cancel an order that has not entered the shipping process, follow these steps: ... 3. Select Cancel items. 4. Check box of the item that you want to cancel from the order. To cancel the entire order, select all the items." | No |
-| https://www.amazon.com/gp/help/customer/display.html?nodeId=GSL37WQTJZUYA9QE | MERGE | Merge `cancel_third_party_order` into `cancel_order`. | The entry point ("Your Orders") and core action are identical; the third-party specifics (one business day limit and seller approval) are caveats to the main cancellation intent rather than a separate user workflow. | "Orders sold and shipped by a third-party seller can typically be canceled within one business day. Once an order is in fulfillment, sellers are required to approve cancellation." | No |
-| https://www.amazon.com/gp/help/customer/display.html?nodeId=GSL37WQTJZUYA9QE | DELETE | Delete candidate intent `check_cancelled_orders_history`. | This is a minor informational navigation step rather than a distinct customer action, and doesn't require a standalone intent on this page. | "For a history of your cancelled orders, visit Your Orders under Canceled Orders." | No |
-| https://www.amazon.com/gp/help/customer/display.html?nodeId=GSL37WQTJZUYA9QE | DELETE | Delete candidate intent `return_shipped_order`. | The page does not natively handle returns; it redirects the user to the Online Returns Center, which is a separate page/intent. | "If your order is shipped directly from Amazon and can't be changed, refuse or return the package using our Online Returns Center." | No |
-| https://www.amazon.com/gp/help/customer/display.html?nodeId=GSL37WQTJZUYA9QE | DELETE | Delete candidate intent `contact_third_party_seller`. | The page does not natively support contacting third-party sellers; it redirects to the "Contact Third-Party Sellers" help page. | "If your order is shipped directly from a third-party seller and can't be changed, contact the seller. For more information on contacting the seller, go to Contact Third-Party Sellers." | No |
+| https://www.amazon.com/gp/help/customer/display.html?nodeId=GSL37WQTJZUYA9QE | MERGE | Merge `cancel_item` into `cancel_order`. | Both are executed through the exact same flow under "Your Orders" -> "View or edit order" -> "Cancel items", with the only difference being whether specific items or all items are selected. Consolidating them simplifies the taxonomy. | "To cancel an order that has not entered the shipping process, follow these steps: ... 3. Select Cancel items. 4. Check box of the item that you want to cancel from the order. To cancel the entire order, select all the items." | Yes |
+| https://www.amazon.com/gp/help/customer/display.html?nodeId=GSL37WQTJZUYA9QE | MERGE | Merge `cancel_third_party_order` into `cancel_order`. | The entry point ("Your Orders") and core action are identical; the third-party specifics (one business day limit and seller approval) are caveats to the main cancellation intent rather than a separate user workflow. | "Orders sold and shipped by a third-party seller can typically be canceled within one business day. Once an order is in fulfillment, sellers are required to approve cancellation." | Yes |
+| https://www.amazon.com/gp/help/customer/display.html?nodeId=GSL37WQTJZUYA9QE | DELETE | Delete candidate intent `check_cancelled_orders_history`. | This is a minor informational navigation step rather than a distinct customer action, and doesn't require a standalone intent on this page. | "For a history of your cancelled orders, visit Your Orders under Canceled Orders." | Yes |
+| https://www.amazon.com/gp/help/customer/display.html?nodeId=GSL37WQTJZUYA9QE | DELETE | Delete candidate intent `return_shipped_order`. | The page does not natively handle returns; it redirects the user to the Online Returns Center, which is a separate page/intent. | "If your order is shipped directly from Amazon and can't be changed, refuse or return the package using our Online Returns Center." | Yes |
+| https://www.amazon.com/gp/help/customer/display.html?nodeId=GSL37WQTJZUYA9QE | DELETE | Delete candidate intent `contact_third_party_seller`. | The page does not natively support contacting third-party sellers; it redirects to the "Contact Third-Party Sellers" help page. | "If your order is shipped directly from a third-party seller and can't be changed, contact the seller. For more information on contacting the seller, go to Contact Third-Party Sellers." | Yes |
 
 ### STEP_1_CHECKS
 
 | check_type | check_name | check_instruction | is_approved |
 |---|---|---|---|
-| check_format | check_output_formats | Verify that PAGE_INTENT_CANDIDATES and PAGE_INTENT_CHANGE_PROPOSALS conform to their expected schemas. | No |
-| check_evidence | check_intent_grounding | Verify that every candidate intent and every proposed change is supported by evidence from the source page. | No |
-| check_reasoning | check_change_proposal_reasons | Verify that every proposed MERGE, SPLIT, RENAME, ADD, or DELETE is reasonable and clearly justified. | No |
-| check_coverage | check_intent_coverage | Verify that no obvious customer goal or refinement proposal directly supported by the page has been omitted. | No |
+| check_format | check_output_formats | Verify that PAGE_INTENT_CANDIDATES and PAGE_INTENT_CHANGE_PROPOSALS conform to their expected schemas. | Yes |
+| check_evidence | check_intent_grounding | Verify that every candidate intent and every proposed change is supported by evidence from the source page. | Yes |
+| check_reasoning | check_change_proposal_reasons | Verify that every proposed MERGE, SPLIT, RENAME, ADD, or DELETE is reasonable and clearly justified. | Yes |
+| check_coverage | check_intent_coverage | Verify that no obvious customer goal or refinement proposal directly supported by the page has been omitted. | Yes |
+
+### Human Approvals and Rejections (Iteration 1)
+
+| proposal | decision | rationale |
+|---|---|---|
+| Proposal 1 (MERGE): Merge `cancel_item` into `cancel_order` | Approved | Workflow and entry point are identical (Your Orders). |
+| Proposal 2 (MERGE): Merge `cancel_third_party_order` into `cancel_order` | Approved | Shared entry point; third-party details are caveats. |
+| Proposal 3 (DELETE): Delete `check_cancelled_orders_history` | Approved | Minor navigation lookup, not a distinct task. |
+| Proposal 4 (DELETE): Delete `return_shipped_order` | Approved | Redirects to Online Returns Center. |
+| Proposal 5 (DELETE): Delete `contact_third_party_seller` | Approved | Redirects to Contact Third-Party Sellers. |
+
+### Final Curation Decisions (Iteration 1)
+Applied all approved proposals:
+- Merged `cancel_item` and `cancel_third_party_order` into `cancel_order`.
+- Deleted `check_cancelled_orders_history`, `return_shipped_order`, and `contact_third_party_seller`.
+
