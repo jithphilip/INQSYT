@@ -69,17 +69,32 @@ Discussed whether refund timelines and refund fees should be kept as separate in
 | url | change_type | change_instruction | change_reason | change_evidence | is_approved |
 |---|---|---|---|---|---|
 | https://www.amazon.com/gp/help/customer/display.html?nodeId=GKQNFKFK5CF3C54B | MERGE | Merge `avoid_late_return_charges` into `check_refund_timeline`. | Timelines and deadlines for advanced refunds/late return charges are closely related to processing times and refund methods. Consolidating them keeps timeline questions in one place. | "To avoid charges after receiving an advanced refund or replacement order: Return items by the date shown in your return confirmation email... If you don't return the item in time... we'll notify you and charge your account..." | No |
-| https://www.amazon.com/gp/help/customer/display.html?nodeId=GKQNFKFK5CF3C54B | MERGE | Merge `check_tax_on_restocking_fees` into `check_refund_fees`. | Restocking fee tax is a sub-topic of restocking fees and other return charges. Consolidation keeps fee inquiries grouped together. | "Tax on restocking fees may apply to return items shipped and sold by Amazon.com, for customers in: Connecticut, Maryland, Nevada, Pennsylvania, Virginia, West Virginia, Wisconsin." | No |
-| https://www.amazon.com/gp/help/customer/display.html?nodeId=GKQNFKFK5CF3C54B | DELETE | Delete candidate intent `check_refund_status`. | The page does not natively allow checking refund status; it redirects to "Your Returns". | "To check your refund status, go to Your Returns." | No |
-| https://www.amazon.com/gp/help/customer/display.html?nodeId=GKQNFKFK5CF3C54B | DELETE | Delete candidate intent `return_item_for_refund`. | The page does not natively resolve item returns; it redirects the user to the "Online Returns Center". | "You can use the Online Returns Center to return most items within 30 days of delivery for a refund." | No |
-| https://www.amazon.com/gp/help/customer/display.html?nodeId=GKQNFKFK5CF3C54B | DELETE | Delete candidate intent `exchange_item`. | The page does not natively resolve item exchanges; it redirects the user to "Exchange an item". | "For more information on exchanges, go to Exchange an item." | No |
-| https://www.amazon.com/gp/help/customer/display.html?nodeId=GKQNFKFK5CF3C54B | DELETE | Delete candidate intent `return_gift_for_refund`. | The page does not natively resolve gift returns; it redirects the user to "Return a Gift". | "Go to Return a Gift for more information." | No |
+| https://www.amazon.com/gp/help/customer/display.html?nodeId=GKQNFKFK5CF3C54B | MERGE | Merge `check_tax_on_restocking_fees` into `check_refund_fees`. | Restocking fee tax is a sub-topic of restocking fees and other return charges. Consolidation keeps fee inquiries grouped together. | "Tax on restocking fees may apply to return items shipped and sold by Amazon.com, for customers in: Connecticut, Maryland, Nevada, Pennsylvania, Virginia, West Virginia, Wisconsin." | Yes |
+| https://www.amazon.com/gp/help/customer/display.html?nodeId=GKQNFKFK5CF3C54B | DELETE | Delete candidate intent `check_refund_status`. | The page does not natively allow checking refund status; it redirects to "Your Returns". | "To check your refund status, go to Your Returns." | Yes |
+| https://www.amazon.com/gp/help/customer/display.html?nodeId=GKQNFKFK5CF3C54B | DELETE | Delete candidate intent `return_item_for_refund`. | The page does not natively resolve item returns; it redirects the user to the "Online Returns Center". | "You can use the Online Returns Center to return most items within 30 days of delivery for a refund." | Yes |
+| https://www.amazon.com/gp/help/customer/display.html?nodeId=GKQNFKFK5CF3C54B | DELETE | Delete candidate intent `exchange_item`. | The page does not natively resolve item exchanges; it redirects the user to "Exchange an item". | "For more information on exchanges, go to Exchange an item." | Yes |
+| https://www.amazon.com/gp/help/customer/display.html?nodeId=GKQNFKFK5CF3C54B | DELETE | Delete candidate intent `return_gift_for_refund`. | The page does not natively resolve gift returns; it redirects the user to "Return a Gift". | "Go to Return a Gift for more information." | Yes |
 
 ### STEP_1_CHECKS
 
 | check_type | check_name | check_instruction | is_approved |
 |---|---|---|---|
-| check_format | check_output_formats | Verify that PAGE_INTENT_CANDIDATES and PAGE_INTENT_CHANGE_PROPOSALS conform to their expected schemas. | No |
-| check_evidence | check_intent_grounding | Verify that every candidate intent and every proposed change is supported by evidence from the source page. | No |
-| check_reasoning | check_change_proposal_reasons | Verify that every proposed MERGE, SPLIT, RENAME, ADD, or DELETE is reasonable and clearly justified. | No |
-| check_coverage | check_intent_coverage | Verify that no obvious customer goal or refinement proposal directly supported by the page has been omitted. | No |
+| check_format | check_output_formats | Verify that PAGE_INTENT_CANDIDATES and PAGE_INTENT_CHANGE_PROPOSALS conform to their expected schemas. | Yes |
+| check_evidence | check_intent_grounding | Verify that every candidate intent and every proposed change is supported by evidence from the source page. | Yes |
+| check_reasoning | check_change_proposal_reasons | Verify that every proposed MERGE, SPLIT, RENAME, ADD, or DELETE is reasonable and clearly justified. | Yes |
+| check_coverage | check_intent_coverage | Verify that no obvious customer goal or refinement proposal directly supported by the page has been omitted. | Yes |
+
+### Human Approvals and Rejections (Iteration 1)
+
+| proposal | decision | rationale |
+|---|---|---|
+| Proposal 1 (MERGE): Merge `avoid_late_return_charges` into `check_refund_timeline` | Rejected | Keep advanced refund charge terms/policies separate from payment method timeline tables. |
+| Proposal 2 (MERGE): Merge `check_tax_on_restocking_fees` into `check_refund_fees` | Approved | Restocking fee tax belongs under general return fees. |
+| Proposal 3 (DELETE): Delete redirects (`check_refund_status`, `return_item_for_refund`, `exchange_item`, `return_gift_for_refund`) | Approved | Redirects point to external workflows. |
+
+### Final Curation Decisions (Iteration 1)
+Applied approved proposals:
+- Merged `check_tax_on_restocking_fees` into `check_refund_fees`.
+- Deleted `check_refund_status`, `return_item_for_refund`, `exchange_item`, and `return_gift_for_refund`.
+- Retained `avoid_late_return_charges` as a distinct intent per human review rejection of the merge proposal.
+
